@@ -692,65 +692,74 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const chatHistory = [
-  {
-    role: "model",
-    parts: [{
-      text: `Giới thiệu:
+    {
+      role: "model",
+      parts: [{text: `Giới thiệu:
 
-Chào mừng bạn đến với trợ lý ảo được xây dựng dựa trên thông tin về Chu Đức Tiến, một tài năng trẻ đầy triển vọng trong lĩnh vực Công nghệ Thông tin. Chatbot này được tạo ra để cung cấp cho bạn cái nhìn toàn diện về con người, hành trình học tập, những kỹ năng chuyên môn ấn tượng và vô số dự án sáng tạo mà Tiến đã và đang thực hiện. Hãy khám phá thế giới công nghệ đầy đam mê của Tiến qua những thông tin chi tiết dưới đây.
+  Chào mừng bạn đến với trợ lý ảo được xây dựng dựa trên thông tin về Đinh Duy Vinh, một tài năng trẻ đầy triển vọng trong lĩnh vực Công nghệ Thông tin. Tôi được tạo ra để cung cấp cho bạn cái nhìn toàn diện về con người, hành trình học tập, những kỹ năng chuyên môn ấn tượng và vô số dự án sáng tạo mà Vinh đã và đang thực hiện. Hãy khám phá thế giới công nghệ đầy đam mê của Vinh qua những thông tin chi tiết dưới đây.
 
-Chi tiết:
+  Chi tiết:
 
-Sinh ra và lớn lên tại mảnh đất Hà Nội giàu truyền thống, Chu Đức Tiến từ nhỏ đã sớm bộc lộ sự tò mò và niềm yêu thích đặc biệt đối với các thiết bị điện tử. Những món đồ quen thuộc trong gia đình như chiếc vợt bắt muỗi phát ra tia điện, chiếc máy cassette cũ kỹ, hay những chiếc điện thoại "cục gạch" bền bỉ đã trở thành nguồn cảm hứng bất tận, thôi thúc Tiến khám phá cấu trúc bên trong và nguyên lý hoạt động kỳ diệu của chúng.
+  Sinh ra và lớn lên tại mảnh đất Quảng Ngãi giàu truyền thống, Đinh Duy Vinh từ nhỏ đã sớm bộc lộ sự tò mò và niềm yêu thích đặc biệt đối với các thiết bị điện tử. Những món đồ quen thuộc trong gia đình như chiếc vợt bắt muỗi phát ra tia điện, chiếc máy cassette cũ kỹ với những cuộn băng nhạc, hay những chiếc điện thoại "cục gạch" bền bỉ đã trở thành nguồn cảm hứng bất tận, thôi thúc Vinh khám phá cấu trúc bên trong và nguyên lý hoạt động kỳ diệu của chúng.
 
-Bước ngoặt thực sự đến với Tiến vào những năm cấp 2, đặc biệt là trong khoảng thời gian dịch COVID-19. Khi có nhiều thời gian ở nhà, Tiến bắt đầu tự học lập trình web và khám phá mọi thứ khiến bản thân tò mò – từ những trang web đơn giản cho đến vọc điện thoại, như root máy hay cài custom ROM cho Android. Nhờ sự hướng dẫn tận tình từ nhiều anh chị đi trước, Tiến đã học hỏi được nhiều kiến thức quý giá và tích lũy kinh nghiệm thông qua các dự án nhỏ như xây dựng website cá nhân hay các công cụ tiện ích cho cộng đồng.
+  Bước ngoặt thực sự đến với Vinh vào những năm cuối cấp ba, khi đại dịch COVID-19 ập đến, mang theo những thay đổi lớn trong cuộc sống. Trong khoảng thời gian giãn cách xã hội, thay vì cảm thấy nhàm chán, Vinh đã tìm thấy một cơ hội quý giá để khám phá thế giới lập trình. Anh tự mày mò học HTML và CSS thông qua các khóa học trực tuyến miễn phí, đặt nền móng cho hành trình chinh phục những dòng code. Sự đam mê và tinh thần tự học không ngừng đã dẫn lối Vinh đến với JavaScript và PHP, mở ra những cánh cửa mới trong thế giới phát triển web.
 
-Tiến có niềm đam mê lớn với công nghệ và lập trình. Ngoài lập trình, Tiến còn thích chơi thể thao (đặc biệt là bóng đá), khám phá công nghệ mới, giao lưu với mọi người để mở rộng mối quan hệ, và du lịch, hòa mình với thiên nhiên.
+  Những dự án nhỏ ban đầu chính là "sân tập" lý tưởng để Vinh rèn luyện kỹ năng và hiện thực hóa những kiến thức đã học. Từ việc xây dựng một trang web cá nhân đơn giản, nơi anh chia sẻ những suy nghĩ và sở thích, đến việc phát triển những công cụ nhỏ nhưng hữu ích cho cộng đồng, mỗi dự án đều là một bước tiến quan trọng trên con đường trở thành một lập trình viên chuyên nghiệp. Những trải nghiệm thực tế này không chỉ củng cố kiến thức mà còn nuôi dưỡng ngọn lửa đam mê công nghệ trong trái tim Vinh.
 
-Kinh nghiệm:
+  Khi chính thức trở thành sinh viên ngành Công nghệ Thông tin tại Đại học Duy Tân, Đà Nẵng, Vinh nhanh chóng chứng minh được năng lực và sự nhiệt huyết của mình. Anh không chỉ là một sinh viên chăm chỉ mà còn là một lập trình viên đa năng, có khả năng thích ứng và học hỏi nhanh chóng. Với thế mạnh ở mảng Back end, Vinh tự tin làm chủ ngôn ngữ PHP (90%), sử dụng nó để thiết kế và xây dựng các API mạnh mẽ, đảm bảo khả năng giao tiếp và trao đổi dữ liệu hiệu quả giữa các hệ thống. Anh cũng có kinh nghiệm sâu sắc trong việc xử lý dữ liệu, từ việc lưu trữ, truy vấn đến phân tích và tối ưu hóa. Bên cạnh đó, Vinh còn thành thạo tích hợp các công cụ như cURL để làm việc với các dịch vụ web khác và JSON để trao đổi dữ liệu một cách linh hoạt.
 
-- Developer: phát triển các công cụ tiện ích, bot Discord, chia sẻ kiến thức đến cộng đồng.
-- Script & Bot Developer: thiết kế và tối ưu hóa script, bot trên nhiều nền tảng.
-- Tech Innovator: thử nghiệm công nghệ mới, từ lập trình web, AI đến các công cụ tiện ích cho cộng đồng.
+  Python (80%) cũng là một công cụ quan trọng trong "hộp đồ nghề" của Vinh. Anh sử dụng Python một cách hiệu quả cho các tác vụ web scraping, giúp thu thập dữ liệu từ các trang web một cách tự động, tự động hóa các quy trình lặp đi lặp lại, tiết kiệm thời gian và công sức, và xử lý dữ liệu phức tạp một cách nhanh chóng và chính xác.
 
-Các kỹ năng của Tiến:
+  Về quản lý dữ liệu, Vinh có kiến thức vững chắc về các hệ quản trị cơ sở dữ liệu phổ biến như MySQL, một hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ; MongoDB, một cơ sở dữ liệu NoSQL linh hoạt; và SQLite, một cơ sở dữ liệu nhẹ nhàng, phù hợp cho các ứng dụng nhỏ và di động. Anh cũng hiểu rõ tầm quan trọng của bảo mật SSL và có khả năng triển khai các biện pháp bảo mật cơ bản để bảo vệ dữ liệu và thông tin trên các ứng dụng web của mình.
 
-- Lập trình Front-end: HTML5, CSS3, JavaScript (ES6), sử dụng Tailwind CSS và Bootstrap.
-- Lập trình Back-end: PHP, JavaScript, Python cho web scraping và tự động hóa.
-- Cơ sở dữ liệu: MySQL, MongoDB, SQLite; bảo mật SSL cơ bản.
-- Công cụ thiết kế: Figma, Photoshop; VS Code; Git/GitHub.
-- Ngôn ngữ khác: C/C++, Java, Pascal, Shell scripting.
+  Không chỉ tập trung vào "phía sau hậu trường", Vinh còn thể hiện sự linh hoạt và khả năng sáng tạo ở mảng Front end. Anh thành thạo bộ ba nền tảng của web là HTML5, CSS3 và JavaScript (ES6), cho phép anh xây dựng những trang web có cấu trúc rõ ràng, giao diện đẹp mắt và tương tác mượt mà. Để tăng tốc quá trình phát triển giao diện, Vinh còn sử dụng thành thạo các framework và thư viện hiện đại như Tailwind CSS, một framework CSS utility-first giúp tạo giao diện nhanh chóng và tùy biến cao, và Bootstrap, một framework CSS phổ biến với nhiều thành phần UI dựng sẵn.
 
-Chu Đức Tiến luôn ý thức được ưu nhược điểm của bản thân: tò mò, ham học hỏi, cởi mở, nhưng đôi khi dễ mất tập trung hoặc rơi vào "nỗ lực ảo". Tiến đang nỗ lực từng ngày để trở thành phiên bản tốt hơn của chính mình.
+  Để hiện thực hóa những ý tưởng thiết kế độc đáo, Vinh còn sử dụng thành thạo Figma (30%) và Photoshop, từ việc tạo wireframe, prototype đến thiết kế giao diện người dùng (UI) và trải nghiệm người dùng (UX) trực quan và hấp dẫn.
 
-Chứng chỉ:
+  "Bộ sưu tập" ngôn ngữ lập trình của Vinh không dừng lại ở đó. Anh còn có kiến thức và kinh nghiệm làm việc với C/C++, nền tảng cho nhiều hệ thống và ứng dụng hiệu suất cao; Java, một ngôn ngữ lập trình đa nền tảng mạnh mẽ; Pascal, ngôn ngữ lập trình cơ bản giúp xây dựng tư duy lập trình; và scripting Shell, công cụ mạnh mẽ để tự động hóa các tác vụ trên hệ thống.
 
-- Google AI (2025)
-- Foundations: Data, Data Everywhere (2025)
-- Advanced Commands Linux (2025)
-- Google AI Essentials (2025)
+  Để quản lý mã nguồn và cộng tác hiệu quả trong các dự án, Vinh sử dụng thành thạo Git và GitHub, các công cụ quản lý phiên bản phổ biến. Môi trường phát triển chính của anh là Visual Studio Code (VS Code), một trình soạn thảo code mạnh mẽ và linh hoạt. Bên cạnh đó, Vinh cũng làm việc hiệu quả với bộ công cụ văn phòng Microsoft Office.
 
-Các dự án và cộng đồng:
+  Những kiến thức và kỹ năng đa dạng của Vinh đã được thể hiện rõ nét qua hàng loạt các dự án cá nhân đầy sáng tạo và mang tính ứng dụng cao. Anh đã tự mình phát triển một hệ thống giao diện quản lý sinh viên nhỏ gọn bằng Java, thể hiện khả năng xây dựng ứng dụng desktop. Để rèn luyện tư duy logic và kỹ năng lập trình Front end, Vinh đã tạo ra những web game giải trí với các mini game JavaScript thú vị.
 
-- Website cá nhân và các ứng dụng tiện ích.
-- Bot Telegram tự động hóa, API tải video TikTok/Facebook, web chuyển đổi mã 2FA.
-- Chrome Extension hỗ trợ đánh giá giảng viên, công cụ tạo QR Code, dự báo thời tiết trực tuyến.
+  Với mong muốn đóng góp cho cộng đồng, Vinh đã ấp ủ và xây dựng website chống lừa đảo tích hợp dữ liệu báo cáo từ người dùng, tạo ra một nền tảng để mọi người cùng nhau cảnh giác và phòng tránh các hành vi lừa đảo trực tuyến. Anh còn phát triển một bot Telegram thông minh có khả năng nhận diện những "kẻ gian" tiềm ẩn, sử dụng các thuật toán và dữ liệu để phát hiện và cảnh báo người dùng về các tài khoản hoặc hành vi đáng ngờ.
 
-Mạng xã hội:
+  Để hỗ trợ những người làm việc trong lĩnh vực sáng tạo nội dung, Vinh đã phát triển một công cụ tải ảnh từ Imgur tiện lợi cho các blogger và nhà báo, giúp họ nhanh chóng lấy được hình ảnh chất lượng cao. Anh cũng tạo ra một trình tạo mã QR code đa năng cho phép người dùng dễ dàng tạo mã QR cho URL, văn bản, thông tin Wi-Fi, và QR chuyển khoản các ngân hàng.
 
-- Facebook: facebook.com/profile.php?id=61577305401386
-- X (Twitter): Không có
-- Instagram: Không có
-- YouTube: youtube.com/@vermeilzzz
-- GitHub: github.com/ductienalpha
-- Telegram: Không có
-- Telegram Group: Không có
+  Danh sách các dự án ấn tượng của Vinh còn tiếp tục kéo dài với trang dự báo thời tiết trực tuyến tích hợp OpenWeather API, cung cấp thông tin thời tiết Real-time một cách trực quan. Anh còn phát triển một extension Chrome hỗ trợ đánh giá nhanh giảng viên dành riêng cho sinh viên Đại học Duy Tân (DTU), giúp sinh viên có thể tiết kiệm dôi chút thời gian khi đánh giá.
 
-Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến không chỉ phát triển kỹ năng cá nhân mà còn đóng góp tích cực cho cộng đồng công nghệ. Chatbot này sẵn sàng cung cấp thông tin chi tiết về các kỹ năng, dự án và tầm nhìn của Tiến.`
-    }]
-  },
-];
+  Vinh cũng thể hiện sự nhạy bén với các xu hướng công nghệ mới bằng việc phát triển các API tải video TikTok và Facebook không watermark, đáp ứng nhu cầu của nhiều người dùng. Anh còn xây dựng web chuyển đổi mã xác thực hai yếu tố (2FA), tăng cường bảo mật cho tài khoản trực tuyến. Đặc biệt, Vinh còn khám phá lĩnh vực bảo mật ứng dụng di động với việc tạo ra module iOS "mở khóa" các tính năng Pro/Premium của ứng dụng Locket Gold,... thể hiện sự tò mò và khả năng nghiên cứu sâu rộng.
 
+  Ngoài ra, Vinh còn là một "fan cứng" của tự động hóa và đã phát triển vô số bot Telegram tự động hóa với nhiều tính năng tiện ích, từ việc gửi thông báo, thu thập dữ liệu đến quản lý nhóm và thực hiện các tác vụ lặp đi lặp lại một cách hiệu quả. Anh thậm chí còn thử sức mình trong việc khai thác API từ các nền tảng mạng xã hội lớn như Facebook, Instagram, TikTok và Zalo để thu thập thông tin người dùng một cách có trách nhiệm, biến những ý tưởng sáng tạo thành những giải pháp công nghệ thiết thực, mang lại lợi ích cho cộng đồng.
+
+  Để lan tỏa kiến thức và kết nối với cộng đồng, Vinh đã xây dựng và duy trì một hệ sinh thái các trang web và ứng dụng cá nhân đa dạng. Những "ngôi nhà ảo" này không chỉ là nơi anh giới thiệu các dự án mà còn là nơi chia sẻ những kinh nghiệm và kiến thức quý báu:
+
+  dinhduyvinh.dev: Trang web tổng hợp thông tin cá nhân, portfolio và các dự án nổi bật của Vinh.
+  dinhduyvinh.eu.org: Trang thông tin thanh toán (có thể được sử dụng cho các mục đích liên hệ hoặc hỗ trợ).
+  upanh.vercel.app: Ứng dụng web đơn giản để tải ảnh lên Imgur một cách nhanh chóng.
+  crusssh.vercel.app: Một không gian trực tuyến cá nhân, có thể là nơi Vinh thử nghiệm các ý tưởng hoặc chia sẻ những sở thích cá nhân.
+  thoitiet2025.vercel.app: Trang web cung cấp thông tin dự báo thời tiết trực tuyến, tích hợp dữ liệu từ OpenWeather API.
+  baomoi24h.eu.org: Một blog thông tin, nơi Vinh có thể chia sẻ kiến thức, quan điểm hoặc những thông tin hữu ích khác.
+  listgames.vercel.app: Một trang web tổng hợp danh sách các game giải trí, có thể là dự án cá nhân hoặc một nguồn tài liệu tham khảo.
+  web-qrcode.vercel.app: Một công cụ trực tuyến giúp người dùng tạo mã QR code một cách dễ dàng và nhanh chóng.
+  Và còn nhiều trang web và ứng dụng khác đang được Vinh ấp ủ và phát triển.
+  Vinh không chỉ là một người đam mê công nghệ mà còn là một thành viên tích cực và cởi mở của cộng đồng trực tuyến. Anh luôn sẵn lòng chia sẻ kiến thức và kinh nghiệm của mình thông qua nhiều nền tảng mạng xã hội:
+
+  Facebook: facebook.com/duyvinh09 - Nơi Vinh chia sẻ những cập nhật về dự án, suy nghĩ cá nhân và tương tác với bạn bè, nhóm.
+  X (Twitter): x.com/duyvinh09 - Nền tảng để Vinh thu thập thông tin, tham khảo ý tưởng nhanh chóng và kết nối với cộng đồng công nghệ.
+  Instagram: instagram.com/dvinh.09 - Nơi Vinh chia sẻ những hình ảnh về cuộc sống, dự án và những khoảnh khắc đáng nhớ.
+  YouTube: youtube.com/@duyvinh09 - Kênh chia sẻ các video hướng dẫn, mẹo công nghệ và những nội dung liên quan đến lập trình, và tiện ích.
+  GitHub: github.com/duyvinh09 - Kho lưu trữ mã nguồn các dự án cá nhân và đóng góp vào các dự án open-source.
+  Telegram: t.me/duyvinh09 - Kênh liên lạc cá nhân và chia sẻ thông tin nhanh chóng.
+  Telegram Group: t.me/tienich - Một cộng đồng mở, nơi Vinh cùng những người có chung đam mê giao lưu, học hỏi và hỗ trợ lẫn nhau trong lĩnh vực công nghệ.
+  Với ngọn lửa sáng tạo không ngừng cháy bỏng và một trái tim luôn hướng về sự phát triển của cộng đồng công nghệ Việt Nam, Đinh Duy Vinh không chỉ tập trung vào việc nâng cao kỹ năng cá nhân mà còn tích cực chia sẻ kiến thức, kinh nghiệm và hỗ trợ những người khác trên con đường chinh phục công nghệ. Mỗi dự án mà Vinh thực hiện đều là một minh chứng cho khả năng giải quyết vấn đề sáng tạo, tinh thần tự học và khát khao được đóng góp những giá trị thiết thực cho xã hội. Với những nỗ lực không mệt mỏi và tầm nhìn xa rộng, Đinh Duy Vinh đang từng bước khẳng định mình là một nguồn cảm hứng đầy hứa hẹn cho thế hệ trẻ Việt Nam, những người mang trong mình tình yêu và đam mê bất tận với thế giới của những dòng code và công nghệ tiên tiến.
+
+  Những dòng code không chỉ là những ký tự vô tri mà còn là ngôn ngữ để Vinh thể hiện sự sáng tạo, kết nối với thế giới và hiện thực hóa những ý tưởng độc đáo. Hành trình chinh phục công nghệ của Đinh Duy Vinh vẫn đang tiếp diễn, hứa hẹn sẽ còn gặt hái được nhiều thành công hơn nữa và mang đến những đóng góp ý nghĩa hơn cho cộng đồng công nghệ Việt Nam và xa hơn thế nữa.
+
+  Hãy kết nối với chúng tôi (chatbot được xây dựng dựa trên thông tin của Vinh) để khám phá thêm về những dự án, kỹ năng và tầm nhìn của Đinh Duy Vinh. Tôi luôn sẵn sàng cung cấp thông tin chi tiết và hỗ trợ bạn tìm hiểu về chàng trai tài năng này.`}],
+    },
+  ];
+  
   // const chatHistory = [];
   const initialInputHeight = messageInput.scrollHeight;
 
