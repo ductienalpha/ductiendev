@@ -1,1192 +1,822 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph Tag -->
-    <meta property="og:url" content="/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Duc Tien - Portfolio">
-    <meta property="og:site_name" content="Duc Tien Portfolio">
-    <meta property="og:locale" content="vi_VN">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="description" content="Trang portfolio của Chu Đức Tiến - Tổng hợp thông tin liên hệ và mạng xã hội.">
-    <meta property="og:description" content="Tổng hợp các liên kết MXH của Chu Đức Tiến. Bạn có thể tìm thấy mọi thông tin liên hệ khi truy cập vào">
-    <meta name="keywords" content="Chu Đức Tiến, Chu Duc Tien, Duc Tien, DucTien011, ductiendesigner, ductienalpha.github.io, ductiendev">
-    <meta property="og:image" content="https://github.com/user-attachments/assets/166f9c2d-cc37-4768-8e65-748a9230c70e">
-    <meta name="author" content="duyvinh09">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Duc Tien",
-        "alternateName": "ductienalpha",
-        "url": "https://ductienalpha.github.io/ductiendev/",
-        "image": "https://github.com/user-attachments/assets/166f9c2d-cc37-4768-8e65-748a9230c70e",
-        "jobTitle": "Web Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Freelance"
-        },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Phu Kim Junior High School"
-        },
-        "sameAs": [
-          "https://www.facebook.com/profile.php?id=61577305401386",
-          "https://github.com/ductienalpha",
-          "https://www.tiktok.com/",
-          "https://www.youtube.com/@vermeilzzz",
-          "https://t.me/",
-          "https://zalo.me/",
-          "https://www.instagram.com/",
-          "https://www.linkedin.com/in/",
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Việt Nam",
-          "addressCountry": "VN"
-        },
-        "email": "mailto:altugphone5@gmail.com",
-        "birthDate": "2005-25-10",
-        "gender": "Male",
-        "knowsAbout": [
-          "Web Development",
-          "JavaScript",
-          "Frontend",
-          "Backend"
-        ],
-        "knowsLanguage": [
-          {
-            "@type": "Language",
-            "name": "Tiếng Việt",
-            "alternateName": "vi"
-          },
-          {
-            "@type": "Language",
-            "name": "English",
-            "alternateName": "en"
-          }
-        ]
-      }
-    </script>      
-
-    <title>Duc Tien - PROFILE</title>
-    <link rel="icon" type="image/png" href="/ductiendev/assets/images/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="/ductiendev/assets/images/favicon.svg">
-    <link rel="shortcut icon" href="/ductiendev/assets/images/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/ductiendev/assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="/ductiendev/assets/images/site.webmanifest">
-
-    <link rel="stylesheet" href="/ductiendev/assets/css/uicons-bold-rounded.css">
-    <link rel="stylesheet" href="/ductiendev/assets/css/uicons-solid-rounded.css">
-    <link rel="stylesheet" href="/ductiendev/assets/css/all.css">
-
-    <link rel="stylesheet" href="/ductiendev/assets/css/bootstrap.min.css">
-    <link rel="preload" href="/ductiendev/assets/js/scrollreveal.min.js" as="script">
-    <script type="text/javascript" src="/ductiendev/assets/js/email.min.js"></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "MvhIHlilzHcSmpUQ9",
-        });
-      })();
-    </script>
-    <script src="/ductiendev/assets/js/api.js" async="" defer=""></script>
-
+    <title>Chu Đức Tiến - Portfolio</title>
+    <meta name="description" content="Portfolio của Chu Đức Tiến - Web Developer">
+    
     <style>
-      html,
-      body {
-        cursor: url("/ductiendev/assets/images/mouse-f1.png"), auto;
-      }
-    </style>
-    <link rel="stylesheet" href="/ductiendev/assets/css/style.css">
-  </head>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <body>
+        :root {
+            /* Colors - Đổi tên biến và giá trị màu */
+            --brand-primary: #4a90e2;
+            --brand-accent: #50c878;
+            --surface-dark: #0a0e27;
+            --surface-light: #1a1f3a;
+            --text-primary: #e8eaf0;
+            --text-secondary: #a8b2d1;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            
+            /* Spacing - Đổi tên hệ thống spacing */
+            --gap-xs: 0.5rem;
+            --gap-sm: 1rem;
+            --gap-md: 1.5rem;
+            --gap-lg: 2rem;
+            --gap-xl: 3rem;
+            
+            /* Typography */
+            --font-primary: system-ui, -apple-system, sans-serif;
+            --text-xs: 0.875rem;
+            --text-sm: 1rem;
+            --text-md: 1.125rem;
+            --text-lg: 1.5rem;
+            --text-xl: 2rem;
+            --text-2xl: 3rem;
+            
+            /* Borders & Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--surface-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--gap-md);
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-auto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--gap-lg);
+        }
+
+        /* ===== PRELOADER ===== */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--surface-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-animation {
+            display: flex;
+            gap: var(--gap-xs);
+        }
+
+        .loader-bar {
+            width: 6px;
+            height: 40px;
+            background: var(--brand-primary);
+            border-radius: var(--radius-sm);
+            animation: loadingPulse 1.2s ease-in-out infinite;
+        }
+
+        .loader-bar:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-bar:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* ===== HEADER NAVIGATION ===== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--gap-md) 0;
+            background: rgba(10, 14, 39, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--gap-xs);
+        }
+
+        .theme-switcher {
+            display: flex;
+            gap: var(--gap-sm);
+            align-items: center;
+        }
+
+        .theme-toggle-wrapper {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .theme-checkbox {
+            display: none;
+        }
+
+        .theme-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--surface-light);
+            border-radius: var(--radius-full);
+            transition: var(--transition-base);
+        }
+
+        .theme-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            border-radius: 50%;
+            transition: var(--transition-base);
+        }
+
+        .theme-checkbox:checked + .theme-slider {
+            background: var(--brand-primary);
+        }
+
+        .theme-checkbox:checked + .theme-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* ===== BACKGROUND EFFECTS ===== */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: var(--gap-xl);
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--gap-lg);
+            align-items: start;
+        }
+
+        /* Profile Card */
+        .profile-wrapper {
+            text-align: center;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto var(--gap-md);
+        }
+
+        .avatar-border {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--brand-primary);
+            padding: 5px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--surface-dark);
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: var(--brand-accent);
+            border-radius: 50%;
+            border: 3px solid var(--surface-dark);
+            animation: statusBlink 2s ease-in-out infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .profile-name {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--gap-xs);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-xs);
+        }
+
+        .verified-badge {
+            width: 20px;
+            height: 20px;
+            color: var(--brand-primary);
+        }
+
+        .profile-role {
+            color: var(--text-secondary);
+            margin-bottom: var(--gap-md);
+        }
+
+        .social-links-list {
+            display: flex;
+            gap: var(--gap-sm);
+            justify-content: center;
+            list-style: none;
+            margin-top: var(--gap-md);
+        }
+
+        .social-link-item a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--surface-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-base);
+            font-size: var(--text-md);
+        }
+
+        .social-link-item a:hover {
+            background: var(--brand-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            gap: var(--gap-md);
+        }
+
+        .stat-box {
+            background: var(--surface-light);
+            padding: var(--gap-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-base);
+        }
+
+        .stat-box:hover {
+            border-color: var(--brand-primary);
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--brand-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-xs);
+            margin-bottom: var(--gap-xs);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        /* Action Buttons */
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-md);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap-xs);
+            padding: var(--gap-md) var(--gap-lg);
+            background: var(--brand-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition-base);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: var(--gap-sm);
+        }
+
+        .btn-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--surface-light);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .btn-icon:hover {
+            background: var(--brand-primary);
+            border-color: var(--brand-primary);
+        }
+
+        /* ===== PROJECT SECTION ===== */
+        .projects-section {
+            padding: var(--gap-xl) 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: var(--gap-xl);
+        }
+
+        .section-title {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            margin-bottom: var(--gap-sm);
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--gap-lg);
+        }
+
+        .project-item {
+            background: var(--surface-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .project-item:hover {
+            border-color: var(--brand-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition-base);
+        }
+
+        .project-item:hover .project-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .project-details {
+            padding: var(--gap-md);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: var(--gap-xs);
+            flex-wrap: wrap;
+            margin-bottom: var(--gap-sm);
+        }
+
+        .tag-badge {
+            padding: 0.25rem 0.75rem;
+            background: rgba(74, 144, 226, 0.15);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            color: var(--brand-primary);
+        }
+
+        .project-name {
+            font-size: var(--text-md);
+            font-weight: 600;
+            margin-bottom: var(--gap-xs);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--gap-sm);
+        }
+
+        .project-action {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--gap-xs);
+            color: var(--brand-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            transition: var(--transition-base);
+        }
+
+        .project-action:hover {
+            gap: var(--gap-sm);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            padding: var(--gap-xl) 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--gap-lg);
+        }
+
+        .about-card {
+            background: var(--surface-light);
+            padding: var(--gap-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .about-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: var(--gap-md);
+        }
+
+        .about-card h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--gap-md);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--gap-sm);
+            line-height: 1.8;
+        }
+
+        .about-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .about-card ul li {
+            padding-left: var(--gap-md);
+            position: relative;
+            margin-bottom: var(--gap-xs);
+        }
+
+        .about-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--brand-primary);
+        }
+
+        /* ===== BOTTOM NAVIGATION ===== */
+        .bottom-nav {
+            position: fixed;
+            bottom: var(--gap-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--gap-sm);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-subtle);
+            z-index: 999;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--gap-sm);
+            list-style: none;
+        }
+
+        .nav-item a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 50%;
+            transition: var(--transition-base);
+            font-size: var(--text-md);
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            background: var(--brand-primary);
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            text-align: center;
+            padding: var(--gap-lg) 0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-subtle);
+            margin-top: var(--gap-xl);
+        }
+
+        .site-footer a {
+            color: var(--brand-primary);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .projects-list {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-nav {
+                bottom: var(--gap-sm);
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --text-2xl: 2rem;
+                --text-xl: 1.5rem;
+            }
+
+            .avatar-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .nav-menu {
+                gap: 0;
+            }
+
+            .nav-item a {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
     <!-- Preloader -->
-    <div class="preloader" id="loader">
-      <div class="preloader__wrap">
-        <div class="loader">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-animation">
+            <span class="loader-bar"></span>
+            <span class="loader-bar"></span>
+            <span class="loader-bar"></span>
         </div>
-      </div>
-      <div class="preloader__progress"><span></span></div>
     </div>
 
-    <header>
-      <div class="header-area pt-3 pb-3">
-        <div class="container">
-          <div class="header">
-            <a href="/" class="h__logo"><i class="fa-solid fa-signature"></i><span class="typing-text"></span></a>
-            <div class="header-controls">
-              <div class="language-flag" id="languageBtn"></div>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="grid-pattern"></div>
+    </div>
 
-              <div class="dark-light">
-                <input type="checkbox" id="themeToggle" class="themeToggleInput" aria-label="Toggle dark/light mode">
-                <label for="themeToggle" class="themeToggleLabel">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <mask id="moon-mask">
-                      <rect x="0" y="0" width="20" height="20" fill="white"></rect>
-                      <circle cx="11" cy="3" r="8" fill="black"></circle>
-                    </mask>
-                    <circle class="sunMoon" cx="10" cy="10" r="8" mask="url(#moon-mask)"></circle>
-                    <g class="sunRays">
-                      <circle class="sunRay" cx="18" cy="10" r="1.5"></circle>
-                      <circle class="sunRay" cx="14" cy="16.928" r="1.5"></circle>
-                      <circle class="sunRay" cx="6" cy="16.928" r="1.5"></circle>
-                      <circle class="sunRay" cx="2" cy="10" r="1.5"></circle>
-                      <circle class="sunRay" cx="6" cy="3.172" r="1.5"></circle>
-                      <circle class="sunRay" cx="14" cy="3.172" r="1.5"></circle>
-                    </g>
-                  </svg>
-                </label>
-              </div>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="wrapper">
+            <div class="header-content">
+                <a href="#" class="brand-logo">
+                    <span>✨</span>
+                    <span>ĐỨC TIẾN</span>
+                </a>
+                <div class="theme-switcher">
+                    <div class="theme-toggle-wrapper">
+                        <input type="checkbox" id="themeSwitch" class="theme-checkbox">
+                        <label for="themeSwitch" class="theme-slider"></label>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <div class="background__effect">
-        <div class="grid_background"></div>
-        <div class="global_shapes">
-          <img src="/ductiendev/assets/images/bg.webp" alt="shape" class="home__shape-bg">
-        </div>
-        <!-- <div class="stars-container"></div> -->
-      </div>
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="wrapper">
+                <div class="hero-layout">
+                    <!-- Profile Card -->
+                    <div class="profile-wrapper">
+                        <div class="avatar-container">
+                            <div class="avatar-border">
+                                <img src="https://i.pinimg.com/736x/39/c1/60/39c160132113af84969af571650a34a2.jpg" alt="Profile" class="avatar-image">
+                            </div>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <h2 class="profile-name">
+                            Chu Đức Tiến
+                            <svg class="verified-badge" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </h2>
+                        <p class="profile-role">Web Developer & Tech Enthusiast</p>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--gap-md);">Mình là một chàng trai có niềm đam mê về lập trình và công nghệ.</p>
+                        
+                        <ul class="social-links-list">
+                            <li class="social-link-item">
+                                <a href="https://www.facebook.com/profile.php?id=61577305401386" target="_blank">📘</a>
+                            </li>
+                            <li class="social-link-item">
+                                <a href="https://www.youtube.com/@vermeilzzz" target="_blank">📺</a>
+                            </li>
+                            <li class="social-link-item">
+                                <a href="https://github.com/ductienalpha" target="_blank">💻</a>
+                            </li>
+                        </ul>
+                    </div>
 
-      <section class="profile" id="home">
-        <div class="container">
-          <div class="bg_img">
-            <img class="background_img" src="/ductiendev/assets/images/background.gif" alt="background">
-          </div>
-          <div class="profile__area grid">
-            <div class="profile__data">
-              <div class="profile__border">
-                <div class="profile__perfil">
-                  <img src="https://i.pinimg.com/736x/39/c1/60/39c160132113af84969af571650a34a2.jpg" alt="profile">
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-value">
+                                🏆 <span>55+</span>
+                            </div>
+                            <div class="stat-label">Dự án hoàn thành</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">
+                                📜 <span>10+</span>
+                            </div>
+                            <div class="stat-label">Chứng chỉ đạt được</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">
+                                ⭐ <span>2+</span>
+                            </div>
+                            <div class="stat-label">Năm kinh nghiệm</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="cta-section">
+                        <a href="#projects" class="btn-primary">
+                            Xem Dự Án
+                            <span>→</span>
+                        </a>
+                        <div class="btn-group">
+                            <a href="https://t.me/" class="btn-icon" target="_blank">📱</a>
+                            <a href="https://www.facebook.com/profile.php?id=61577305401386" class="btn-icon" target="_blank">💬</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="status_wrapper">
-                  <span class="status_indicator"></span>
-                  <span class="status_tooltip" data-vi="Có thể nhận việc">Available for work</span>
-                </div>
-              </div>
-
-              <h2 class="profile__name">
-                Chu Duc Tien
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="hsl(207, 90%, 61%)" width="20" height="20">
-                  <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"></path>
-                </svg>
-              </h2>
-              <h3 class="profile_profession" data-vi="Mình là một chàng trai có niềm đam mê về lập trình.">
-                I am a guy with a passion for programming.
-              </h3>
-
-              <ul class="profile__social">
-                <li>
-                  <a href="https://www.facebook.com/profile.php?id=61577305401386" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/@vermeilzzz" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ductienalpha" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                  </a>
-                </li>
-              </ul>
             </div>
+        </section>
 
-            <div class="profile__info grid">
-              <div class="profile__info-group">
-                <h3 class="profile__info_number">
-                  <i class="fa-solid fa-award"></i>
-                  <span class="counter">55</span>+
-                </h3>
-                <p class="profile__info-description" data-vi="Dự án<br>hoàn thành">
-                  Completed<br>Project
-                </p>
-              </div>
-              <div class="profile__info-group">
-                <h3 class="profile__info_number">
-                  <i class="fa-solid fa-file-certificate"></i>
-                  <span class="counter">10</span>+
-                </h3>
-                <p class="profile__info-description" data-vi="Chứng chỉ<br>đạt được">
-                  Certificates<br>Earned
-                </p>
-              </div>
-              <div class="profile__info-group">
-                <h3 class="profile__info_number">
-                  <i class="fa-solid fa-calendar-star"></i>
-                  <span class="counter">2</span>+
-                </h3>
-                <p class="profile__info-description" data-vi="Năm<br>kinh nghiệm">
-                  Years of<br>Experience
-                </p>
-              </div>
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="wrapper">
+                <div class="section-heading">
+                    <h2 class="section-title">Dự Án Của Mình</h2>
+                    <p style="color: var(--text-secondary);">Khám phá những dự án mà mình đã thực hiện</p>
+                </div>
+
+                <div class="projects-list">
+                    <article class="project-item">
+                        <img src="/ductiendev/assets/images/weather.webp" alt="Weather App" class="project-thumbnail">
+                        <div class="project-details">
+                            <div class="project-tags">
+                                <span class="tag-badge">Web</span>
+                                <span class="tag-badge">Tiện ích</span>
+                            </div>
+                            <h3 class="project-name">Dự Báo Thời Tiết</h3>
+                            <p class="project-description">Ứng dụng dự báo thời tiết cho mọi địa điểm</p>
+                            <a href="https://thoitiet2025.vercel.app/" class="project-action" target="_blank">
+                                Xem chi tiết →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-item">
+                        <img src="/ductiendev/assets/images/get2fa.webp" alt="2FA" class="project-thumbnail">
+                        <div class="project-details">
+                            <div class="project-tags">
+                                <span class="tag-badge">Security</span>
+                                <span class="tag-badge">Tool</span>
+                            </div>
+                            <h3 class="project-name">2FA Generator</h3>
+                            <p class="project-description">Công cụ tạo mã xác thực hai yếu tố</p>
+                            <a href="https://web-2fa.vercel.app/" class="project-action" target="_blank">
+                                Xem chi tiết →
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="profile__buttons">
-              <a href="#project" class="button" data-vi="Xem Dự Án ">View Projects <i class="fa-solid fa-folders"></i></a>
-              <div class="profile__buttons-small">
-                <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="button__small button__gray" aria-label="Telegram">
-                  <i class="fa-brands fa-telegram"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61577305401386" target="_blank" rel="noopener noreferrer" class="button__small button__gray" aria-label="Messenger">
-                  <i class="fa-brands fa-facebook-messenger"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--=============== PROJECT ===============-->
-      <section id="project">
-        <div class="container">
-          <div class="project__content">
-            <h2 class="project__title" data-vi="Dự Án Của Mình">My Project</h2>
-          </div>
-
-          <div class="projects__content grid">
-            <p class="note">
-              <b data-vi="Lưu ý:">Note:</b>
-              <span data-vi="Bấm vào ảnh, sau đó nhấn vào icon để chuyển hướng đến project!">
-                Click on the image, then click on the icon to be redirected to the project!
-              </span>
-            </p>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/infomation.webp" class="projects__img" alt="infomation" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="web">web</span>
-                  <span class="projects__tag" data-vi="thông tin">infomation</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trang web cá nhân">
-                    Personal website
-                  </span>
-                  <h3 class="projects__title" data-vi="Chu Đức Tiến">Chu Đức Tiến</h3>
-                  <a href="https://ductienalpha.github.io/ductiendev/" class="projects__button button button_small" aria-label="Visit Chu Đức Tiến" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/imgur.webp" class="projects__img" alt="Imgur" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="web">web</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Dịch vụ lưu trữ hình ảnh trên Imgur">
-                    Imgur image hosting service
-                  </span>
-                  <h3 class="projects__title" data-vi="Công Cụ Tải Hình Ảnh">
-                    Image Uploader
-                  </h3>
-                  <a href="https://upanh.vercel.app/" class="projects__button button button_small" aria-label="Visit Image Uploader" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/crushh.webp" class="projects__img" alt="crushh" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="vui nhộn">fun</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="mình Có Đôi Lời Muốn Gửi Đến Cậu">
-                    I Have a Few Words to Send to You
-                  </span>
-                  <h3 class="projects__title" data-vi="Ấn Vào Xem Đi!">
-                    Click to See!
-                  </h3>
-                  <a href="https://crusssh.vercel.app/" class="projects__button button button_small" aria-label="Visit Crush Page" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/weather.webp" class="projects__img" alt="weather" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="web">web</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Dự báo thời tiết cho bất kỳ nơi nào">
-                    Check weather forecasts for any location
-                  </span>
-                  <h3 class="projects__title" data-vi="Dự Báo Thời Tiết">
-                    Weather Forecast
-                  </h3>
-                  <a href="https://thoitiet2025.vercel.app/" class="projects__button button button_small" aria-label="Visit Weather Forecast" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/baomoi24h.webp" class="projects__img" alt="Blog" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="web">web</span>
-                  <span class="projects__tag" data-vi="báo">news</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Blog">Blog</span>
-                  <h3 class="projects__title" data-vi="Báo mới 24h">
-                    News 24h
-                  </h3>
-                  <a href="https://www.baomoi24h.eu.org/" class="projects__button button button_small" aria-label="Visit News 24h" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/game.webp" class="projects__img" alt="games" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="game">games</span>
-                  <span class="projects__tag" data-vi="vui nhộn">fun</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trang web sưu tầm các game giải trí để chơi">
-                    A website collecting entertaining games to play
-                  </span>
-                  <h3 class="projects__title" data-vi="Game giải trí">
-                    Entertainment Game
-                  </h3>
-                  <a href="https://listgames.vercel.app/" class="projects__button button button_small" aria-label="Visit Entertainment Game" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/qrcode.webp" class="projects__img" alt="qrcode" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="công cụ">tool</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Tạo mã QR tùy chỉnh cho bất kỳ URL hoặc văn bản nào">
-                    Create custom QR codes for any URL or text
-                  </span>
-                  <h3 class="projects__title" data-vi="Tạo Mã QR">
-                    QR Code Generate
-                  </h3>
-                  <a href="https://web-qrcode.vercel.app/" class="projects__button button button_small" aria-label="Visit QR Code Generate" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/github-to-jsdelivr.webp" class="projects__img" alt="github-to-jsdelivr" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="công cụ">tool</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trình chuyển đổi URL của GitHub sang JSdelivr">
-                    GitHub to jsDelivr URL Converter
-                  </span>
-                  <h3 class="projects__title" data-vi="GitHub thành jsDelivr">
-                    GitHub to jsDelivr
-                  </h3>
-                  <a href="https://github-to-jsdelivr.vercel.app/" class="projects__button button button_small" aria-label="Visit GitHub to jsDelivr" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/kitudacbiet.webp" class="projects__img" alt="special charset" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="công cụ">tool</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Công cụ tạo kí tự đặc biệt">
-                    Special Character Generator Tool
-                  </span>
-                  <h3 class="projects__title" data-vi="Kí Tự Đặc Biệt">
-                    Special Character
-                  </h3>
-                  <a href="https://kitudacbiet-seven.vercel.app/" class="projects__button button button_small" aria-label="Visit Special Character" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/get2fa.webp" class="projects__img" alt="web-2fa" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="công cụ">tool</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trình tạo 2FA | Công cụ tạo mã OTP">
-                    2FA Generator | One-Time Password Utility
-                  </span>
-                  <h3 class="projects__title" data-vi="Xác Thực Hai Yếu Tố">
-                    Two-Factor Authentication
-                  </h3>
-                  <a href="https://web-2fa.vercel.app/" class="projects__button button button_small" aria-label="Visit Two-Factor Authentication" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/check-live-die-facebook.webp" class="projects__img" alt="check-live-die-facebook" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="công cụ">tool</span>
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Xác Minh Trạng Thái Hoạt Động Của Tài Khoản Facebook">
-                    Facebook Account Status Verification
-                  </span>
-                  <h3 class="projects__title" data-vi="Kiểm Tra Tài Khoản Facebook">
-                    Check Facebook Account
-                  </h3>
-                  <a href="https://check-live-die-facebook.vercel.app/" class="projects__button button button_small" aria-label="Visit Check Facebook Account" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/locket-gold.webp" class="projects__img" alt="locketgold-free" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="IOS">IOS</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trang Hướng Dẫn Lên LocketGold Miễn Phí Mới Nhất">
-                    Latest Free LocketGold Guide Page
-                  </span>
-                  <h3 class="projects__title" data-vi="LocketGold Miễn Phí">
-                    Free LocketGold
-                  </h3>
-                  <a href="https://locketgold-free.vercel.app/" class="projects__button button button_small" aria-label="Visit Free LocketGold" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/fixlag.webp" class="projects__img" alt="fixlag" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="IOS">IOS</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Cấu Hình Fix Lag iPhone">
-                    Fix Lag iPhone Configuration
-                  </span>
-                  <h3 class="projects__title" data-vi="Fix Lag iPhone">
-                    Fix Lag iPhone
-                  </h3>
-                  <a href="https://config-fix-lag-ios.vercel.app/" class="projects__button button button_small" aria-label="Visit Fix Lag iPhone" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/locket.webp" class="projects__img" alt="locketfree" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="IOS">IOS</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Trang Hướng Dẫn Hạ Cấp Locket Miễn Phí Mới Nhất">
-                    Latest Free Locket Downgrade Guide Page
-                  </span>
-                  <h3 class="projects__title" data-vi="Locket Hạ Cấp">
-                    Locket Downgrade
-                  </h3>
-                  <a href="https://locketfree.vercel.app/" class="projects__button button button_small" aria-label="Visit Locket Downgrade" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-            <article class="projects__card">
-              <img src="/ductiendev/assets/images/shadowrocketunlock.webp" class="projects__img" alt="shadowrocketunlock" loading="lazy">
-              <div class="projects__modal">
-                <div class="projects__tags">
-                  <span class="projects__tag" data-vi="tiện ích">utility</span>
-                  <span class="projects__tag" data-vi="IOS">IOS</span>
-                </div>
-                <div>
-                  <span class="projects__subtitle" data-vi="Hướng dẫn Unlock App Premium trên iPhone">
-                    Instructions to Unlock Premium Apps on iPhone
-                  </span>
-                  <h3 class="projects__title" data-vi="Unlock App Premium bằng ShadowRocket">
-                    Unlock App Premium using ShadowRocket
-                  </h3>
-                  <a href="https://module-ios.vercel.app/" class="projects__button button button_small" aria-label="Visit Unlock App Premium using ShadowRocket" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!--=============== ABOUT ME ===============-->
-      <section id="about">
-        <div class="container">
-          <div class="about__content">
-            <h2 class="about__title" data-vi="Giới Thiệu Về Mình">About Me</h2>
-          </div>
-
-          <div class="about__box_area grid">
-            <div class="about__box">
-              <span class="icon"><img src="/ductiendev/assets/images/01.png" alt="about01" loading="lazy"></span>
-              <h3 data-vi="Đôi Lượt Về Mình">A Few Words About Me</h3>
-              <p data-vi="Xin chào, mình tên là Tiến! mình sinh ngày 25 tháng 10 năm 2011, đến từ Hà Nội, Việt Nam. Hiện tại, mình là học sinh của trường THCS Phú Kim.">
-                Hi, my name is Tien! I was born on October 25th, 2011, and I’m from Ha Noi, Vietnam. I'm currently a student at high school Phu Kim.
-              </p>
-              <p data-vi="Ngay từ khi còn nhỏ, mình đã có niềm đam mê và sự tò mò đặc biệt đối với các thiết bị công nghệ và điện tử. Những lúc rảnh rỗi, mình thường dành thời gian để tìm hiểu, nghiên cứu về chúng. Nhờ đó, mình đã tích lũy được một chút kiến thức và kinh nghiệm nho nhỏ cho bản thân.">
-                Ever since I was a kid, I’ve been fascinated by technology and electronics. In my free time, I love diving into how things work, researching new tech, and exploring gadgets. That curiosity has helped me build up a bit of knowledge and hands-on experience over time.
-              </p>
-              <p data-vi="mình có niềm đam mê lớn với việc khám phá các hệ thống số, tìm kiếm những mẹo và lỗi trong ứng dụng, trang web, cũng như “vọc” các phần mềm để tìm hiểu sâu về công nghệ. Ngoài thời gian “săn lỗi”, mình còn thích thực hiện các dự án công nghệ khác nhau và chia sẻ kiến thức của mình với mọi người thông qua các nền tảng trực tuyến và cộng đồng mà mình tham gia.">
-                I have a strong passion for exploring digital systems, uncovering tricks and bugs in apps and websites, and even “cracking” applications to understand how they work under the hood. When I’m not busy bug hunting, I enjoy working on various tech projects and sharing what I’ve learned through online platforms and communities I’m part of.
-              </p>
-            </div>
-            <div class="about__box">
-              <span class="icon"><img src="/ductiendev/assets/images/02.png" alt="about02" loading="lazy"></span>
-              <h3 data-vi="Bước Ngoặt Trong Cuộc Đời">A Turning Point in Life</h3>
-              <p data-vi="Bước ngoặt thực sự đến vào những năm mình học cấp 2, đặc biệt là trong khoảng thời gian dịch COVID-19. Khi có nhiều thời gian ở nhà, mình bắt đầu tự học lập trình web và khám phá mọi thứ khiến bản thân mình tò mò, từ những trang web đơn giản cho đến vọc vạch điện thoại – như root máy hay cài custom ROM cho Android.">
-                A turning point came during my high school years, especially during the COVID-19 pandemic when I had more time at home. That was when I began teaching myself web development and exploring everything that sparked my curiosity — from creating simple websites to tinkering with smartphones, such as rooting devices and installing custom ROMs on Android.
-              </p>
-              <p data-vi="May mắn thay, mình đã được rất nhiều anh chị đi trước tận tình chỉ dẫn, giúp đỡ từ những thứ cơ bản nhất. Nhờ vậy mà mình đã học hỏi, tiếp thu được rất  nhiều kiến thức quý giá và kinh nghiệm sau những lần mắc lỗi. Không chỉ dừng lại ở việc học lý thuyết, mình còn tự tay xây dựng một số trang web nhỏ như là những cột mốc đánh dấu hành trình phát triển của bản thân.">
-                I was lucky to be guided and supported by many experienced mentors who helped me understand even the most basic concepts. Thanks to them, I learned a lot from both successes and mistakes. I didn’t just stick to theory – I also built a few small websites as milestones to mark my personal growth.
-              </p>
-            </div>
-
-            <div class="about__box">
-              <span class="icon"><img src="/ductiendev/assets/images/03.png" alt="about03" loading="lazy"></span>
-              <h3 data-vi="Sở Thích">Hobbies</h3>
-              <p data-vi="Ngoài lập trình, mình còn có nhiều sở thích khác:">
-                Besides programming, I have quite a few other interests:
-              </p>
-              <ul>
-                <li data-vi="mình rất thích chơi thể thao, đặc biệt là bóng đá với bạn bè – vừa để giải trí vừa để rèn luyện sức khỏe.">
-                  I love playing sports, especially soccer with friends – it’s a great way to relax and stay fit.
-                </li>
-                <li data-vi="mình thích khám phá công nghệ mới và tìm hiểu những tính năng hay ho, sáng tạo mà mình chưa từng thấy.">
-                  I enjoy exploring new technology and discovering cool features or innovations I haven’t seen before.
-                </li>
-                <li data-vi="mình rất thích gặp gỡ, trò chuyện với mọi người để mở rộng mối quan hệ và học hỏi từ kinh nghiệm sống, cách làm việc của họ.">
-                  I’m always happy to meet new people and have meaningful conversations, which helps me broaden my horizons and learn from others’ life and work experiences.
-                </li>
-                <li data-vi="mình cũng rất thích đi du lịch và hòa mình với thiên nhiên, đặc biệt là những nơi yên bình, hoang sơ gần biển – không gì tuyệt vời hơn một khung cảnh thiên nhiên đẹp đẽ.">
-                  I’m also a big fan of traveling and nature, especially quiet, unspoiled places near the ocean – nothing beats the peace of a beautiful natural view.
-                </li>
-              </ul>
-            </div>
-            <div class="about__box">
-              <span class="icon"><img src="/ductiendev/assets/images/04.png" alt="about04" loading="lazy"></span>
-              <h3 data-vi="Ưu Nhược Điểm">Strengths and Weaknesses</h3>
-
-              <p data-vi="Điểm mạnh:">Strengths:</p>
-              <ul>
-                <li data-vi="mình là người có tính tò mò cao, luôn muốn khám phá và tìm hiểu về mọi thứ xung quanh.">
-                  I’m naturally curious and always eager to explore and understand the world around me.
-                </li>
-                <li data-vi="Một khi đã cảm thấy hứng thú với điều gì, mình sẽ rất chịu khó nghiên cứu và học hỏi hết mình để hiểu rõ nó.">
-                  When something piques my interest, I dive deep into learning and understanding it wholeheartedly.
-                </li>
-                <li data-vi="mình cũng là người khá cởi mở, thân thiện và nhiệt tình trong giao tiếp, giúp mình mở rộng các mối quan hệ tốt và học hỏi từ người khác.">
-                  I’m open, friendly, and enthusiastic in communication, which helps me build meaningful relationships and learn from others.
-                </li>
-              </ul>
-
-              <p data-vi="Điểm yếu:">Weaknesses:</p>
-              <ul>
-                <li data-vi="Đôi khi mình khá lười biếng và dễ mất tập trung khi làm một công việc cụ thể.">
-                  Sometimes I can be lazy or easily distracted when working on a specific task.
-                </li>
-                <li data-vi="Có những lúc mình rơi vào trạng thái gọi là “nỗ lực ảo” – cảm giác như đã cố gắng rất nhiều, nhưng thực ra chỉ mới bắt đầu hoặc làm chưa mìnhi nơi mìnhi chốn.">
-                  There are moments when I fall into a state I call “virtual effort” – feeling like I’ve done a lot, but in reality, I’ve barely started or lost focus quickly.
-                </li>
-              </ul>
-              <p data-vi="Tuy nhiên, mình luôn ý thức được những điều đó và đang từng ngày nỗ lực hoàn thiện bản thân, để trở thành một phiên bản tốt hơn trong tương lai.">
-                Still, I’m well aware of these challenges and working hard every day to improve myself and grow into a better version of who I want to be.
-              </p>
-            </div>
-          </div>
-
-          <div class="blog__carousel">
-            <h3 data-vi="Một Số Hình Ảnh Của mình">Some of My Photos</h3>
-            <div class="carousel__wrapper">
-              <div class="carousel__item">
-                <h3 class="popup__title" data-vi="Thanh Xuân Rực Rỡ, Tạm Biệt Tuổi Học Trò">
-                  Shining Youth, Goodbye School Years
-                </h3>
-                <span class="popup__time">05/11/2025</span>
-                <p class="popup__caption" data-vi="Cấp 2 không chỉ là những bài học kiến thức, mà còn là khoảng thời gian chúng ta học được ý nghĩa của tình bạn và sự trưởng thành. Cảm ơn tất cả vì đã cùng nhau tạo nên một thời thanh xuân thật đáng nhớ.">
-                  Middle school wasn’t just about lessons and knowledge — it was also the time when we learned the true meaning of friendship and growing up. Thank you all for making our youth so unforgettable.
-                </p>
-                <img src="/ductiendev/assets/images/SORA1726.webp" alt="Shining Youth, Goodbye School Years" loading="lazy">
-              </div>
-              <div class="carousel__item">
-                <h3 class="popup__title" data-vi="Kỷ Niệm Không Phai">
-                  Everlasting Memories
-                </h3>
-                <span class="popup__time">05/11/2025</span>
-                <p class="popup__caption" data-vi="Thanh xuân lưu lại trong từng nụ cười, từng chuyến đi – kỷ niệm lớp 9 không bao giờ phai.">
-                  Youth is captured in every smile, every journey – the memories of 9th grade will never fade.
-                </p>
-                <img src="/ductiendev/assets/images/DAT08343.webp" alt="Football Memories" loading="lazy">
-              </div>
-              <div class="carousel__item">
-                <h3 class="popup__title" data-vi="Cùng nhau tỏa sáng">
-                  Together We Shine
-                </h3>
-                <span class="popup__time">12/07/2023</span>
-                <p class="popup__caption" data-vi="Chuyến đi cuối cùng của chúng ta cùng nhau — những khoảnh khắc giản đơn đã trở thành kỷ niệm khó quên.">
-                  Our last trip together — simple moments that became unforgettable memories.
-                </p>
-                <img src="/ductiendev/assets/images/viewa.webp" alt="A Moment of Peace" loading="lazy">
-              </div>
-            </div>
-          </div>
-
-          <!-- Popup overlay -->
-          <div class="popup__overlay">
-            <div class="popup__content">
-              <button class="popup__close"><i class="fa-solid fa-xmark"></i></button>
-              <img class="popup__image" src="" alt="" loading="lazy">
-              <div class="popup__navigation">
-                <button class="popup__prev"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="popup__next"><i class="fa-solid fa-chevron-right"></i></button>
-              </div>
-              <div class="popup__info">
-                <h3 class="popup__title"></h3>
-                <div class="popup__meta">
-                  <span class="popup__time"></span>
-                  <span class="popup__issuer"></span>
-                  <span class="popup__date"></span>
-                </div>
-                <p class="popup__caption"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--=============== RESUME ===============-->
-      <section id="resume">
-        <div class="container">
-          <div class="resume__content">
-            <h2 class="resume__title" data-vi="Sơ Yếu Lý Lịch Của Mình">
-              My Resume
-            </h2>
-          </div>
-
-          <div class="resume__content grid">
-            <div class="resume__area">
-              <h3 class="resume_title" data-vi="Học Vấn">Education</h3>
-
-              <div class="resume__box">
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2025 - Hiện tại">
-                      <i class="fa-solid fa-calendar"></i> 2025 - Present
-                    </span>
-                    <h3 class="resume__step__title" data-vi="Nguyện vọng 1 – Trường THPT Thạch Thất.">
-                      First Choice: Thach That High School.
-                    </h3>
-                    <p class="resume__step__description" data-vi="Mình muốn hướng đến môi trường học tập năng động và phát triển toàn diện.">
-                      I want to pursue a dynamic learning
-                    </p>
-                  </div>
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="wrapper">
+                <div class="section-heading">
+                    <h2 class="section-title">Giới Thiệu Về Mình</h2>
                 </div>
 
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2022 – 2026 (Hiện Tại)">
-                      <i class="fa-solid fa-calendar"></i> 2022 – 2026 (Present)
-                    </span>
-                    <h3 class="resume__step__title" data-vi="Trường THCS Phú Kim (PKLSS)">
-                      Phu Kim Secondary School (PKLSS)
-                    </h3>
-                    <p class="resume__step__description" data-vi="Nơi mình được học hỏi, trưởng thành và lưu giữ những kỷ niệm tuổi học trò.">
-                      A place where I learned, grew, and created unforgettable school memories.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2012 - 2020">
-                      <i class="fa-solid fa-calendar"></i> 2012 - 2020</span>
-                    <h3 class="resume__step__title" data-vi="Trường Tiểu Học Phú Kim">
-                      Phu Kim Primary School
-                    </h3>
-                    <p class="resume__step__description" data-vi="Học các môn cơ bản, xây dựng nền tảng kiến thức và kỹ năng học tập.">
-                      Studied fundamental subjects, building a strong knowledge foundation and learning skills.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="resume__area">
-              <h3 class="resume_title" data-vi="Kinh Nghiệm">Experience</h3>
-              <div class="resume__box">
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2025">
-                      <i class="fa-solid fa-calendar"></i> 2025</span>
-                    <h3 class="resume__step__title" data-vi="Nhà Phát Triển">
-                      Developer
-                    </h3>
-                    <p class="resume__step__description" data-vi="Kết hợp giữa lập trình và sáng tạo nội dung, phát triển các công cụ tiện ích, bot Discord, và chia sẻ kiến thức hữu ích đến cộng đồng.">
-                      Combine programming and creative content skills to develop utility tools, Discord bots, and share valuable knowledge with the community.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2025">
-                      <i class="fa-solid fa-calendar"></i> 2025
-                    </span>
-                    <h3 class="resume__step__title" data-vi="Lập Trình Script & Bot">
-                      Script & Bot Developer
-                    </h3>
-                    <p class="resume__step__description" data-vi="Thiết kế và tối ưu hóa các script, bot, giúp cải thiện trải nghiệm người dùng trên nhiều nền tảng.">
-                      Design and optimize scripts and bots to enhance user experience across multiple platforms.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="resume__step">
-                  <div class="resume__step__icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                  </div>
-                  <div class="resume__step__content">
-                    <span class="resume__step__time" data-vi=" 2025">
-                      <i class="fa-solid fa-calendar"></i> 2025
-                    </span>
-                    <h3 class="resume__step__title" data-vi="Người Sáng Tạo Công Nghệ">
-                      Tech Innovator
-                    </h3>
-                    <p class="resume__step__description" data-vi="Luôn tò mò và thử nghiệm các công nghệ mới, từ lập trình web, AI, đến phát triển tiện ích và công cụ cho cộng đồng.">
-                      Constantly curious and experimenting with new technologies, from web development and AI to building community tools and utilities.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Certificates Section -->
-          <div class="certificates__carousel">
-            <h3 data-vi="Chứng Chỉ Của mình">My Certificates</h3>
-            <div class="certificates__wrapper">
-              <!-- Certificate Item 1 -->
-              <div class="certificate__item">
-                <h4 class="certificate__title" data-vi="Certificate (1)">Certificate (1)</h4>
-                <span class="certificate__issuer">Certificate</span>
-                <span class="certificate__date">2025</span>
-                <img src="/ductiendev/assets/images/googleAI.webp" alt="Certificate (1)" loading="lazy">
-              </div>
-              
-              <!-- Certificate Item 2 -->
-              <div class="certificate__item">
-                <h4 class="certificate__title" data-vi="Certificate (2)">Certificate (2)</h4>
-                <span class="certificate__issuer">Certificate</span>
-                <span class="certificate__date">2025</span>
-                <img src="/ductiendev/assets/images/Foundations_Data_Data_Everywhere.webp" alt="Certificate (2)" loading="lazy">
-              </div>
-              
-              <!-- Certificate Item 3 -->
-              <div class="certificate__item">
-                <h4 class="certificate__title" data-vi="Certificate (3)">Certificate (3)</h4>
-                <span class="certificate__issuer">Certificate</span>
-                <span class="certificate__date">2025</span>
-                <img src="/ductiendev/assets/images/Advanced_Commands_Linux.webp" alt="Certificate (3)" loading="lazy">
-              </div>
-              
-              <!-- Certificate Item 4 -->
-              <div class="certificate__item">
-                <h4 class="certificate__title" data-vi="Certificate (4)">Certificate (4)</h4>
-                <span class="certificate__issuer">Certificate</span>
-                <span class="certificate__date">2025</span>
-                <img src="/ductiendev/assets/images/googleAIEssentials.webp" alt="Certificate (4)" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     <!--=============== SKILLS ===============-->
-<section id="skills">
-  <div class="container">
-    <div class="skills__content" data-vi="Các Kỹ Năng Của Mình">
-      <h2 class="skills__title">My Skills</h2>
-    </div>
-
-    <div class="skills__content grid">
-      <div class="skills__area">
-        <h3 class="skills_title" data-vi="Kỹ Năng Kỹ Thuật">Technical Skills</h3>
-
-        <div class="skills__box">
-          <div class="skills__group">
-            <div class="skills__data">
-              <i class="fa-solid fa-c"></i>
-              <div>
-                <h3 class="skills__name">C/C++</h3>
-                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-solid fa-database"></i>
-              <div>
-                <h3 class="skills__name">Database</h3>
-                <span class="skills__level" data-vi="Cơ bản">Basic</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-brands fa-java"></i>
-              <div>
-                <h3 class="skills__name">Java</h3>
-                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-brands fa-js"></i>
-              <div>
-                <h3 class="skills__name">JavaScript</h3>
-                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
-              </div>
-            </div>
-          </div>
-          <div class="skills__group">
-            <div class="skills__data">
-              <i class="fa-brands fa-python"></i>
-              <div>
-                <h3 class="skills__name">Python</h3>
-                <span class="skills__level" data-vi="Cơ bản">Basic</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-brands fa-html5"></i>
-              <div>
-                <h3 class="skills__name">HTML5 & CSS3</h3>
-                <span class="skills__level" data-vi="Cơ bản">Basic</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-brands fa-php"></i>
-              <div>
-                <h3 class="skills__name">PHP</h3>
-                <span class="skills__level" data-vi="Cơ bản">Basic</span>
-              </div>
-            </div>
-            <div class="skills__data">
-              <i class="fa-brands fa-git-alt"></i>
-              <div>
-                <h3 class="skills__name">Git</h3>
-                <span class="skills__level" data-vi="Cơ bản">Basic</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills__area">
-        <h3 class="skills_title" data-vi="Kĩ Năng Chuyên Môn">Professional Skills</h3>
-
-        <div class="progress__box">
-          <div class="skills__group">
-            <div class="progress__data">
-              <div>
-                <h3 class="skills__name" data-vi="Giao tiếp">
-                  <i class="fa-solid fa-comments"></i>Communication
-                </h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="--progress-width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Communication skill level is 90 percent">
-                    <span class="progress__level">90%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="progress__data">
-              <div>
-                <h3 class="skills__name" data-vi="Làm việc nhóm">
-                  <i class="fa-solid fa-users"></i>Teamwork
-                </h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="--progress-width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Teamwork skill level is 85 percent">
-                    <span class="progress__level">85%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="progress__data">
-              <div>
-                <h3 class="skills__name" data-vi="Giải quyết vấn đề">
-                  <i class="fa-solid fa-puzzle"></i>Problem Solving
-                </h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="--progress-width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Problem solving skill level is 95 percent">
-                    <span class="progress__level">95%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="progress__data">
-              <div>
-                <h3 class="skills__name" data-vi="Quản lý thời gian">
-                  <i class="fa-solid fa-alarm-clock"></i>Time Management
-                </h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="--progress-width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Time management skill level is 60 percent">
-                    <span class="progress__level">60%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="progress__data">
-              <div>
-                <h3 class="skills__name" data-vi="Tư duy sáng tạo">
-                  <i class="fa-solid fa-lightbulb-on"></i>Creative
-                </h3>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="--progress-width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Creative skill level is 80 percent">
-                    <span class="progress__level">80%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!--=============== CONTACTS ===============-->
-      <section id="contact">
-        <div class="container">
-          <div class="contact__content">
-            <h2 class="contact__title" data-vi="Liên Hệ Với Mình :3">Contact Me</h2>
-          </div>
-
-          <div class="contact__box_area">
-            <div class="contact__box">
-              <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31074.190551784402!2d105.81632116169503!3d21.022778414113596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1762866897691!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="100%" height="100%" frameborder="0" style="border: 0" allowfullscreen="" aria-hidden="false" tabindex="0" title="Bản đồ vị trí của T.P. Hà Nội, Việt Nam"></iframe>
-              </div>
-              <h3 class="contact_title" data-vi="Mẫu Liên Hệ">Contact Form</h3>
-              <form id="contact-form">
-                <input id="name" name="name" type="text" placeholder="Full name" data-vi="Họ và tên" required="">
-                <input id="email" name="email" type="email" placeholder="Email address" data-vi="Địa chỉ mail" required="">
-                <textarea id="message" name="message" rows="6" placeholder="Your Message" data-vi="Tin nhắn của bạn" required=""></textarea>
-                <input type="hidden" id="time" name="time" value=""><input type="hidden" id="page-url" name="title" value="">
-                <div class="g-recaptcha" data-sitekey="6LcDOAksAAAAAIj-_8yRbMDasgWGvDhcvAlV6UeR"></div>
-                <button type="submit" class="see__more" data-vi="Gửi cho mình">
-                  Send me <i class="fa-solid fa-right arrow"></i>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!--=============== NAVIGATION BAR ===============-->
-    <section class="navbar">
-      <div class="nav__menu">
-        <div class="menu-hide-btn">
-          <i class="fa-solid fa-meteor"></i>
-        </div>
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#home" class="nav__link active-link" aria-label="Home">
-              <i class="fi fi-sr-home"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="Trang chủ">Home</div>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="#project" class="nav__link" aria-label="Project">
-              <i class="fi fi-sr-star"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="Dự án">Project</div>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="#about" class="nav__link" aria-label="About">
-              <i class="fi fi-sr-user"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="Về tôi">About</div>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="#resume" class="nav__link" aria-label="Resume">
-              <i class="fi fi-sr-document"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="CV">Resume</div>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="#skills" class="nav__link" aria-label="Skills">
-              <i class="fi fi-sr-book-open-cover"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="Kỹ năng">Skill</div>
-            </div>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link" aria-label="Contact">
-              <i class="fi fi-sr-comment-alt"></i>
-            </a>
-            <div class="nav-item__tooltip">
-              <div data-vi="Liên hệ">Contact</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="menu-show-btn">
-        <div class="bar-01"></div>
-        <div class="bar-02"></div>
-      </div>
-    </section>
-
-    <!--=============== CHATBOT AI ===============-->
-    <section class="chatbot-container">
-      <button id="chatbot-toggler" aria-label="Open chatbot">
-        <i class="fa-solid fa-message-bot"></i>
-        <i class="fa-solid fa-xmark-large"></i>
-      </button>
-      <div class="chatbot-popup">
-        <div class="chat-header">
-          <div class="header-info">
-            <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-              <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-            </svg>
-            <h2 class="logo-text" data-vi="Trợ lý AI">AI Assistant</h2>
-          </div>
-          <i id="close-chatbot" class="fa-solid fa-caret-down"></i>
-        </div>
-        <div class="chat-body">
-          <div class="message bot-message">
-            <svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-              <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-            </svg>
-            <div class="message-text">
-              <p data-vi="Xin chào! 👋 Tôi là trợ lý AI của bạn cho web portfolio này. Tôi được Duy Vinh tạo ra để giúp bạn tìm hiểu về anh ấy. Bạn muốn biết điều gì?">Hey there! 👋 I'm your AI assistant for this portfolio. I was created by Duy Vinh to help you learn about him. What would you like to know?</p>
-              <span class="message-time" data-vi="Vừa xong">Just now</span>
-            </div>
-          </div>
-        </div>
-        <button id="scroll-to-bottom" class="scroll-to-bottom" aria-label="Scroll to bottom">
-          <i class="fa-solid fa-arrow-down"></i>
-        </button>
-        <div class="chat-footer">
-          <form action="#" class="chat-form">
-            <i type="button" id="emoji-picker" class="fa-regular fa-face-smile"></i>
-            <textarea placeholder="Aa" class="message-input" required=""></textarea>
-            <div class="chat-controls">
-              <div class="file-upload-wrapper">
-                <input type="file" id="file-input" hidden="">
-                <img src="#">
-                <button type="button" id="file-upload" class="material-symbols-rounded" aria-label="Upload file"><i class="fa-solid fa-image"></i></button>
-                <button type="button" id="file-cancel" class="material-symbols-rounded" aria-label="File cancel"><i class="fa-solid fa-xmark"></i></button>
-              </div>
-              <button type="submit" id="send-message" aria-label="Send message"><i class="fa-solid fa-paper-plane-top"></i></button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!--=============== FOOTER ===============-->
-    <footer class="footer">
-      <span class="footer__copy">
-        <p>© <span id="year"></span> <a href="https://me.momo.vn/dinhduyvinh" target="_blank" rel="noopener noreferrer">Credit: Đinh Duy Vinh</a><span data-vi=". Đã đăng ký bản quyền.">. All rights reserved.</span></p>
-      </span>
-    </footer>
-
-    <!--============== SCROLLREVEAL ==============-->
-    <script src="/ductiendev/assets/js/scrollreveal.min.js" defer=""></script>
-
-    <!--============== TYPED JS ==============-->
-    <script src="/ductiendev/assets/js/typed.umd.js"></script>
-
-    <!--============== SWEET ALERT ==============-->
-    <script src="/ductiendev/assets/js/sweetalert2.all.min.js"></script>
-
-    <!--============== EMOJI MART ==============-->
-    <script src="/ductiendev/assets/js/emoji-mart.js"></script>
-
-    <!--============== ANOTHER API ==============-->
-    <script src="/ductiendev/assets/js/anime.min.js"></script>
-    <script src="/ductiendev/assets/js/imagesloaded.pkgd.min.js"></script>
-
-    <!--============== MAIN JS ==============-->
-    <script src="/ductiendev/assets/js/main.js"></script>
-  
-</body></html>
+                <div class="about-cards">
+                    <div class="about-card">
+                        <img src="/ductiendev/assets/images/01.png" alt="About" class="about-icon">
+                        <h3>Đôi Lời Về Mình</h3>
+                        <p>Xin chào, mình tên là Tiến! Mình sinh ngày 25/10/2011, đến từ Hà N
