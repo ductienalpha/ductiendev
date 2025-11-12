@@ -341,104 +341,124 @@ header.scrolled {
 
 /*****/
 /* Dark Light Toggle */
+/* ==========================================
+   THEME SWITCH - New Design from Uiverse
+   ========================================== */
+
 .dark-light {
-    position: relative;
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.themeToggleInput {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 1;
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.themeToggleLabel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: var(--container-color);
-    transition: all 0.3s ease;
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.dark-light svg {
-    width: 23px;
-    height: 23px;
-    transition: transform 0.4s ease;
-    transform: rotate(40deg);
-    box-sizing: content-box;
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
-.dark-light:hover .themeToggleLabel::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: var(--color02);
-    border-radius: 50%;
-    box-shadow: 1px 1px 10px 2px var(--box-shadow);
-    z-index: -1;
-    transition: all 0.3s ease;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
 }
 
-.dark-light .sunMoon {
-    transform-origin: center center;
-    transition: transform 0.4s ease;
-    transform: scale(1);
+.switch input:checked + .slider {
+  background-color: #00a6ff;
 }
 
-.dark-light .sunRay {
-    transform-origin: center center;
-    transform: scale(0);
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
 }
 
-.dark-light mask > circle {
-    transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
-    transform: translate(0px, 0px);
+/* Stars */
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transition: all 0.4s;
 }
 
-.dark-light.active svg {
-    transform: rotate(90deg);
-}
-.dark-light.active mask > circle {
-    transform: translate(16px, -3px);
-}
-.dark-light.active .sunMoon {
-    transform: scale(0.55);
-}
-.dark-light.active .sunRay {
-    animation: showRay 0.4s ease forwards;
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
 }
 
-.dark-light.active .sunRay:nth-child(1) {
-    animation-delay: 0s;
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
 }
-.dark-light.active .sunRay:nth-child(2) {
-    animation-delay: 0.05s;
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
 }
-.dark-light.active .sunRay:nth-child(3) {
-    animation-delay: 0.1s;
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
 }
-.dark-light.active .sunRay:nth-child(4) {
-    animation-delay: 0.17s;
+
+/* Cloud */
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
 }
-.dark-light.active .sunRay:nth-child(5) {
-    animation-delay: 0.25s;
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
 }
-.dark-light.active .sunRay:nth-child(6) {
-    animation-delay: 0.29s;
+
+/* Hover effect */
+.switch:hover {
+  box-shadow: 0 0 15px rgba(0, 166, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .switch {
+    font-size: 15px;
+    width: 3.5em;
+    height: 2em;
+  }
 }
 
 @keyframes showRay {
