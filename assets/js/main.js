@@ -197,9 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-// Toggle dark/light mode with sound
+// Toggle with sound
 const body = document.querySelector("body");
-const modeToggle = document.querySelector(".dark-light");
 const themeToggle = document.getElementById("themeToggle");
 
 // Sound setup
@@ -210,33 +209,21 @@ switchOffSound.volume = 1.0;
 
 // Load saved theme
 const savedTheme = localStorage.getItem("theme") || "dark";
-body.classList.toggle("light-mode", savedTheme === "light");
-themeToggle.checked = savedTheme === "light";
+body.classList.toggle("dark", savedTheme === "dark");
+themeToggle.checked = savedTheme === "dark";
 
-// Function to toggle mode with optional sound
-const toggleMode = (isLight, skipSound = false) => {
-  const wasLight = body.classList.contains("light-mode");
-  body.classList.toggle("light-mode", isLight);
-  modeToggle.classList.toggle("active", !isLight); // nếu bạn muốn active đúng toggle style
-  themeToggle.checked = isLight;
-  localStorage.setItem("theme", isLight ? "light" : "dark");
-
-  if (!skipSound && wasLight !== isLight) {
-    const sound = isLight ? switchOnSound : switchOffSound;
-    sound.currentTime = 0;
-    sound.play().catch(() => {});
-  }
-};
-
-// Handle click on the container (modeToggle)
-modeToggle.addEventListener("click", () => {
-  toggleMode(!body.classList.contains("light-mode"));
-});
-
-// Handle change from the checkbox itself
+// Handle checkbox change
 themeToggle.addEventListener("change", function () {
-  toggleMode(this.checked);
+  const isDark = this.checked;
+  body.classList.toggle("dark", isDark);
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  // Play sound
+  const sound = isDark ? switchOffSound : switchOnSound;
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
 });
+
 
   // Show header when scrolling up
   window.addEventListener("scroll", function () {
