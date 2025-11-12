@@ -601,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.disabled = true;
       submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
 
-      emailjs.sendForm("service_swfnmkm", "template_n0r8ice", this).then(function (response) {
+      emailjs.sendForm("service_m3j08qf", "dtcontact", this).then(function (response) {
           Swal.fire({
             icon: "success",
             title: "Thành công!",
