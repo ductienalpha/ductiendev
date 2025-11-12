@@ -197,33 +197,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-// Toggle with sound
-const body = document.querySelector("body");
-const themeToggle = document.getElementById("themeToggle");
+// Theme Toggle Handler
+const themeToggle = document.getElementById('themeToggle');
 
-// Sound setup
-const switchOnSound = new Audio("./assets/sounds/switch-on.mp3");
-const switchOffSound = new Audio("./assets/sounds/switch-off.mp3");
-switchOnSound.volume = 1.0;
-switchOffSound.volume = 1.0;
-
-// Load saved theme
-const savedTheme = localStorage.getItem("theme") || "dark";
-body.classList.toggle("dark", savedTheme === "dark");
-themeToggle.checked = savedTheme === "dark";
-
-// Handle checkbox change
-themeToggle.addEventListener("change", function () {
-  const isDark = this.checked;
-  body.classList.toggle("dark", isDark);
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-
-  // Play sound
-  const sound = isDark ? switchOffSound : switchOnSound;
-  sound.currentTime = 0;
-  sound.play().catch(() => {});
-});
-
+if (themeToggle) {
+    // Load saved theme
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.toggle('light-mode', currentTheme === 'light');
+    themeToggle.checked = currentTheme === 'light';
+    
+    // Toggle theme on click
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.remove('light-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
 
   // Show header when scrolling up
   window.addEventListener("scroll", function () {
