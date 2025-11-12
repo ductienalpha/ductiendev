@@ -197,42 +197,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Toggle dark/light mode
-  const body = document.querySelector("body");
-  const modeToggle = document.querySelector(".dark-light");
-  const themeToggle = document.getElementById("themeToggle");
-  const savedMode = localStorage.getItem("mode");
-  const switchOnSound = new Audio("./assets/sounds/switch-on.mp3");
-  const switchOffSound = new Audio("./assets/sounds/switch-off.mp3");
-  switchOnSound.volume = 1.0;
-  switchOffSound.volume = 1.0;
+// Toggle dark/light mode with sound
+const body = document.querySelector("body");
+const modeToggle = document.querySelector(".dark-light");
+const themeToggle = document.getElementById("themeToggle");
 
-  const toggleMode = (isDark, skipSound = false) => {
-    const wasDark = body.classList.contains("dark");
-    body.classList.toggle("dark", isDark);
-    modeToggle.classList.toggle("active", isDark);
-    themeToggle.checked = isDark;
-    localStorage.setItem("mode", isDark ? "dark-mode" : "light-mode");
-    if (!skipSound && wasDark !== isDark) {
-      const sound = isDark ? switchOffSound : switchOnSound;
-      sound.currentTime = 0;
-      sound.play().catch(() => {});
-    }
-  };
+// Sound setup
+const switchOnSound = new Audio("./assets/sounds/switch-on.mp3");
+const switchOffSound = new Audio("./assets/sounds/switch-off.mp3");
+switchOnSound.volume = 1.0;
+switchOffSound.volume = 1.0;
 
-  if (savedMode === "dark-mode") {
-    toggleMode(true, true);
-  } else {
-    themeToggle.checked = false;
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "dark";
+body.classList.toggle("light-mode", savedTheme === "light");
+themeToggle.checked = savedTheme === "light";
+
+// Function to toggle mode with optional sound
+const toggleMode = (isLight, skipSound = false) => {
+  const wasLight = body.classList.contains("light-mode");
+  body.classList.toggle("light-mode", isLight);
+  modeToggle.classList.toggle("active", !isLight); // nếu bạn muốn active đúng toggle style
+  themeToggle.checked = isLight;
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+
+  if (!skipSound && wasLight !== isLight) {
+    const sound = isLight ? switchOnSound : switchOffSound;
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
   }
+};
 
-  modeToggle.addEventListener("click", () => {
-    toggleMode(!body.classList.contains("dark"));
-  });
+// Handle click on the container (modeToggle)
+modeToggle.addEventListener("click", () => {
+  toggleMode(!body.classList.contains("light-mode"));
+});
 
-  themeToggle.addEventListener("change", function () {
-    toggleMode(this.checked);
-  });
+// Handle change from the checkbox itself
+themeToggle.addEventListener("change", function () {
+  toggleMode(this.checked);
+});
 
   // Show header when scrolling up
   window.addEventListener("scroll", function () {
