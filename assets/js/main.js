@@ -615,23 +615,23 @@ sr.reveal('.certificate__item', {
   easing: 'easeOutExpo'
 });
 
-// 3. Stagger fade in cho blog carousel (3 ảnh) - Smooth như bạn mô tả
+// 3. Stagger fade in cho blog carousel (3 ảnh) - Xuất hiện từ từ, mượt mà trên mobile
 (function() {
   const carouselItems = document.querySelectorAll('.carousel__item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Stagger fade in: Ảnh 1 ngay lập tức, ảnh 2 sau 800ms (khi ảnh 1 gần xong), ảnh 3 sau 1600ms (khi ảnh 2 gần xong)
+        // Stagger fade in từ từ: Ảnh 1 ngay lập tức, ảnh 2 sau 1000ms, ảnh 3 sau 2000ms (tăng delay để từ từ hơn)
         carouselItems.forEach((item, index) => {
           setTimeout(() => {
-            item.style.transition = 'opacity 1s ease';
+            item.style.transition = 'opacity 1.5s ease'; // Tăng duration lên 1.5s để từ từ hơn
             item.style.opacity = '1';
-          }, index * 800); // Delay 800ms cho mỗi ảnh tiếp theo
+          }, index * 1000); // Delay 1000ms cho mỗi ảnh tiếp theo (từ từ hơn)
         });
         observer.disconnect(); // Chỉ trigger 1 lần, nhưng reset với ScrollReveal
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 }); // Giảm threshold xuống 0.3 để trigger sớm hơn trên mobile
   const carouselWrapper = document.querySelector('.carousel__wrapper');
   if (carouselWrapper) observer.observe(carouselWrapper);
 })();
