@@ -1079,79 +1079,69 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
   closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 });
 
-  // ==========================================
-  // ABOUT CARDS SCROLL REVEAL - ANIME.JS (ĐÃ SỬA)
-  // ==========================================
-  (function() {
-    // Đợi anime.js load xong
-    if (typeof anime === 'undefined') {
-      console.warn('Anime.js not loaded yet, retrying...');
-      setTimeout(arguments.callee, 100);
-      return;
-    }
+// ==========================================
+// SCROLLREVEAL ANIMATIONS
+// ==========================================
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '60px',
+  duration: 2000,
+  delay: 200,
+  opacity: 0,  // Thêm để fade in/out mượt mà
+  easing: 'cubic-bezier(0.5, 0, 0, 1)',
+  reset: true, // QUAN TRỌNG: Biến mất khi scroll ra, xuất hiện lại khi vào lại
+  mobile: true,
+});
 
-    const aboutCards = document.querySelectorAll('.card.about-card');
-    
-    if (aboutCards.length === 0) return;
+// Profile section (giữ nguyên)
+sr.reveal('.profile__border, .profile__name');
 
-    // Set initial state (ẩn ban đầu)
-    aboutCards.forEach(card => {
-      const direction = card.getAttribute('data-reveal');
-      card.style.opacity = '0';
-      card.style.transform = direction === 'right' ? 'translateX(100px)' : 'translateX(-100px)';
-    });
+// Các phần khác (giữ nguyên)
+sr.reveal('.profile__social, .profile_profession, .profile__info-group, .profile__buttons, .projects__card, .skills__area, .resume__area', { 
+  origin: 'bottom' 
+});
 
-    // Function để animate show
-    const animateShow = (card, index) => {
-      anime({
-        targets: card,
-        opacity: [0, 1],
-        translateX: [
-          card.getAttribute('data-reveal') === 'right' ? 100 : -100,
-          0
-        ],
-        duration: 1200,
-        delay: index * 150, // Stagger effect
-        easing: 'easeOutExpo'
-      });
-    };
+// Projects note (giữ nguyên)
+sr.reveal('.note', { 
+  origin: 'left' 
+});
 
-    // Function để animate hide
-    const animateHide = (card) => {
-      anime({
-        targets: card,
-        opacity: [1, 0],
-        translateX: [
-          0,
-          card.getAttribute('data-reveal') === 'right' ? 100 : -100
-        ],
-        duration: 800, // Nhanh hơn khi hide
-        easing: 'easeInExpo'
-      });
-    };
+// Resume time (giữ nguyên)
+sr.reveal('.resume__step__time', { 
+  origin: 'right' 
+});
 
-    // Sử dụng Intersection Observer để detect vào/ra viewport
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const card = entry.target;
-        const cardIndex = Array.from(aboutCards).indexOf(card); // Lấy index cho stagger
+// About icons (old style - nếu còn)
+sr.reveal('.about__box .icon img', { 
+  origin: 'bottom', 
+  scale: 0.9, 
+  rotate: { z: 45 }, 
+  reset: false 
+});
 
-        if (entry.isIntersecting) {
-          // Vào viewport: Animate show
-          animateShow(card, cardIndex);
-        } else {
-          // Ra khỏi viewport: Animate hide
-          animateHide(card);
-        }
-      });
-    }, {
-      threshold: 0.1, // Trigger khi 10% element visible
-      rootMargin: '0px 0px -50px 0px' // Trigger sớm
-    });
+// ⬇️⬇️⬇️ SỬA CHO ABOUT CARDS ⬇️⬇️⬇️
+// About Cards - Slide từ LEFT (xuất hiện từ trái, biến mất về trái)
+sr.reveal('.card.about-card[data-reveal="left"]', { 
+  origin: 'left',       // Slide từ trái vào
+  distance: '100px',    // Khoảng cách slide
+  duration: 1200,       // Thời gian animation
+  delay: 200,           // Delay ban đầu
+  interval: 200,        // Cards xuất hiện lần lượt (stagger)
+  reset: true,          // Biến mất khi scroll ra, xuất hiện lại khi vào lại
+  opacity: 0,           // Fade in/out mượt mà
+  scale: 0.95,          // Nhẹ scale để mượt hơn
+  easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' // Easing mượt
+});
 
-    // Observe từng card
-    aboutCards.forEach(card => {
-      observer.observe(card);
-    });
-  })();
-  
+// About Cards - Slide từ RIGHT (xuất hiện từ phải, biến mất về phải)
+sr.reveal('.card.about-card[data-reveal="right"]', { 
+  origin: 'right',      // Slide từ phải vào
+  distance: '100px',    // Khoảng cách slide
+  duration: 1200,       // Thời gian animation
+  delay: 200,           // Delay ban đầu
+  interval: 200,        // Cards xuất hiện lần lượt (stagger)
+  reset: true,          // Biến mất khi scroll ra, xuất hiện lại khi vào lại
+  opacity: 0,           // Fade in/out mượt mà
+  scale: 0.95,          // Nhẹ scale để mượt hơn
+  easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' // Easing mượt
+});
