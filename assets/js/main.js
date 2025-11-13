@@ -264,22 +264,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ScrollReveal animations
-  const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2000,
-    delay: 200,
-    opacity: 0,
-    easing: 'cubic-bezier(0.5, 0, 0, 1)',
-    reset: true,
-    mobile: true,
-  });
-  sr.reveal(`.profile__border, .profile__name`);
-  sr.reveal(`.profile__social, .profile_profession, .profile__info-group, .profile__buttons, .projects__card, .skills__area, .resume__area`, { origin: 'bottom' });
-  sr.reveal(`.note`, { origin: 'left' });
-  sr.reveal(`.resume__step__time`, { origin: 'right' });
-  sr.reveal(`.about__box .icon img`, { origin: 'bottom', scale: 0.9, rotate: { z: 45 }, reset: false });
+// ==========================================
+// SCROLLREVEAL ANIMATIONS
+// ==========================================
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '60px',
+  duration: 2000,
+  delay: 200,
+  opacity: 0,
+  easing: 'cubic-bezier(0.5, 0, 0, 1)',
+  reset: true, // ← QUAN TRỌNG: true = biến mất khi scroll ra
+  mobile: true,
+});
+
+// Profile section
+sr.reveal('.profile__border, .profile__name');
+
+sr.reveal('.profile__social, .profile_profession, .profile__info-group, .profile__buttons, .projects__card, .skills__area, .resume__area', { 
+  origin: 'bottom' 
+});
+
+// Projects note
+sr.reveal('.note', { 
+  origin: 'left' 
+});
+
+// Resume time
+sr.reveal('.resume__step__time', { 
+  origin: 'right' 
+});
+
+// About icons (old style - nếu còn)
+sr.reveal('.about__box .icon img', { 
+  origin: 'bottom', 
+  scale: 0.9, 
+  rotate: { z: 45 }, 
+  reset: false 
+});
+
+// ⬇️⬇️⬇️ THÊM CODE MỚI CHO ABOUT CARDS ⬇️⬇️⬇️
+
+// About Cards - Slide from LEFT
+sr.reveal('.card.about-card[data-reveal="left"]', { 
+  origin: 'left',
+  distance: '100px',
+  duration: 1200,
+  delay: 200,
+  interval: 200, // Cards xuất hiện lần lượt
+  reset: true,   // Biến mất khi scroll ra ngoài
+  opacity: 0,
+  scale: 0.95,
+  easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+});
+
+// About Cards - Slide from RIGHT
+sr.reveal('.card.about-card[data-reveal="right"]', { 
+  origin: 'right',
+  distance: '100px',
+  duration: 1200,
+  delay: 200,
+  interval: 200, // Cards xuất hiện lần lượt
+  reset: true,   // Biến mất khi scroll ra ngoài
+  opacity: 0,
+  scale: 0.95,
+  easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+});
 
   // Typed.js for typing animation in header
   new Typed(".typing-text", {
