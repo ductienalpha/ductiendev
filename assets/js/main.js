@@ -586,178 +586,178 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
 
 
 // ==========================================
-// CAROUSEL & CERTIFICATES ANIMATIONS (SMOOTH & COOL - CHỈNH SỬA CHO XUẤT HIỆN CHẬM NHƯ SÓNG, HOVER PHỒNG LÊN VÀ XOAY NGANG VỚI ANIME.JS)
+// CAROUSEL & CERTIFICATES ANIMATIONS (GIỮ HIỆU ỨNG SÓNG SCROLLREVEAL, THÊM HOVER PHỒNG RA VỚI ANIME.JS, GIỮ LOGIC CLICK MỞ POPUP)
 // ==========================================
 
-// 1. ScrollReveal cho carousel items (3 ảnh blog) - Stagger fade in mượt mà, chậm như sóng, reset như card/project
+// 1. ScrollReveal cho carousel items (3 ảnh blog) - Hiệu ứng sóng: xuất hiện chậm khi scroll đến, biến mất khi ra
 sr.reveal('.carousel__item', { 
   origin: 'bottom',
   distance: '50px',
-  duration: 1500,  // Chậm hơn để mượt như sóng
+  duration: 1500,  // Chậm như sóng
   delay: 300,
-  interval: 400,   // Stagger: ảnh 1 trước, ảnh 2 sau 400ms, ảnh 3 sau 800ms
-  reset: true,     // QUAN TRỌNG: Biến mất khi scroll ra, xuất hiện lại khi vào (giống card/project)
-  opacity: 0,
-  scale: 0.9,
-  easing: 'easeOutExpo'  // Easing mềm mại cho lướt vào như sóng
-});
-
-// 2. ScrollReveal cho certificate items (4 ảnh chứng chỉ) - Tương tự, reset như card/project
-sr.reveal('.certificate__item', { 
-  origin: 'bottom',
-  distance: '50px',
-  duration: 1500,
-  delay: 300,
-  interval: 300,   // Stagger mượt
+  interval: 400,   // Stagger: ảnh xuất hiện lần lượt
   reset: true,     // Biến mất khi scroll ra, xuất hiện lại khi vào
   opacity: 0,
   scale: 0.9,
   easing: 'easeOutExpo'
 });
 
-// (Đã loại bỏ phần 3 - IntersectionObserver - vì nó làm xuất hiện ngay, không reset. ScrollReveal đã xử lý hết)
-
-// 4. Hover effect cho carousel items (xoay ngang, phồng to mượt với anime.js)
-document.querySelectorAll('.carousel__item img').forEach(img => {
-  img.addEventListener('mouseenter', () => {
-    anime({
-      targets: img,
-      scale: 1.1,        // Phồng to ra một chút
-      rotateY: 0,        // Xoay về ngang (reset nếu bị nghiêng)
-      duration: 500,     // Thời gian mượt (0.5s)
-      easing: 'easeOutExpo'  // Easing mềm mại
-    });
-  });
-  img.addEventListener('mouseleave', () => {
-    anime({
-      targets: img,
-      scale: 1,          // Trở về bình thường
-      rotateY: 0,        // Giữ ngang (hoặc thay đổi nếu cần nghiêng lại)
-      duration: 500,     // Thời gian mượt
-      easing: 'easeOutExpo'
-    });
-  });
+// 2. ScrollReveal cho certificate items (4 ảnh chứng chỉ) - Hiệu ứng sóng tương tự
+sr.reveal('.certificate__item', { 
+  origin: 'bottom',
+  distance: '50px',
+  duration: 1500,
+  delay: 300,
+  interval: 300,
+  reset: true,
+  opacity: 0,
+  scale: 0.9,
+  easing: 'easeOutExpo'
 });
 
-// 5. Hover effect cho certificate items (xoay ngang, phồng to mượt với anime.js)
-document.querySelectorAll('.certificate__item img').forEach(img => {
-  img.addEventListener('mouseenter', () => {
+// Handle carousel items (photos) - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
+const carouselItems = document.querySelectorAll(".carousel__item");
+carouselItems.forEach((item) => {
+  // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
+  const imgElement = item.querySelector("img");
+  imgElement.addEventListener('mouseenter', () => {
     anime({
-      targets: img,
+      targets: imgElement,
       scale: 1.1,        // Phồng to ra một chút
-      rotateY: 0,        // Xoay về ngang
+      rotateY: 0,        // Xoay về ngang (nếu bị nghiêng)
       duration: 500,     // Mượt
       easing: 'easeOutExpo'
     });
   });
-  img.addEventListener('mouseleave', () => {
+  imgElement.addEventListener('mouseleave', () => {
     anime({
-      targets: img,
+      targets: imgElement,
       scale: 1,          // Trở về bình thường
       rotateY: 0,        // Giữ ngang
       duration: 500,
       easing: 'easeOutExpo'
     });
   });
-});
 
-// 6. Animate popup open/close (fade in/out cho cả carousel và certificates)
-const originalPopupClose = popupClose.onclick; // Backup original
-popupClose.onclick = function() {
-  // Fade out popup
-  popupOverlay.style.transition = 'opacity 0.3s ease';
-  popupOverlay.style.opacity = '0';
-  setTimeout(() => {
-    popupOverlay.classList.remove("active");
-    popupOverlay.style.opacity = '1'; // Reset for next open
-    document.body.style.overflow = "";
-  }, 300);
-  if (originalPopupClose) originalPopupClose.call(this);
-};
-
-// Animate popup open
-function animatePopupOpen() {
-  popupOverlay.style.opacity = '0';
-  popupOverlay.classList.add("active");
-  setTimeout(() => {
-    popupOverlay.style.transition = 'opacity 0.3s ease';
-    popupOverlay.style.opacity = '1';
-  }, 10); // Small delay để transition work
-}
-
-// Hook vào popup open events
-const originalCarouselClick = carouselItems.forEach(item => item.onclick); // Backup
-carouselItems.forEach(item => {
-  item.onclick = function() {
-    animatePopupOpen();
-    // Gọi logic gốc
+  // Click event: Mở popup như script cũ (GIỮ NGUYÊN)
+  item.addEventListener("click", function () {
     const imgElement = this.querySelector("img");
     const titleElement = this.querySelector(".popup__title");
     const timeElement = this.querySelector(".popup__time");
     const captionElement = this.querySelector(".popup__caption");
+
+    // Setup popup for photos
     popupImage.src = imgElement.src;
     popupImage.alt = imgElement.alt;
     popupTitle.textContent = titleElement.textContent;
+
+    // Show photo specific elements, hide certificate elements
     popupTime.textContent = timeElement.textContent;
-    popupCaption.textContent = captionElement.textContent;
     popupTime.style.display = "inline-block";
+    popupCaption.textContent = captionElement.textContent;
     popupCaption.style.display = "block";
     popupIssuer.style.display = "none";
     popupDate.style.display = "none";
+
+    // Hide navigation for photos
     popupNavigation.classList.add("photo-mode");
     isPhotoMode = true;
+
+    popupOverlay.classList.add("active");
     document.body.style.overflow = "hidden";
-  };
+  });
 });
 
-const originalCertificateClick = certificateItems.forEach(item => item.onclick); // Backup
+// Handle certificate items - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
+certificateItems = document.querySelectorAll(".certificate__item");
 certificateItems.forEach((item, index) => {
-  item.onclick = function() {
-    animatePopupOpen();
-    // Gọi logic gốc
-    const imgElement = item.querySelector("img");
-    const titleElement = item.querySelector(".certificate__title");
-    const issuerElement = item.querySelector(".certificate__issuer");
-    const dateElement = item.querySelector(".certificate__date");
+  // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
+  const imgElement = item.querySelector("img");
+  imgElement.addEventListener('mouseenter', () => {
+    anime({
+      targets: imgElement,
+      scale: 1.1,        // Phồng to ra một chút
+      rotateY: 0,        // Xoay về ngang
+      duration: 500,
+      easing: 'easeOutExpo'
+    });
+  });
+  imgElement.addEventListener('mouseleave', () => {
+    anime({
+      targets: imgElement,
+      scale: 1,
+      rotateY: 0,
+      duration: 500,
+      easing: 'easeOutExpo'
+    });
+  });
+
+  // Click event: Mở popup như script cũ (GIỮ NGUYÊN)
+  item.addEventListener("click", function () {
+    const imgElement = this.querySelector("img");
+    const titleElement = this.querySelector(".certificate__title");
+    const issuerElement = this.querySelector(".certificate__issuer");
+    const dateElement = this.querySelector(".certificate__date");
+
+    // Save current certificate index
     currentCertificateIndex = index;
-    updateCertificatePopup(imgElement, titleElement, issuerElement, dateElement);
+
+    // Setup popup for certificates
+    updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement );
+
+    // Show navigation for certificates
     popupNavigation.classList.remove("photo-mode");
     isPhotoMode = false;
+
+    popupOverlay.classList.add("active");
     document.body.style.overflow = "hidden";
-  };
+  });
 });
 
-// 7. Smooth transition cho certificate popup prev/next
-const originalPopupPrev = popupPrev.onclick;
-popupPrev.onclick = function() {
-  if (isPhotoMode) return;
-  // Fade out current image
-  popupImage.style.transition = 'opacity 0.3s ease';
-  popupImage.style.opacity = '0';
-  setTimeout(() => {
-    if (originalPopupPrev) originalPopupPrev.call(this);
-    // Fade in new image
-    setTimeout(() => {
-      popupImage.style.opacity = '1';
-    }, 10);
-  }, 300);
-};
+// Function to update certificate popup content (GIỮ NGUYÊN như script cũ)
+function updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement ) {
+  popupImage.src = imgElement.src;
+  popupImage.alt = imgElement.alt;
+  popupTitle.textContent = titleElement.textContent;
 
-const originalPopupNext = popupNext.onclick;
-popupNext.onclick = function() {
-  if (isPhotoMode) return;
-  // Fade out current image
-  popupImage.style.transition = 'opacity 0.3s ease';
-  popupImage.style.opacity = '0';
-  setTimeout(() => {
-    if (originalPopupNext) originalPopupNext.call(this);
-    // Fade in new image
-    setTimeout(() => {
-      popupImage.style.opacity = '1';
-    }, 10);
-  }, 300);
-};
+  // Show certificate specific elements, hide photo elements
+  popupIssuer.textContent = issuerElement.textContent;
+  popupDate.textContent = dateElement.textContent;
+  popupIssuer.style.display = "inline-block";
+  popupDate.style.display = "inline-block";
+  popupTime.style.display = "none";
+  popupCaption.style.display = "none";
+}
 
+// Navigate to previous certificate (GIỮ NGUYÊN như script cũ)
+popupPrev.addEventListener("click", function () {
+  if (isPhotoMode) return;
+
+  currentCertificateIndex = (currentCertificateIndex - 1 + certificateItems.length) % certificateItems.length;
+  const item = certificateItems[currentCertificateIndex];
+
+  const imgElement = item.querySelector("img");
+  const titleElement = item.querySelector(".certificate__title");
+  const issuerElement = item.querySelector(".certificate__issuer");
+  const dateElement = item.querySelector(".certificate__date");
+
+  updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement );
+});
+
+// Navigate to next certificate (GIỮ NGUYÊN như script cũ)
+popupNext.addEventListener("click", function () {
+  if (isPhotoMode) return;
+
+  currentCertificateIndex = (currentCertificateIndex + 1) % certificateItems.length;
+  const item = certificateItems[currentCertificateIndex];
+
+  const imgElement = item.querySelector("img");
+  const titleElement = item.querySelector(".certificate__title");
+  const issuerElement = item.querySelector(".certificate__issuer");
+  const dateElement = item.querySelector(".certificate__date");
+
+  updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement );
+});
 
   // Star animation
   // function initStarAnimation() {
