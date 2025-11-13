@@ -1134,7 +1134,7 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .card-inner {
