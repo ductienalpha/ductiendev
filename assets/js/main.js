@@ -586,7 +586,7 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
 
 
 // ==========================================
-// CAROUSEL & CERTIFICATES ANIMATIONS (GIỮ HIỆU ỨNG SÓNG SCROLLREVEAL, THÊM HOVER PHỒNG RA VỚI ANIME.JS, GIỮ LOGIC CLICK MỞ POPUP - SỬA LỖI KHAI BÁO BIẾN)
+// CAROUSEL & CERTIFICATES ANIMATIONS (GIỮ HIỆU ỨNG SÓNG SCROLLREVEAL, THÊM HOVER PHỒNG RA TRÊN ITEM VỚI ANIME.JS, GIỮ LOGIC CLICK MỞ POPUP - SỬA LỖI KHAI BÁO TRÙNG)
 // ==========================================
 
 // 1. ScrollReveal cho carousel items (3 ảnh blog) - Hiệu ứng sóng: xuất hiện chậm khi scroll đến, biến mất khi ra
@@ -615,12 +615,14 @@ sr.reveal('.certificate__item', {
   easing: 'easeOutExpo'
 });
 
-// Handle carousel items (photos) - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
-// (Không khai báo lại carouselItems để tránh lỗi)
-document.querySelectorAll(".carousel__item").forEach((item) => {
-  // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
-  const imgElement = item.querySelector("img");
-  imgElement.addEventListener('mouseenter', () => {
+// Nếu carouselItems chưa khai báo ở đâu đó, uncomment dòng dưới:
+// const carouselItems = document.querySelectorAll(".carousel__item");
+
+// Handle carousel items (photos) - THÊM hover phồng ra trên item (di chuột vào item), GIỮ logic click mở popup như script cũ
+carouselItems.forEach((item) => {  // Sử dụng lại biến đã khai báo
+  // Hover effect: Di chuột vào item → phồng ra ảnh bên trong mượt với anime.js (THÊM MỚI)
+  item.addEventListener('mouseenter', () => {
+    const imgElement = item.querySelector("img");
     anime({
       targets: imgElement,
       scale: 1.1,        // Phồng to ra một chút
@@ -629,7 +631,8 @@ document.querySelectorAll(".carousel__item").forEach((item) => {
       easing: 'easeOutExpo'
     });
   });
-  imgElement.addEventListener('mouseleave', () => {
+  item.addEventListener('mouseleave', () => {
+    const imgElement = item.querySelector("img");
     anime({
       targets: imgElement,
       scale: 1,          // Trở về bình thường
@@ -639,7 +642,7 @@ document.querySelectorAll(".carousel__item").forEach((item) => {
     });
   });
 
-  // Click event: Mở popup như script cũ (GIỮ NGUYÊN)
+  // Click event: Bấm vào item → mở popup như script cũ (GIỮ NGUYÊN)
   item.addEventListener("click", function () {
     const imgElement = this.querySelector("img");
     const titleElement = this.querySelector(".popup__title");
@@ -668,12 +671,14 @@ document.querySelectorAll(".carousel__item").forEach((item) => {
   });
 });
 
-// Handle certificate items - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
-// (Không khai báo lại certificateItems để tránh lỗi)
-document.querySelectorAll(".certificate__item").forEach((item, index) => {
-  // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
-  const imgElement = item.querySelector("img");
-  imgElement.addEventListener('mouseenter', () => {
+// Nếu certificateItems chưa khai báo ở đâu đó, uncomment dòng dưới:
+// certificateItems = document.querySelectorAll(".certificate__item");
+
+// Handle certificate items - THÊM hover phồng ra trên item (di chuột vào item), GIỮ logic click mở popup như script cũ
+certificateItems.forEach((item, index) => {  // Sử dụng lại biến đã khai báo
+  // Hover effect: Di chuột vào item → phồng ra ảnh bên trong mượt với anime.js (THÊM MỚI)
+  item.addEventListener('mouseenter', () => {
+    const imgElement = item.querySelector("img");
     anime({
       targets: imgElement,
       scale: 1.1,        // Phồng to ra một chút
@@ -682,7 +687,8 @@ document.querySelectorAll(".certificate__item").forEach((item, index) => {
       easing: 'easeOutExpo'
     });
   });
-  imgElement.addEventListener('mouseleave', () => {
+  item.addEventListener('mouseleave', () => {
+    const imgElement = item.querySelector("img");
     anime({
       targets: imgElement,
       scale: 1,
@@ -692,7 +698,7 @@ document.querySelectorAll(".certificate__item").forEach((item, index) => {
     });
   });
 
-  // Click event: Mở popup như script cũ (GIỮ NGUYÊN)
+  // Click event: Bấm vào item → mở popup như script cũ (GIỮ NGUYÊN)
   item.addEventListener("click", function () {
     const imgElement = this.querySelector("img");
     const titleElement = this.querySelector(".certificate__title");
@@ -758,7 +764,6 @@ popupNext.addEventListener("click", function () {
 
   updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement );
 });
-
 
   // Star animation
   // function initStarAnimation() {
