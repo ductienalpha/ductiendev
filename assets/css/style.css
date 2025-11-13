@@ -1713,11 +1713,6 @@ body.light .card.about-card ul li {
     display: block;
 }
 
-.carousel__item:hover {
-    transform: rotate(0deg) scale(1.16);
-    z-index: 10;
-}
-
 .carousel__item .popup__title,
 .carousel__item .popup__time,
 .carousel__item .popup__caption {
