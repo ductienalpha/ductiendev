@@ -1028,3 +1028,28 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
   chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
   closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 });
+
+// ==========================================
+// ABOUT CARDS SCROLL REVEAL
+// ==========================================
+(function() {
+  const aboutCards = document.querySelectorAll('.card.about-card');
+  
+  if (aboutCards.length === 0) return;
+
+  const revealOnScroll = () => {
+    aboutCards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (cardTop < windowHeight * 0.8) {
+        card.classList.add('revealed');
+      }
+    });
+  };
+
+  revealOnScroll();
+  window.addEventListener('scroll', revealOnScroll, { passive: true });
+  window.addEventListener('resize', revealOnScroll, { passive: true });
+})();
+
