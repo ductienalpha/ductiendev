@@ -620,27 +620,29 @@ sr.reveal('.certificate__item', {
 
 // Handle carousel items (photos) - THÊM hover phồng ra trên item (di chuột vào item), GIỮ logic click mở popup như script cũ
 carouselItems.forEach((item) => {  // Sử dụng lại biến đã khai báo
-  // Hover effect: Di chuột vào item → phồng ra ảnh bên trong mượt với anime.js (THÊM MỚI)
-  item.addEventListener('mouseenter', () => {
-    const imgElement = item.querySelector("img");
-    anime({
-      targets: imgElement,
-      scale: 1.1,        // Phồng to ra một chút
-      rotateY: 0,        // Xoay về ngang (nếu bị nghiêng)
-      duration: 500,     // Mượt
-      easing: 'easeOutExpo'
-    });
+  // Hover effect: Di chuột vào item → phồng ra + xoay nhẹ
+item.addEventListener('mouseenter', () => {
+  const imgElement = item.querySelector("img");
+  anime({
+    targets: imgElement,
+    scale: 1.1,        // Phóng to nhẹ
+    rotateY: 15,       // Xoay nhẹ qua phải
+    duration: 600,
+    easing: 'easeOutElastic(1, .8)'
   });
-  item.addEventListener('mouseleave', () => {
-    const imgElement = item.querySelector("img");
-    anime({
-      targets: imgElement,
-      scale: 1,          // Trở về bình thường
-      rotateY: 0,        // Giữ ngang
-      duration: 500,
-      easing: 'easeOutExpo'
-    });
+});
+
+item.addEventListener('mouseleave', () => {
+  const imgElement = item.querySelector("img");
+  anime({
+    targets: imgElement,
+    scale: 1,          // Quay lại bình thường
+    rotateY: 0,        // Xoay lại thẳng
+    duration: 600,
+    easing: 'easeOutExpo'
   });
+});
+
 
   // Click event: Bấm vào item → mở popup như script cũ (GIỮ NGUYÊN)
   item.addEventListener("click", function () {
