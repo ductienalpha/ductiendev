@@ -1030,26 +1030,71 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
 });
 
 // ==========================================
-// ABOUT CARDS SCROLL REVEAL
+// ABOUT CARDS SCROLL REVEAL - ANIME.JS
 // ==========================================
 (function() {
+  // Đợi anime.js load xong
+  if (typeof anime === 'undefined') {
+    console.warn('Anime.js not loaded yet, retrying...');
+    setTimeout(arguments.callee, 100);
+    return;
+  }
+
   const aboutCards = document.querySelectorAll('.card.about-card');
   
   if (aboutCards.length === 0) return;
 
+  // Set initial state
+  aboutCards.forEach(card => {
+    const direction = card.getAttribute('data-reveal');
+    card.style.opacity = '0';
+    card.style.transform = direction === 'right' ? 'translateX(100px)' : 'translateX(-100px)';
+  });
+
+  // Scroll reveal function
   const revealOnScroll = () => {
-    aboutCards.forEach(card => {
+    aboutCards.forEach((card, index) => {
+      // Skip if already revealed
+      if (card.classList.contains('revealed')) return;
+
       const cardTop = card.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
-      
-      if (cardTop < windowHeight * 0.8) {
+      const revealPoint = windowHeight * 0.8;
+
+      if (cardTop < revealPoint) {
         card.classList.add('revealed');
+        
+        // Animate with anime.js
+        anime({
+          targets: card,
+          opacity: [0, 1],
+          translateX: [
+            card.getAttribute('data-reveal') === 'right' ? 100 : -100,
+            0
+          ],
+          duration: 1200,
+          delay: index * 150, // Stagger effect
+          easing: 'easeOutExpo'
+        });
       }
     });
   };
 
+  // Initial check
   revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll, { passive: true });
+
+  // Listen to scroll
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        revealOnScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Listen to resize
   window.addEventListener('resize', revealOnScroll, { passive: true });
 })();
-
