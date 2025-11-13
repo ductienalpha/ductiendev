@@ -586,7 +586,7 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
 
 
 // ==========================================
-// CAROUSEL & CERTIFICATES ANIMATIONS (GIỮ HIỆU ỨNG SÓNG SCROLLREVEAL, THÊM HOVER PHỒNG RA VỚI ANIME.JS, GIỮ LOGIC CLICK MỞ POPUP)
+// CAROUSEL & CERTIFICATES ANIMATIONS (GIỮ HIỆU ỨNG SÓNG SCROLLREVEAL, THÊM HOVER PHỒNG RA VỚI ANIME.JS, GIỮ LOGIC CLICK MỞ POPUP - SỬA LỖI KHAI BÁO BIẾN)
 // ==========================================
 
 // 1. ScrollReveal cho carousel items (3 ảnh blog) - Hiệu ứng sóng: xuất hiện chậm khi scroll đến, biến mất khi ra
@@ -616,8 +616,8 @@ sr.reveal('.certificate__item', {
 });
 
 // Handle carousel items (photos) - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
-const carouselItems = document.querySelectorAll(".carousel__item");
-carouselItems.forEach((item) => {
+// (Không khai báo lại carouselItems để tránh lỗi)
+document.querySelectorAll(".carousel__item").forEach((item) => {
   // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
   const imgElement = item.querySelector("img");
   imgElement.addEventListener('mouseenter', () => {
@@ -669,8 +669,8 @@ carouselItems.forEach((item) => {
 });
 
 // Handle certificate items - Giữ logic click mở popup như script cũ, THÊM hover phồng ra với anime.js
-certificateItems = document.querySelectorAll(".certificate__item");
-certificateItems.forEach((item, index) => {
+// (Không khai báo lại certificateItems để tránh lỗi)
+document.querySelectorAll(".certificate__item").forEach((item, index) => {
   // Hover effect: Phồng ra mượt với anime.js (THÊM MỚI)
   const imgElement = item.querySelector("img");
   imgElement.addEventListener('mouseenter', () => {
@@ -758,6 +758,7 @@ popupNext.addEventListener("click", function () {
 
   updateCertificatePopup( imgElement, titleElement, issuerElement, dateElement );
 });
+
 
   // Star animation
   // function initStarAnimation() {
