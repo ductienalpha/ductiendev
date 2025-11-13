@@ -1080,7 +1080,7 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
 });
 
 // ==========================================
-// ABOUT CARDS SCROLL REVEAL - ANIME.JS
+// ABOUT CARDS SCROLL REVEAL - ANIME.JS (ĐÃ SỬA)
 // ==========================================
 (function() {
   // Đợi anime.js load xong
@@ -1094,57 +1094,68 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
   
   if (aboutCards.length === 0) return;
 
-  // Set initial state
+  // Set initial state (ẩn ban đầu)
   aboutCards.forEach(card => {
     const direction = card.getAttribute('data-reveal');
     card.style.opacity = '0';
     card.style.transform = direction === 'right' ? 'translateX(100px)' : 'translateX(-100px)';
   });
 
-  // Scroll reveal function
-  const revealOnScroll = () => {
-    aboutCards.forEach((card, index) => {
-      // Skip if already revealed
-      if (card.classList.contains('revealed')) return;
-
-      const cardTop = card.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      const revealPoint = windowHeight * 0.8;
-
-      if (cardTop < revealPoint) {
-        card.classList.add('revealed');
-        
-        // Animate with anime.js
-        anime({
-          targets: card,
-          opacity: [0, 1],
-          translateX: [
-            card.getAttribute('data-reveal') === 'right' ? 100 : -100,
-            0
-          ],
-          duration: 1200,
-          delay: index * 150, // Stagger effect
-          easing: 'easeOutExpo'
-        });
-      }
+  // Function để animate show
+  const animateShow = (card, index) => {
+    anime({
+      targets: card,
+      opacity: [0, 1],
+      translateX: [
+        card.getAttribute('data-reveal') === 'right' ? 100 : -100,
+        0
+      ],
+      duration: 1200,
+      delay: index * 150, // Stagger effect
+      easing: 'easeOutExpo'
     });
   };
 
-  // Initial check
-  revealOnScroll();
+  // Function để animate hide
+  const animateHide = (card) => {
+    anime({
+      targets: card,
+      opacity: [1, 0],
+      translateX: [
+        0,
+        card.getAttribute('data-reveal') === 'right' ? 100 : -100
+      ],
+      duration: 800, // Nhanh hơn khi hide
+      easing: 'easeInExpo'
+    });
+  };
 
-  // Listen to scroll
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        revealOnScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
+  // Sử dụng Intersection Observer để detect vào/ra viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      const card = entry.target;
+      const cardIndex = Array.from(aboutCards).indexOf(card); // Lấy index cho stagger
+
+      if (entry.isIntersecting) {
+        // Vào viewport: Animate show
+        animateShow(card, cardIndex);
+      } else {
+        // Ra khỏi viewport: Animate hide
+        animateHide(card);
+      }
+    });
+  }, {
+    threshold: 0.1, // Trigger khi 10% element visible (có thể điều chỉnh, ví dụ 0.5 cho 50%)
+    rootMargin: '0px 0px -50px 0px' // Trigger sớm hơn một chút (có thể điều chỉnh)
+  });
+
+  // Observe từng card
+  aboutCards.forEach(card => {
+    observer.observe(card);
+  });
+
+  // Listen to resize (nếu cần, nhưng Intersection Observer tự handle)
+  window.addEventListener('resize', () => {
+    // Không cần làm gì thêm, observer tự động recalculate
   }, { passive: true });
-
-  // Listen to resize
-  window.addEventListener('resize', revealOnScroll, { passive: true });
 })();
