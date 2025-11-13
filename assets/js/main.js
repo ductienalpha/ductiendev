@@ -626,7 +626,7 @@ item.addEventListener('mouseenter', () => {
   anime({
     targets: imgElement,
     scale: 1.1,        // Phóng to nhẹ
-    rotateY: 15,       // Xoay nhẹ qua phải
+    rotateY: 1.5,       // Xoay nhẹ qua phải
     duration: 600,
     easing: 'easeOutElastic(1, .8)'
   });
@@ -638,7 +638,7 @@ item.addEventListener('mouseleave', () => {
     targets: imgElement,
     scale: 1,          // Quay lại bình thường
     rotateY: 0,        // Xoay lại thẳng
-    duration: 600,
+    duration: 500,
     easing: 'easeOutExpo'
   });
 });
