@@ -1711,6 +1711,13 @@ body.light .card.about-card ul li {
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center center;   /* Giúp phóng/ xoay ảnh từ giữa */
+    transition: transform 0.3s ease;   /* Mượt hơn nếu anime.js không kịp load */
+}
+
+.carousel__item:hover {
+    transform: rotate(0deg) scale(1.16);
+    z-index: 10;
 }
 
 .carousel__item .popup__title,
