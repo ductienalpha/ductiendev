@@ -624,9 +624,9 @@ sr.reveal('.certificate__item', {
         // Stagger fade in từ từ: Ảnh 1 ngay lập tức, ảnh 2 sau 1000ms, ảnh 3 sau 2000ms (tăng delay để từ từ hơn)
         carouselItems.forEach((item, index) => {
           setTimeout(() => {
-            item.style.transition = 'opacity 2.5s ease'; // Tăng duration lên 1.5s để từ từ hơn
+            item.style.transition = 'opacity 2.0s ease'; // Tăng duration lên 1.5s để từ từ hơn
             item.style.opacity = '1';
-          }, index * 2000); // Delay 1000ms cho mỗi ảnh tiếp theo (từ từ hơn)
+          }, index * 1000); // Delay 1000ms cho mỗi ảnh tiếp theo (từ từ hơn)
         });
         observer.disconnect(); // Chỉ trigger 1 lần, nhưng reset với ScrollReveal
       }
