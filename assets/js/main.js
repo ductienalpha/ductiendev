@@ -197,32 +197,45 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-// Toggle with sound
-const body = document.querySelector("body");
-const themeToggle = document.getElementById("themeToggle");
+// ==========================================
+// THEME TOGGLE - DARK/LIGHT MODE
+// ==========================================
+(function() {
+  const body = document.querySelector("body");
+  const themeToggle = document.getElementById("themeToggle");
 
-// Sound setup
-const switchOnSound = new Audio("./assets/sounds/switch-on.mp3");
-const switchOffSound = new Audio("./assets/sounds/switch-off.mp3");
-switchOnSound.volume = 1.0;
-switchOffSound.volume = 1.0;
+  // Exit if toggle not found
+  if (!themeToggle) return;
 
-// Load saved theme
-const savedTheme = localStorage.getItem("theme") || "dark";
-body.classList.toggle("dark", savedTheme === "dark");
-themeToggle.checked = savedTheme === "dark";
+  // Load saved theme from localStorage (default: dark)
+  const savedTheme = localStorage.getItem("theme") || "dark";
 
-// Handle checkbox change
-themeToggle.addEventListener("change", function () {
-  const isDark = this.checked;
-  body.classList.toggle("dark", isDark);
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  // Apply theme on page load
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    body.classList.remove("light");
+    themeToggle.checked = false; // Unchecked = Dark mode (moon + stars)
+  } else {
+    body.classList.add("light");
+    body.classList.remove("dark");
+    themeToggle.checked = true; // Checked = Light mode (sun + clouds)
+  }
 
-  // Play sound
-  const sound = isDark ? switchOffSound : switchOnSound;
-  sound.currentTime = 0;
-  sound.play().catch(() => {});
-});
+  // Handle toggle change
+  themeToggle.addEventListener("change", function() {
+    if (this.checked) {
+      // Switch to Light mode
+      body.classList.add("light");
+      body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      // Switch to Dark mode
+      body.classList.add("dark");
+      body.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+})();
 
 
 
