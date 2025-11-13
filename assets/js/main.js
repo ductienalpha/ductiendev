@@ -586,7 +586,7 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
 
 
 // ==========================================
-// CAROUSEL & CERTIFICATES ANIMATIONS (SMOOTH & COOL - CHỈNH SỬA CHO XUẤT HIỆN CHẬM NHƯ SÓNG, HOVER PHỒNG LÊN, VÀ RESET NHƯ CARD/PROJECT)
+// CAROUSEL & CERTIFICATES ANIMATIONS (SMOOTH & COOL - CHỈNH SỬA CHO XUẤT HIỆN CHẬM NHƯ SÓNG, HOVER PHỒNG LÊN VÀ XOAY NGANG VỚI ANIME.JS)
 // ==========================================
 
 // 1. ScrollReveal cho carousel items (3 ảnh blog) - Stagger fade in mượt mà, chậm như sóng, reset như card/project
@@ -617,18 +617,48 @@ sr.reveal('.certificate__item', {
 
 // (Đã loại bỏ phần 3 - IntersectionObserver - vì nó làm xuất hiện ngay, không reset. ScrollReveal đã xử lý hết)
 
-// 4. Hover effect cho carousel items (zoom nhẹ, phồng lên mượt mà)
+// 4. Hover effect cho carousel items (xoay ngang, phồng to mượt với anime.js)
 document.querySelectorAll('.carousel__item img').forEach(img => {
-  img.style.transition = 'transform 0.5s ease';  // Mượt
-  img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.1)');  // Phồng lên 1.1
-  img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+  img.addEventListener('mouseenter', () => {
+    anime({
+      targets: img,
+      scale: 1.1,        // Phồng to ra một chút
+      rotateY: 0,        // Xoay về ngang (reset nếu bị nghiêng)
+      duration: 500,     // Thời gian mượt (0.5s)
+      easing: 'easeOutExpo'  // Easing mềm mại
+    });
+  });
+  img.addEventListener('mouseleave', () => {
+    anime({
+      targets: img,
+      scale: 1,          // Trở về bình thường
+      rotateY: 0,        // Giữ ngang (hoặc thay đổi nếu cần nghiêng lại)
+      duration: 500,     // Thời gian mượt
+      easing: 'easeOutExpo'
+    });
+  });
 });
 
-// 5. Hover effect cho certificate items (scale up, phồng lên mượt mà)
+// 5. Hover effect cho certificate items (xoay ngang, phồng to mượt với anime.js)
 document.querySelectorAll('.certificate__item img').forEach(img => {
-  img.style.transition = 'transform 0.5s ease';
-  img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.1)');
-  img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+  img.addEventListener('mouseenter', () => {
+    anime({
+      targets: img,
+      scale: 1.1,        // Phồng to ra một chút
+      rotateY: 0,        // Xoay về ngang
+      duration: 500,     // Mượt
+      easing: 'easeOutExpo'
+    });
+  });
+  img.addEventListener('mouseleave', () => {
+    anime({
+      targets: img,
+      scale: 1,          // Trở về bình thường
+      rotateY: 0,        // Giữ ngang
+      duration: 500,
+      easing: 'easeOutExpo'
+    });
+  });
 });
 
 // 6. Animate popup open/close (fade in/out cho cả carousel và certificates)
@@ -727,6 +757,7 @@ popupNext.onclick = function() {
     }, 10);
   }, 300);
 };
+
 
   // Star animation
   // function initStarAnimation() {
