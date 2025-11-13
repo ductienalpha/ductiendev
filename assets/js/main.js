@@ -1079,83 +1079,79 @@ Với tinh thần sáng tạo, tự học và chia sẻ, Chu Đức Tiến khôn
   closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 });
 
-// ==========================================
-// ABOUT CARDS SCROLL REVEAL - ANIME.JS (ĐÃ SỬA)
-// ==========================================
-(function() {
-  // Đợi anime.js load xong
-  if (typeof anime === 'undefined') {
-    console.warn('Anime.js not loaded yet, retrying...');
-    setTimeout(arguments.callee, 100);
-    return;
-  }
+  // ==========================================
+  // ABOUT CARDS SCROLL REVEAL - ANIME.JS (ĐÃ SỬA)
+  // ==========================================
+  (function() {
+    // Đợi anime.js load xong
+    if (typeof anime === 'undefined') {
+      console.warn('Anime.js not loaded yet, retrying...');
+      setTimeout(arguments.callee, 100);
+      return;
+    }
 
-  const aboutCards = document.querySelectorAll('.card.about-card');
+    const aboutCards = document.querySelectorAll('.card.about-card');
+    
+    if (aboutCards.length === 0) return;
+
+    // Set initial state (ẩn ban đầu)
+    aboutCards.forEach(card => {
+      const direction = card.getAttribute('data-reveal');
+      card.style.opacity = '0';
+      card.style.transform = direction === 'right' ? 'translateX(100px)' : 'translateX(-100px)';
+    });
+
+    // Function để animate show
+    const animateShow = (card, index) => {
+      anime({
+        targets: card,
+        opacity: [0, 1],
+        translateX: [
+          card.getAttribute('data-reveal') === 'right' ? 100 : -100,
+          0
+        ],
+        duration: 1200,
+        delay: index * 150, // Stagger effect
+        easing: 'easeOutExpo'
+      });
+    };
+
+    // Function để animate hide
+    const animateHide = (card) => {
+      anime({
+        targets: card,
+        opacity: [1, 0],
+        translateX: [
+          0,
+          card.getAttribute('data-reveal') === 'right' ? 100 : -100
+        ],
+        duration: 800, // Nhanh hơn khi hide
+        easing: 'easeInExpo'
+      });
+    };
+
+    // Sử dụng Intersection Observer để detect vào/ra viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const card = entry.target;
+        const cardIndex = Array.from(aboutCards).indexOf(card); // Lấy index cho stagger
+
+        if (entry.isIntersecting) {
+          // Vào viewport: Animate show
+          animateShow(card, cardIndex);
+        } else {
+          // Ra khỏi viewport: Animate hide
+          animateHide(card);
+        }
+      });
+    }, {
+      threshold: 0.1, // Trigger khi 10% element visible
+      rootMargin: '0px 0px -50px 0px' // Trigger sớm
+    });
+
+    // Observe từng card
+    aboutCards.forEach(card => {
+      observer.observe(card);
+    });
+  })();
   
-  if (aboutCards.length === 0) return;
-
-  // Set initial state (ẩn ban đầu)
-  aboutCards.forEach(card => {
-    const direction = card.getAttribute('data-reveal');
-    card.style.opacity = '0';
-    card.style.transform = direction === 'right' ? 'translateX(100px)' : 'translateX(-100px)';
-  });
-
-  // Function để animate show
-  const animateShow = (card, index) => {
-    anime({
-      targets: card,
-      opacity: [0, 1],
-      translateX: [
-        card.getAttribute('data-reveal') === 'right' ? 100 : -100,
-        0
-      ],
-      duration: 1200,
-      delay: index * 150, // Stagger effect
-      easing: 'easeOutExpo'
-    });
-  };
-
-  // Function để animate hide
-  const animateHide = (card) => {
-    anime({
-      targets: card,
-      opacity: [1, 0],
-      translateX: [
-        0,
-        card.getAttribute('data-reveal') === 'right' ? 100 : -100
-      ],
-      duration: 800, // Nhanh hơn khi hide
-      easing: 'easeInExpo'
-    });
-  };
-
-  // Sử dụng Intersection Observer để detect vào/ra viewport
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      const card = entry.target;
-      const cardIndex = Array.from(aboutCards).indexOf(card); // Lấy index cho stagger
-
-      if (entry.isIntersecting) {
-        // Vào viewport: Animate show
-        animateShow(card, cardIndex);
-      } else {
-        // Ra khỏi viewport: Animate hide
-        animateHide(card);
-      }
-    });
-  }, {
-    threshold: 0.1, // Trigger khi 10% element visible (có thể điều chỉnh, ví dụ 0.5 cho 50%)
-    rootMargin: '0px 0px -50px 0px' // Trigger sớm hơn một chút (có thể điều chỉnh)
-  });
-
-  // Observe từng card
-  aboutCards.forEach(card => {
-    observer.observe(card);
-  });
-
-  // Listen to resize (nếu cần, nhưng Intersection Observer tự handle)
-  window.addEventListener('resize', () => {
-    // Không cần làm gì thêm, observer tự động recalculate
-  }, { passive: true });
-})();
