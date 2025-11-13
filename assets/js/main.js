@@ -585,17 +585,17 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
   });
 
 
-  // ==========================================
+// ==========================================
 // CAROUSEL & CERTIFICATES ANIMATIONS (SMOOTH & COOL)
 // ==========================================
 
-// 1. ScrollReveal cho carousel items (3 ảnh blog)
+// 1. ScrollReveal cho carousel items (3 ảnh blog) - Stagger fade in mượt mà
 sr.reveal('.carousel__item', { 
   origin: 'bottom',
   distance: '50px',
   duration: 1000,
   delay: 300,
-  interval: 200, // Xuất hiện lần lượt
+  interval: 200, // Xuất hiện lần lượt (ảnh 1 trước, ảnh 2 sau 200ms, ảnh 3 sau 400ms)
   reset: true,   // Biến mất khi scroll ra, xuất hiện lại khi vào
   opacity: 0,
   scale: 0.9,
@@ -615,81 +615,25 @@ sr.reveal('.certificate__item', {
   easing: 'easeOutExpo'
 });
 
-// 3. Auto-slide cho blog carousel (3 ảnh) - Smooth transition
+// 3. Stagger fade in cho blog carousel (3 ảnh) - Smooth như bạn mô tả
 (function() {
   const carouselItems = document.querySelectorAll('.carousel__item');
-  const totalItems = carouselItems.length;
-  let currentIndex = 0;
-  let autoSlideInterval;
-
-  // Tạo indicator dots
-  const carouselWrapper = document.querySelector('.carousel__wrapper');
-  const indicators = document.createElement('div');
-  indicators.className = 'carousel-indicators';
-  indicators.style.cssText = `
-    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 10px; z-index: 10;
-  `;
-  carouselWrapper.appendChild(indicators);
-
-  for (let i = 0; i < totalItems; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'indicator-dot';
-    dot.style.cssText = `
-      width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5);
-      cursor: pointer; transition: background 0.3s ease;
-    `;
-    dot.addEventListener('click', () => goToSlide(i));
-    indicators.appendChild(dot);
-  }
-
-  const dots = document.querySelectorAll('.indicator-dot');
-
-  function updateIndicators() {
-    dots.forEach((dot, index) => {
-      dot.style.background = index === currentIndex ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)';
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Stagger fade in: Ảnh 1 ngay lập tức, ảnh 2 sau 800ms (khi ảnh 1 gần xong), ảnh 3 sau 1600ms (khi ảnh 2 gần xong)
+        carouselItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.transition = 'opacity 1s ease';
+            item.style.opacity = '1';
+          }, index * 800); // Delay 800ms cho mỗi ảnh tiếp theo
+        });
+        observer.disconnect(); // Chỉ trigger 1 lần, nhưng reset với ScrollReveal
+      }
     });
-  }
-
-  function goToSlide(index) {
-    // Fade out current
-    carouselItems[currentIndex].style.opacity = '0';
-    // Fade in new
-    setTimeout(() => {
-      carouselItems.forEach(item => item.style.display = 'none');
-      carouselItems[index].style.display = 'block';
-      carouselItems[index].style.opacity = '1';
-      currentIndex = index;
-      updateIndicators();
-    }, 300); // Transition time
-  }
-
-  function nextSlide() {
-    const nextIndex = (currentIndex + 1) % totalItems;
-    goToSlide(nextIndex);
-  }
-
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000); // 5 giây
-  }
-
-  function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-  }
-
-  // Init
-  carouselItems.forEach(item => {
-    item.style.transition = 'opacity 0.3s ease';
-    item.style.display = 'none';
-  });
-  carouselItems[0].style.display = 'block';
-  carouselItems[0].style.opacity = '1';
-  updateIndicators();
-  startAutoSlide();
-
-  // Pause on hover
-  carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
-  carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+  }, { threshold: 0.5 });
+  const carouselWrapper = document.querySelector('.carousel__wrapper');
+  if (carouselWrapper) observer.observe(carouselWrapper);
 })();
 
 // 4. Hover effect cho carousel items (zoom nhẹ)
@@ -802,6 +746,7 @@ popupNext.onclick = function() {
     }, 10);
   }, 300);
 };
+
 
   // Star animation
   // function initStarAnimation() {
