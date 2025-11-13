@@ -584,6 +584,225 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
     }
   });
 
+
+  // ==========================================
+// CAROUSEL & CERTIFICATES ANIMATIONS (SMOOTH & COOL)
+// ==========================================
+
+// 1. ScrollReveal cho carousel items (3 ảnh blog)
+sr.reveal('.carousel__item', { 
+  origin: 'bottom',
+  distance: '50px',
+  duration: 1000,
+  delay: 300,
+  interval: 200, // Xuất hiện lần lượt
+  reset: true,   // Biến mất khi scroll ra, xuất hiện lại khi vào
+  opacity: 0,
+  scale: 0.9,
+  easing: 'easeOutExpo'
+});
+
+// 2. ScrollReveal cho certificate items (4 ảnh chứng chỉ)
+sr.reveal('.certificate__item', { 
+  origin: 'bottom',
+  distance: '50px',
+  duration: 1000,
+  delay: 300,
+  interval: 150, // Xuất hiện lần lượt
+  reset: true,   // Biến mất khi scroll ra, xuất hiện lại khi vào
+  opacity: 0,
+  scale: 0.9,
+  easing: 'easeOutExpo'
+});
+
+// 3. Auto-slide cho blog carousel (3 ảnh) - Smooth transition
+(function() {
+  const carouselItems = document.querySelectorAll('.carousel__item');
+  const totalItems = carouselItems.length;
+  let currentIndex = 0;
+  let autoSlideInterval;
+
+  // Tạo indicator dots
+  const carouselWrapper = document.querySelector('.carousel__wrapper');
+  const indicators = document.createElement('div');
+  indicators.className = 'carousel-indicators';
+  indicators.style.cssText = `
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; z-index: 10;
+  `;
+  carouselWrapper.appendChild(indicators);
+
+  for (let i = 0; i < totalItems; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'indicator-dot';
+    dot.style.cssText = `
+      width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5);
+      cursor: pointer; transition: background 0.3s ease;
+    `;
+    dot.addEventListener('click', () => goToSlide(i));
+    indicators.appendChild(dot);
+  }
+
+  const dots = document.querySelectorAll('.indicator-dot');
+
+  function updateIndicators() {
+    dots.forEach((dot, index) => {
+      dot.style.background = index === currentIndex ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)';
+    });
+  }
+
+  function goToSlide(index) {
+    // Fade out current
+    carouselItems[currentIndex].style.opacity = '0';
+    // Fade in new
+    setTimeout(() => {
+      carouselItems.forEach(item => item.style.display = 'none');
+      carouselItems[index].style.display = 'block';
+      carouselItems[index].style.opacity = '1';
+      currentIndex = index;
+      updateIndicators();
+    }, 300); // Transition time
+  }
+
+  function nextSlide() {
+    const nextIndex = (currentIndex + 1) % totalItems;
+    goToSlide(nextIndex);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // 5 giây
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // Init
+  carouselItems.forEach(item => {
+    item.style.transition = 'opacity 0.3s ease';
+    item.style.display = 'none';
+  });
+  carouselItems[0].style.display = 'block';
+  carouselItems[0].style.opacity = '1';
+  updateIndicators();
+  startAutoSlide();
+
+  // Pause on hover
+  carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+  carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+})();
+
+// 4. Hover effect cho carousel items (zoom nhẹ)
+document.querySelectorAll('.carousel__item img').forEach(img => {
+  img.style.transition = 'transform 0.3s ease';
+  img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
+  img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+});
+
+// 5. Hover effect cho certificate items (scale up)
+document.querySelectorAll('.certificate__item img').forEach(img => {
+  img.style.transition = 'transform 0.3s ease';
+  img.addEventListener('mouseenter', () => img.style.transform = 'scale(1.1)');
+  img.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
+});
+
+// 6. Animate popup open/close (fade in/out cho cả carousel và certificates)
+const originalPopupClose = popupClose.onclick; // Backup original
+popupClose.onclick = function() {
+  // Fade out popup
+  popupOverlay.style.transition = 'opacity 0.3s ease';
+  popupOverlay.style.opacity = '0';
+  setTimeout(() => {
+    popupOverlay.classList.remove("active");
+    popupOverlay.style.opacity = '1'; // Reset for next open
+    document.body.style.overflow = "";
+  }, 300);
+  if (originalPopupClose) originalPopupClose.call(this);
+};
+
+// Animate popup open
+function animatePopupOpen() {
+  popupOverlay.style.opacity = '0';
+  popupOverlay.classList.add("active");
+  setTimeout(() => {
+    popupOverlay.style.transition = 'opacity 0.3s ease';
+    popupOverlay.style.opacity = '1';
+  }, 10); // Small delay để transition work
+}
+
+// Hook vào popup open events
+const originalCarouselClick = carouselItems.forEach(item => item.onclick); // Backup
+carouselItems.forEach(item => {
+  item.onclick = function() {
+    animatePopupOpen();
+    // Gọi logic gốc
+    const imgElement = this.querySelector("img");
+    const titleElement = this.querySelector(".popup__title");
+    const timeElement = this.querySelector(".popup__time");
+    const captionElement = this.querySelector(".popup__caption");
+    popupImage.src = imgElement.src;
+    popupImage.alt = imgElement.alt;
+    popupTitle.textContent = titleElement.textContent;
+    popupTime.textContent = timeElement.textContent;
+    popupCaption.textContent = captionElement.textContent;
+    popupTime.style.display = "inline-block";
+    popupCaption.style.display = "block";
+    popupIssuer.style.display = "none";
+    popupDate.style.display = "none";
+    popupNavigation.classList.add("photo-mode");
+    isPhotoMode = true;
+    document.body.style.overflow = "hidden";
+  };
+});
+
+const originalCertificateClick = certificateItems.forEach(item => item.onclick); // Backup
+certificateItems.forEach((item, index) => {
+  item.onclick = function() {
+    animatePopupOpen();
+    // Gọi logic gốc
+    const imgElement = this.querySelector("img");
+    const titleElement = this.querySelector(".certificate__title");
+    const issuerElement = this.querySelector(".certificate__issuer");
+    const dateElement = this.querySelector(".certificate__date");
+    currentCertificateIndex = index;
+    updateCertificatePopup(imgElement, titleElement, issuerElement, dateElement);
+    popupNavigation.classList.remove("photo-mode");
+    isPhotoMode = false;
+    document.body.style.overflow = "hidden";
+  };
+});
+
+// 7. Smooth transition cho certificate popup prev/next
+const originalPopupPrev = popupPrev.onclick;
+popupPrev.onclick = function() {
+  if (isPhotoMode) return;
+  // Fade out current image
+  popupImage.style.transition = 'opacity 0.3s ease';
+  popupImage.style.opacity = '0';
+  setTimeout(() => {
+    if (originalPopupPrev) originalPopupPrev.call(this);
+    // Fade in new image
+    setTimeout(() => {
+      popupImage.style.opacity = '1';
+    }, 10);
+  }, 300);
+};
+
+const originalPopupNext = popupNext.onclick;
+popupNext.onclick = function() {
+  if (isPhotoMode) return;
+  // Fade out current image
+  popupImage.style.transition = 'opacity 0.3s ease';
+  popupImage.style.opacity = '0';
+  setTimeout(() => {
+    if (originalPopupNext) originalPopupNext.call(this);
+    // Fade in new image
+    setTimeout(() => {
+      popupImage.style.opacity = '1';
+    }, 10);
+  }, 300);
+};
+
   // Star animation
   // function initStarAnimation() {
   //     const starsContainer = document.querySelector(".stars-container");
