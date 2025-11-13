@@ -1091,7 +1091,7 @@ img {
 }
 
 /* ==========================================
-   ABOUT CARDS - Light Blue Design
+   ABOUT CARDS - Fixed Height & Border
    ========================================== */
 
 .about__box_area {
@@ -1099,12 +1099,15 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  grid-auto-rows: 1fr; /* ← Cards cùng chiều cao */
+  align-items: stretch; /* ← Stretch cards */
 }
 
 /* Card Container */
 .card.about-card {
   width: 100%;
-  min-height: 400px;
+  height: 100%; /* ← Thay min-height */
+  min-height: 450px; /* ← Minimum height */
   background: var(--bg-secondary, #1a1f3a);
   display: flex;
   justify-content: center;
@@ -1127,6 +1130,7 @@ img {
   padding: 2rem;
   color: var(--text-primary, #e8eaf0);
   display: flex;
+  flex-direction: column; /* ← Thêm để content flow tốt hơn */
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
@@ -1135,6 +1139,7 @@ img {
 
 .card-inner {
   width: 100%;
+  flex: 1; /* ← Cho phép inner grow */
 }
 
 .card-icon {
@@ -1142,6 +1147,7 @@ img {
   height: 60px;
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 4px 8px rgba(56, 189, 248, 0.3));
+  flex-shrink: 0; /* ← Không cho icon shrink */
 }
 
 .card-icon img {
@@ -1208,14 +1214,14 @@ img {
   opacity: 1;
 }
 
-/* Animated Border - Light Blue Gradient */
+/* Animated Border - Responsive Height */
 .card.about-card::before {
   opacity: 0;
   content: "";
   position: absolute;
   display: block;
   width: 150px;
-  height: 400px;
+  height: 150%; /* ← Responsive */
   transform: rotate(0deg) translateY(50%);
   background: linear-gradient(90deg, #38bdf8, transparent);
   transition: opacity 300ms;
@@ -1229,7 +1235,7 @@ img {
   position: absolute;
   display: block;
   width: 150px;
-  height: 400px;
+  height: 150%; /* ← Responsive */
   transform: rotate(0deg) translateY(-50%);
   background: linear-gradient(90deg, transparent, #7dd3fc);
   transition: opacity 300ms;
@@ -1292,7 +1298,7 @@ img {
   }
 
   .card.about-card {
-    min-height: 350px;
+    min-height: 400px; /* ← Giảm min-height trên tablet */
   }
 
   .card .content {
@@ -1303,10 +1309,12 @@ img {
 @media (max-width: 576px) {
   .about__box_area {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto; /* ← Tự động trên mobile */
   }
 
   .card.about-card {
     min-height: 380px;
+    height: auto; /* ← Auto height trên mobile */
   }
 }
 
