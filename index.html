@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- Open Graph Tag -->
     <meta property="og:url" content="/">
     <meta property="og:type" content="website">
@@ -14,590 +10,971 @@
     <meta property="og:locale" content="vi_VN">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta name="description" content="Trang portfolio của Chu Đức Tiến - Web Developer.">
-    <meta property="og:description" content="Tổng hợp các liên kết MXH và dự án của Chu Đức Tiến.">
-    <meta name="keywords" content="Chu Đức Tiến, Web Developer, Portfolio, Frontend">
-    <meta property="og:image" content="/assets/images/banner.jpg">
-    <meta name="author" content="ductiendev">
+    <meta name="description" content="Trang portfolio của Chu Đức Tiến - Tổng hợp thông tin liên hệ và mạng xã hội.">
+    <meta property="og:description" content="Tổng hợp các liên kết MXH của Chu Đức Tiến. Bạn có thể tìm thấy mọi thông tin liên hệ khi truy cập vào">
+    <meta name="keywords" content="Chu Đức Tiến, Chu Duc Tien, Duc Tien, DucTien011, ductiendesigner, ductienalpha.github.io, ductiendev">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1436237956800315402/1437822889943633983/ductienbanner.gif?ex=6914a46a&is=691352ea&hm=21e135953210bb0076aee758a189f3ccc9e48a6896255c97b6795e20ac32c049&=">
+    <meta name="author" content="duytiendev">
 
-    <!-- JSON-LD Structured Data (Tối ưu SEO) -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Chu Duc Tien",
+        "name": "Duc Tien",
         "alternateName": "ductienalpha",
         "url": "https://ductienalpha.github.io/",
+        "image": "https://media.discordapp.net/attachments/1436237956800315402/1437822889943633983/ductienbanner.gif?ex=6914a46a&is=691352ea&hm=21e135953210bb0076aee758a189f3ccc9e48a6896255c97b6795e20ac32c049&=",
         "jobTitle": "Web Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Phu Kim Junior High School"
+        },
         "sameAs": [
           "https://www.facebook.com/profile.php?id=61577305401386",
           "https://github.com/ductienalpha",
-          "https://www.youtube.com/@vermeilzzz"
+          "https://www.tiktok.com/",
+          "https://www.youtube.com/@vermeilzzz",
+          "https://t.me/",
+          "https://zalo.me/",
+          "https://www.instagram.com/",
+          "https://www.linkedin.com/in/",
         ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Việt Nam",
           "addressCountry": "VN"
         },
+        "email": "mailto:altugphone5@gmail.com",
+        "birthDate": "2005-25-10",
+        "gender": "Male",
         "knowsAbout": [
           "Web Development",
           "JavaScript",
-          "Frontend"
+          "Frontend",
+          "Backend"
+        ],
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "Tiếng Việt",
+            "alternateName": "vi"
+          },
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          }
         ]
       }
-    </script>
-    
-    <title>Duc Tien - PROFILE</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
-    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    </script>      
 
-    <!-- Icons CSS -->
+    <title>Duc Tien - PROFILE</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
+
     <link rel="stylesheet" href="/assets/css/uicons-bold-rounded.css">
     <link rel="stylesheet" href="/assets/css/uicons-solid-rounded.css">
-    <link rel="stylesheet" href="/assets/css/all.css"> <!-- FontAwesome -->
+    <link rel="stylesheet" href="/assets/css/all.css">
 
-    <!-- Bootstrap & Main CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-
-    <!-- EmailJS -->
+    <link rel="preload" href="/assets/js/scrollreveal.min.js" as="script">
     <script type="text/javascript" src="/assets/js/email.min.js"></script>
     <script type="text/javascript">
-        (function () {
-            emailjs.init({
-                publicKey: "HmAKxguZxLAFWzW44",
-            });
-        })();
+      (function () {
+        emailjs.init({
+          publicKey: "HmAKxguZxLAFWzW44",
+        });
+      })();
     </script>
-    <!-- ReCaptcha -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="/assets/js/api.js" async="" defer=""></script>
 
     <style>
-        /* Tùy chỉnh con trỏ chuột */
-        html, body {
-            cursor: url("/assets/images/mouse-f1.png"), auto;
-        }
+      html,
+      body {
+        cursor: url("/assets/images/mouse-f1.png"), auto;
+      }
     </style>
-</head>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
 
-<body>
+  <body>
     <!-- Preloader -->
     <div class="preloader" id="loader">
-        <div class="preloader__wrap">
-            <div class="loader">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+      <div class="preloader__wrap">
+        <div class="loader">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
-        <div class="preloader__progress"><span></span></div>
+      </div>
+      <div class="preloader__progress"><span></span></div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="header-area pt-3 pb-3">
-            <div class="container">
-                <div class="header">
-                    <a href="/" class="h__logo">
-                        <i class="fa-solid fa-signature"></i>
-                        <span class="typing-text"></span>
-                    </a>
-                    <div class="header-controls">
-                        <!-- Language Button (Giả lập cờ) -->
-                        <div class="language-flag" id="languageBtn"></div>
+<header>
+  <div class="header-area pt-3 pb-3">
+    <div class="container">
+      <div class="header">
+        <a href="/" class="h__logo">
+          <i class="fa-solid fa-signature"></i>
+          <span class="typing-text"></span>
+        </a>
+        <div class="header-controls">
+          <div class="language-flag" id="languageBtn"></div>
 
-                        <!-- Theme Toggle (Dark/Light) -->
-                        <div class="dark-light">
-                            <label class="switch">
-                                <input checked="true" id="themeToggle" type="checkbox" aria-label="Toggle dark/light mode" />
-                                <span class="slider">
-                                    <div class="star star_1"></div>
-                                    <div class="star star_2"></div>
-                                    <div class="star star_3"></div>
-                                    <svg viewBox="0 0 16 16" class="cloud">
-                                        <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path>
-                                    </svg>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <!-- ✅ NEW THEME TOGGLE -->
+          <div class="dark-light">
+            <label class="switch">
+              <input checked="true" id="themeToggle" type="checkbox" aria-label="Toggle dark/light mode" />
+              <span class="slider">
+                <div class="star star_1"></div>
+                <div class="star star_2"></div>
+                <div class="star star_3"></div>
+                <svg viewBox="0 0 16 16" class="cloud">
+                  <path
+                    transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                    fill="#fff"
+                    d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                  ></path>
+                </svg>
+              </span>
+            </label>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</header>
 
     <main>
-        <!-- Background Effects -->
-        <div class="background__effect">
-            <div class="grid_background"></div>
-            <div class="global_shapes">
-                <img src="/assets/images/bg.webp" alt="shape" class="home__shape-bg">
-            </div>
+      <div class="background__effect">
+        <div class="grid_background"></div>
+        <div class="global_shapes">
+          <img src="/assets/images/bg.webp" alt="shape" class="home__shape-bg">
         </div>
+        <!-- <div class="stars-container"></div> -->
+      </div>
 
-        <!-- PROFILE SECTION -->
-        <section class="profile" id="home">
-            <div class="container">
-                <div class="bg_img">
-                    <!-- Ảnh bìa -->
-                    <img class="background_img" src="/assets/images/background.gif" alt="background">
+      <section class="profile" id="home">
+        <div class="container">
+          <div class="bg_img">
+            <img class="background_img" src="/assets/images/background.gif" alt="background">
+          </div>
+          <div class="profile__area grid">
+            <div class="profile__data">
+              <div class="profile__border">
+                <div class="profile__perfil">
+                  <img src="https://i.pinimg.com/736x/39/c1/60/39c160132113af84969af571650a34a2.jpg" alt="profile">
                 </div>
-                <div class="profile__area grid">
-                    <div class="profile__data">
-                        <div class="profile__border">
-                            <div class="profile__perfil">
-                                <!-- Ảnh đại diện -->
-                                <img src="/assets/images/avatar.jpg" alt="profile" onerror="this.src='https://placehold.co/120x120?text=Avatar'">
-                            </div>
-                            <div class="status_wrapper">
-                                <span class="status_indicator"></span>
-                                <span class="status_tooltip" data-vi="Có thể nhận việc">Available for work</span>
-                            </div>
-                        </div>
-
-                        <h2 class="profile__name">
-                            Chu Duc Tien
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="hsl(207, 90%, 61%)" width="20" height="20">
-                                <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"></path>
-                            </svg>
-                        </h2>
-                        <h3 class="profile_profession" data-vi="Mình là một chàng trai có niềm đam mê về lập trình.">
-                            I am a guy with a passion for programming.
-                        </h3>
-
-                        <ul class="profile__social">
-                            <li><a href="https://www.facebook.com/profile.php?id=61577305401386" class="profile__social_link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a></li>
-                            <li><a href="https://www.youtube.com/@vermeilzzz" class="profile__social_link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
-                            <li><a href="https://github.com/ductienalpha" class="profile__social_link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="profile__info grid">
-                        <div class="profile__info-group">
-                            <h3 class="profile__info_number"><i class="fa-solid fa-award"></i> <span class="counter">55</span>+</h3>
-                            <p class="profile__info-description" data-vi="Dự án<br>hoàn thành">Completed<br>Project</p>
-                        </div>
-                        <div class="profile__info-group">
-                            <h3 class="profile__info_number"><i class="fa-solid fa-file-certificate"></i> <span class="counter">10</span>+</h3>
-                            <p class="profile__info-description" data-vi="Chứng chỉ<br>đạt được">Certificates<br>Earned</p>
-                        </div>
-                        <div class="profile__info-group">
-                            <h3 class="profile__info_number"><i class="fa-solid fa-calendar-star"></i> <span class="counter">2</span>+</h3>
-                            <p class="profile__info-description" data-vi="Năm<br>kinh nghiệm">Years of<br>Experience</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__buttons">
-                        <a href="#project" class="button" data-vi="Xem Dự Án ">View Projects <i class="fa-solid fa-folders"></i></a>
-                        <div class="profile__buttons-small">
-                            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="button__small button__gray"><i class="fa-brands fa-telegram"></i></a>
-                            <a href="https://m.me/61577305401386" target="_blank" rel="noopener noreferrer" class="button__small button__gray"><i class="fa-brands fa-facebook-messenger"></i></a>
-                        </div>
-                    </div>
+                <div class="status_wrapper">
+                  <span class="status_indicator"></span>
+                  <span class="status_tooltip" data-vi="Có thể nhận việc">Available for work</span>
                 </div>
+              </div>
+
+              <h2 class="profile__name">
+                Chu Duc Tien
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="hsl(207, 90%, 61%)" width="20" height="20">
+                  <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"></path>
+                </svg>
+              </h2>
+              <h3 class="profile_profession" data-vi="Mình là một chàng trai có niềm đam mê về lập trình.">
+                I am a guy with a passion for programming.
+              </h3>
+
+              <ul class="profile__social">
+                <li>
+                  <a href="https://www.facebook.com/profile.php?id=61577305401386" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@vermeilzzz" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/ductienalpha" class="profile__social_link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
-        </section>
-        
-        <!-- PROJECTS SECTION (Teaching Data Source) -->
-        <section id="project">
-            <div class="container">
-                <div class="project__content">
-                    <h2 class="project__title" data-vi="Dự Án Của Mình">My Project</h2>
-                </div>
 
-                <div class="projects__content grid">
-                    <p class="note">
-                        <b data-vi="Lưu ý:">Note:</b>
-                        <span data-vi="Bấm vào ảnh, sau đó nhấn vào icon để chuyển hướng đến project!">Click on the image, then click on the icon to be redirected to the project!</span>
-                    </p>
-
-                    <!-- Project 1 -->
-                    <article class="projects__card">
-                        <img src="/assets/images/infomation.webp" class="projects__img" alt="Info" loading="lazy">
-                        <div class="projects__modal">
-                            <div class="projects__tags">
-                                <span class="projects__tag" data-vi="web">web</span>
-                                <span class="projects__tag" data-vi="thông tin">infomation</span>
-                            </div>
-                            <div>
-                                <span class="projects__subtitle" data-vi="Trang web cá nhân">Personal website</span>
-                                <h3 class="projects__title" data-vi="Chu Đức Tiến">Chu Đức Tiến</h3>
-                                <a href="https://ductienalpha.github.io/" class="projects__button button button_small" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="projects__card">
-                        <img src="/assets/images/imgur.webp" class="projects__img" alt="AI Tool" loading="lazy">
-                        <div class="projects__modal">
-                            <div class="projects__tags">
-                                <span class="projects__tag" data-vi="web">web</span>
-                                <span class="projects__tag" data-vi="tiện ích">utility</span>
-                            </div>
-                            <div>
-                                <span class="projects__subtitle" data-vi="Công Cụ Giải Bài Tập">Exercise Solving Tools</span>
-                                <h3 class="projects__title" data-vi="Giải Bài Tập Với AI">Solve Exercises with AI</h3>
-                                <a href="https://github.com/ductienalpha/DucTienAlpha4.0/tree/main" class="projects__button button button_small" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                     <!-- Project 3 -->
-                     <article class="projects__card">
-                        <img src="/assets/images/upfileonline.webp" class="projects__img" alt="Upload" loading="lazy">
-                        <div class="projects__modal">
-                            <div class="projects__tags">
-                                <span class="projects__tag" data-vi="web">web</span>
-                                <span class="projects__tag" data-vi="tiện ích">utility</span>
-                            </div>
-                            <div>
-                                <span class="projects__subtitle" data-vi="Công Cụ Lưu Trữ File Online">Online File Storage Tool</span>
-                                <h3 class="projects__title" data-vi="Lưu Trữ File Online">Online File Storage</h3>
-                                <a href="https://upfileonline.vercel.app/" class="projects__button button button_small" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="profile__info grid">
+              <div class="profile__info-group">
+                <h3 class="profile__info_number">
+                  <i class="fa-solid fa-award"></i>
+                  <span class="counter">55</span>+
+                </h3>
+                <p class="profile__info-description" data-vi="Dự án<br>hoàn thành">
+                  Completed<br>Project
+                </p>
+              </div>
+              <div class="profile__info-group">
+                <h3 class="profile__info_number">
+                  <i class="fa-solid fa-file-certificate"></i>
+                  <span class="counter">10</span>+
+                </h3>
+                <p class="profile__info-description" data-vi="Chứng chỉ<br>đạt được">
+                  Certificates<br>Earned
+                </p>
+              </div>
+              <div class="profile__info-group">
+                <h3 class="profile__info_number">
+                  <i class="fa-solid fa-calendar-star"></i>
+                  <span class="counter">2</span>+
+                </h3>
+                <p class="profile__info-description" data-vi="Năm<br>kinh nghiệm">
+                  Years of<br>Experience
+                </p>
+              </div>
             </div>
-        </section>
 
-        <!-- ABOUT SECTION (Teaching Data Source) -->
-        <section id="about">
-            <div class="container">
-                <div class="about__content">
-                    <h2 class="about__title" data-vi="Giới Thiệu Về Mình">About Me</h2>
-                </div>
-
-                <div class="about__box_area">
-                    <div class="card about-card" data-reveal="left">
-                        <span class="glass"></span>
-                        <div class="content">
-                            <div class="card-inner">
-                                <div class="card-icon"><img src="/assets/images/01.png" alt="about01" loading="lazy"></div>
-                                <h3 data-vi="Đôi Lời Về Mình">A Few Words About Me</h3>
-                                <p data-vi="Xin chào, mình tên là Tiến! mình sinh ngày 25 tháng 10 năm 2011, đến từ Hà Nội. Hiện tại mình là học sinh trường THCS Phú Kim.">Hi, I'm Tien! I was born on October 25th, 2011, from Ha Noi. I'm currently a student at Phu Kim Secondary School.</p>
-                                <p data-vi="Mình có niềm đam mê đặc biệt với công nghệ và điện tử.">I have a special passion for technology and electronics.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card about-card" data-reveal="right">
-                        <span class="glass"></span>
-                        <div class="content">
-                            <div class="card-inner">
-                                <div class="card-icon"><img src="/assets/images/02.png" alt="about02" loading="lazy"></div>
-                                <h3 data-vi="Hành Trình">The Journey</h3>
-                                <p data-vi="Mình bắt đầu tìm hiểu lập trình từ những năm cấp 2, đặc biệt là trong thời gian dịch COVID-19.">I started exploring programming during secondary school, especially during the COVID-19 pandemic.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card about-card" data-reveal="left">
-                        <span class="glass"></span>
-                        <div class="content">
-                            <div class="card-inner">
-                                <div class="card-icon"><img src="/assets/images/03.png" alt="about03" loading="lazy"></div>
-                                <h3 data-vi="Sở Thích">Hobbies</h3>
-                                <ul>
-                                    <li data-vi="Chơi bóng đá">Playing soccer</li>
-                                    <li data-vi="Khám phá công nghệ">Exploring technology</li>
-                                    <li data-vi="Giao lưu với mọi người">Connecting with people</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Photos Carousel -->
-                <div class="blog__carousel">
-                    <h3 data-vi="Một Số Hình Ảnh Của Mình">Some of My Photos</h3>
-                    <div class="carousel__wrapper">
-                        <!-- Ảnh kỷ niệm (Placeholder nếu chưa có ảnh thật) -->
-                        <div class="carousel__item">
-                            <h3 class="popup__title" data-vi="Thanh Xuân">Youth</h3>
-                            <span class="popup__time">05/11/2025</span>
-                            <p class="popup__caption" data-vi="Kỷ niệm tuổi học trò.">School memories.</p>
-                            <img src="/assets/images/SORA1726.webp" alt="Memory 1" loading="lazy">
-                        </div>
-                        <div class="carousel__item">
-                            <h3 class="popup__title" data-vi="Bóng đá">Football</h3>
-                            <span class="popup__time">05/11/2025</span>
-                            <p class="popup__caption" data-vi="Đam mê sân cỏ.">Passion on the field.</p>
-                            <img src="/assets/images/DAT08343.webp" alt="Memory 2" loading="lazy">
-                        </div>
-                        <div class="carousel__item">
-                            <h3 class="popup__title" data-vi="Du lịch">Travel</h3>
-                            <span class="popup__time">12/07/2023</span>
-                            <p class="popup__caption" data-vi="Những chuyến đi.">Trips together.</p>
-                            <img src="/assets/images/viewa.webp" alt="Memory 3" loading="lazy">
-                        </div>
-                    </div>
-                </div>
+            <div class="profile__buttons">
+              <a href="#project" class="button" data-vi="Xem Dự Án ">View Projects <i class="fa-solid fa-folders"></i></a>
+              <div class="profile__buttons-small">
+                <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="button__small button__gray" aria-label="Telegram">
+                  <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61577305401386" target="_blank" rel="noopener noreferrer" class="button__small button__gray" aria-label="Messenger">
+                  <i class="fa-brands fa-facebook-messenger"></i>
+                </a>
+              </div>
             </div>
-        </section>
-
-        <!-- RESUME SECTION (Teaching Data Source) -->
-        <section id="resume">
-            <div class="container">
-                <div class="resume__content">
-                    <h2 class="resume__title" data-vi="Sơ Yếu Lý Lịch">My Resume</h2>
-                </div>
-
-                <div class="resume__content grid">
-                    <div class="resume__area">
-                        <h3 class="resume_title" data-vi="Học Vấn">Education</h3>
-                        <div class="resume__box">
-                            <!-- ✅ GIỮ NGUYÊN phần Tiểu học -->
-                            <div class="resume__step">
-                                <div class="resume__step__icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="resume__step__content">
-                                    <span class="resume__step__time" data-vi="2017 – 2022"><i class="fa-solid fa-calendar"></i> 2017 – 2022</span>
-                                    <h3 class="resume__step__title" data-vi="Trường Tiểu Học Phú Kim">Phu Kim Primary School</h3>
-                                    <p class="resume__step__description" data-vi="Học các môn cơ bản, xây dựng nền tảng kiến thức.">Studied fundamental subjects, building a strong knowledge foundation.</p>
-                                </div>
-                            </div>
-                            
-                            <!-- THCS -->
-                            <div class="resume__step">
-                                <div class="resume__step__icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="resume__step__content">
-                                    <span class="resume__step__time" data-vi="2022 – Hiện Tại"><i class="fa-solid fa-calendar"></i> 2022 – Present</span>
-                                    <h3 class="resume__step__title" data-vi="Trường THCS Phú Kim">Phu Kim Secondary School</h3>
-                                    <p class="resume__step__description" data-vi="Học tập và rèn luyện kỹ năng cơ bản.">Learning and practicing basic skills.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resume__area">
-                        <h3 class="resume_title" data-vi="Kinh Nghiệm">Experience</h3>
-                        <div class="resume__box">
-                            <div class="resume__step">
-                                <div class="resume__step__icon"><i class="fa-solid fa-briefcase"></i></div>
-                                <div class="resume__step__content">
-                                    <span class="resume__step__time"><i class="fa-solid fa-calendar"></i> 2025</span>
-                                    <h3 class="resume__step__title" data-vi="Nhà Phát Triển Tự Do">Freelance Developer</h3>
-                                    <p class="resume__step__description" data-vi="Phát triển các công cụ web, bot tự động và script tiện ích.">Developing web tools, automation bots, and utility scripts.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificates -->
-                <div class="certificates__carousel">
-                    <h3 data-vi="Chứng Chỉ Của Mình">My Certificates</h3>
-                    <div class="certificates__wrapper">
-                        <div class="certificate__item">
-                            <h4 class="certificate__title">Google AI</h4>
-                            <span class="certificate__issuer">Google</span>
-                            <span class="certificate__date">2025</span>
-                            <img src="/assets/images/googleAI.webp" alt="Cert 1" loading="lazy">
-                        </div>
-                        <div class="certificate__item">
-                            <h4 class="certificate__title">Data Foundations</h4>
-                            <span class="certificate__issuer">Coursera</span>
-                            <span class="certificate__date">2025</span>
-                            <img src="/assets/images/Foundations_Data_Data_Everywhere.webp" alt="Cert 2" loading="lazy">
-                        </div>
-                        <div class="certificate__item">
-                            <h4 class="certificate__title">Linux Commands</h4>
-                            <span class="certificate__issuer">Coursera</span>
-                            <span class="certificate__date">2025</span>
-                            <img src="/assets/images/Advanced_Commands_Linux.webp" alt="Cert 3" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS SECTION (Teaching Data Source) -->
-        <section id="skills">
-            <div class="container">
-                <h2 class="skills__title" data-vi="Kỹ Năng">My Skills</h2>
-                <div class="skills__content grid">
-                    <div class="skills__area">
-                        <h3 class="skills_title" data-vi="Kỹ Thuật">Technical</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__data"><i class="fa-brands fa-html5"></i><div><h3 class="skills__name">HTML/CSS</h3><span class="skills__level">Advanced</span></div></div>
-                                <div class="skills__data"><i class="fa-brands fa-js"></i><div><h3 class="skills__name">JavaScript</h3><span class="skills__level">Intermediate</span></div></div>
-                                <div class="skills__data"><i class="fa-brands fa-python"></i><div><h3 class="skills__name">Python</h3><span class="skills__level">Basic</span></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skills__area">
-                        <h3 class="skills_title" data-vi="Kỹ Năng Mềm">Soft Skills</h3>
-                        <div class="progress__box">
-                             <div class="progress__data">
-                                <div><h3 class="skills__name" data-vi="Làm việc nhóm">Teamwork</h3>
-                                <div class="progress"><div class="progress-bar" role="progressbar" style="--progress-width: 85%"></div></div></div>
-                             </div>
-                             <div class="progress__data">
-                                <div><h3 class="skills__name" data-vi="Giải quyết vấn đề">Problem Solving</h3>
-                                <div class="progress"><div class="progress-bar" role="progressbar" style="--progress-width: 90%"></div></div></div>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact">
-            <div class="container">
-                <div class="contact__content">
-                    <h2 class="contact__title" data-vi="Liên Hệ">Contact Me</h2>
-                </div>
-                <div class="contact__box_area">
-                    <div class="contact__box">
-                        <!-- ✅ ĐÃ SỬA: Google Map Embed chuẩn (Hà Nội) -->
-                        <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0863378526563!2d105.7725838!3d21.0285114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab41d3e8e2c3%3A0x867332c9431f0d36!2sHanoi%2C%20Vietnam!5e0!3m2!1sen!2s!4v1687848000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <h3 class="contact_title" data-vi="Gửi tin nhắn">Send Message</h3>
-                        <form id="contact-form">
-                            <input id="name" name="name" type="text" placeholder="Full name" data-vi="Họ và tên" required>
-                            <input id="email" name="email" type="email" placeholder="Email" data-vi="Email" required>
-                            <textarea id="message" name="message" rows="5" placeholder="Message" data-vi="Tin nhắn" required></textarea>
-                            <input type="hidden" id="time" name="time"><input type="hidden" id="page-url" name="title">
-                            <div class="g-recaptcha" data-sitekey="6LcDOAksAAAAAIj-_8yRbMDasgWGvDhcvAlV6UeR"></div>
-                            <button type="submit" class="see__more" data-vi="Gửi ngay">Send <i class="fa-solid fa-paper-plane arrow"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- NAVIGATION BAR -->
-    <section class="navbar">
-        <div class="nav__menu">
-            <div class="menu-hide-btn"><i class="fa-solid fa-meteor"></i></div>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="fi fi-sr-home"></i></a><div class="nav-item__tooltip"><div data-vi="Trang chủ">Home</div></div></li>
-                <li class="nav__item"><a href="#project" class="nav__link"><i class="fi fi-sr-star"></i></a><div class="nav-item__tooltip"><div data-vi="Dự án">Project</div></div></li>
-                <li class="nav__item"><a href="#about" class="nav__link"><i class="fi fi-sr-user"></i></a><div class="nav-item__tooltip"><div data-vi="Về tôi">About</div></div></li>
-                <li class="nav__item"><a href="#resume" class="nav__link"><i class="fi fi-sr-document"></i></a><div class="nav-item__tooltip"><div data-vi="CV">Resume</div></div></li>
-                <li class="nav__item"><a href="#skills" class="nav__link"><i class="fi fi-sr-book-open-cover"></i></a><div class="nav-item__tooltip"><div data-vi="Kỹ năng">Skills</div></div></li>
-                <li class="nav__item"><a href="#contact" class="nav__link"><i class="fi fi-sr-comment-alt"></i></a><div class="nav-item__tooltip"><div data-vi="Liên hệ">Contact</div></div></li>
-            </ul>
+          </div>
         </div>
-        <div class="menu-show-btn">
-            <div class="bar-01"></div>
-            <div class="bar-02"></div>
-        </div>
-    </section>
+      </section>
 
-    <!-- ✅ CHATBOT UI - ĐẦY ĐỦ CHỨC NĂNG -->
-    <section class="chatbot-container">
-        <button id="chatbot-toggler" aria-label="Open chatbot">
-            <i class="fa-solid fa-message-bot"></i>
-            <i class="fa-solid fa-xmark-large"></i>
-        </button>
-        <div class="chatbot-popup">
-            <div class="chat-header">
-                <div class="header-info">
-                    <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-                        <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5-53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-                    </svg>
-                    <h2 class="logo-text" data-vi="Trợ lý AI">AI Assistant</h2>
-                </div>
-                <i id="close-chatbot" class="fa-solid fa-caret-down"></i>
-            </div>
-            <div class="chat-body">
-                <div class="message bot-message">
-                    <svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-                        <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5-53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-                    </svg>
-                    <div class="message-text">
-                        <p data-vi="Chào bạn! Mình là AI của Đức Tiến. Mình đã học hết thông tin trên web này rồi, bạn cần hỏi gì không?">Hi! I'm Duc Tien's AI. I've learned everything on this site, ask me anything!</p>
-                    </div>
-                </div>
-            </div>
-            <button id="scroll-to-bottom" class="scroll-to-bottom"><i class="fa-solid fa-arrow-down"></i></button>
-            <div class="chat-footer">
-                <form action="#" class="chat-form">
-                    <textarea placeholder="Aa" class="message-input" required></textarea>
-                    <div class="chat-controls">
-                        <button type="button" id="emoji-picker" aria-label="Open emoji picker"><i class="fa-solid fa-smile"></i></button>
-                        <button type="submit" id="send-message"><i class="fa-solid fa-paper-plane-top"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ✅ SPOTIFY PLAYER WIDGET - ĐẦY ĐỦ CHỨC NĂNG -->
-    <div class="spotify-widget" id="spotify-player">
-        <div class="spotify-header">
-            <img src="/assets/images/avatar.jpg" alt="Album Art" class="spotify-album-art" id="track-art" onerror="this.src='https://placehold.co/55x55?text=Music'">
-            <div class="spotify-track-info">
-                <h4 class="spotify-title">Pure Imagination</h4>
-                <p class="spotify-artist">Duc Tien</p>
-            </div>
-            <i class="fa-regular fa-heart" style="color: #1db954; cursor: pointer;"></i>
-        </div>
-
-        <div class="spotify-progress-container">
-            <span id="current-time">0:00</span>
-            <div class="spotify-progress-bar" id="progress-container">
-                <div class="spotify-progress-fill" id="progress-fill"></div>
-            </div>
-            <span id="duration">0:00</span>
-        </div>
-
-        <div class="spotify-controls">
-            <button class="spotify-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
-            <button class="spotify-play-btn" id="play-pause-btn">
-                <i class="fa-solid fa-play" id="play-icon"></i>
-            </button>
-            <button class="spotify-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
-        </div>
-
-        <audio id="audio-source" src="/assets/audio/PureImagination.mp3" loop></audio>
+<!--===============  ===============-->
+<section id="project">
+  <div class="container">
+    <div class="project__content">
+      <h2 class="project__title" data-vi="Dự Án Của Mình">My Project</h2>
     </div>
 
-    <!-- Popup Overlay (Global) -->
-    <div class="popup__overlay">
-        <div class="popup__content">
-            <button class="popup__close"><i class="fa-solid fa-xmark"></i></button>
-            <img class="popup__image" src="" alt="" loading="lazy">
-            <div class="popup__navigation">
+    <div class="projects__content grid">
+      <p class="note">
+        <b data-vi="Lưu ý:">Note:</b>
+        <span data-vi="Bấm vào ảnh, sau đó nhấn vào icon để chuyển hướng đến project!">
+          Click on the image, then click on the icon to be redirected to the project!
+        </span>
+      </p>
+
+      <!-- Project 1 -->
+      <article class="projects__card">
+        <img src="/assets/images/infomation.webp" class="projects__img" alt="infomation" loading="lazy">
+        <div class="projects__modal">
+          <div class="projects__tags">
+            <span class="projects__tag" data-vi="web">web</span>
+            <span class="projects__tag" data-vi="thông tin">infomation</span>
+          </div>
+          <div>
+            <span class="projects__subtitle" data-vi="Trang web cá nhân">
+              Personal website
+            </span>
+            <h3 class="projects__title" data-vi="Chu Đức Tiến">Chu Đức Tiến</h3>
+            <a href="https://ductienalpha.github.io/" class="projects__button button button_small" aria-label="Visit Chu Đức Tiến" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="projects__card">
+        <img src="/assets/images/imgur.webp" class="projects__img" alt="Imgur" loading="lazy">
+        <div class="projects__modal">
+          <div class="projects__tags">
+            <span class="projects__tag" data-vi="web">web</span>
+            <span class="projects__tag" data-vi="tiện ích">utility</span>
+          </div>
+          <div>
+            <span class="projects__subtitle" data-vi="Công Cụ Giải Bài Tập">
+              Exercise Solving Tools
+            </span>
+            <h3 class="projects__title" data-vi="Giải Bài Tập Với AI">
+              Solve Exercises with AI
+            </h3>
+            <a href="https://github.com/ductienalpha/DucTienAlpha4.0/tree/main" class="projects__button button button_small" aria-label="Visit Image Uploader" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="projects__card">
+        <img src="/assets/images/upfileonline.webp" class="projects__img" alt="Imgur" loading="lazy">
+        <div class="projects__modal">
+          <div class="projects__tags">
+            <span class="projects__tag" data-vi="Web">Web</span>
+            <span class="projects__tag" data-vi="Tiện ích">Utility</span>
+          </div>
+          <div>
+            <span class="projects__subtitle" data-vi="Công Cụ Lưu Trữ File Online">
+              Online File Storage Tool
+            </span>
+            <h3 class="projects__title" data-vi="Lưu Trữ File Online">
+              online File Storage
+            </h3>
+            <a href="https://upfileonline.vercel.app/" class="projects__button button button_small" aria-label="Visit Online File Storage Tool" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!--=============== ABOUT ME ===============-->
+<section id="about">
+  <div class="container">
+    <div class="about__content">
+      <h2 class="about__title" data-vi="Giới Thiệu Về Mình">About Me</h2>
+    </div>
+
+    <div class="about__box_area">
+      <!-- Card 1 - Slide from LEFT -->
+      <div class="card about-card" data-reveal="left">
+        <span class="glass"></span>
+        <div class="content">
+          <div class="card-inner">
+            <div class="card-icon">
+              <img src="/assets/images/01.png" alt="about01" loading="lazy">
+            </div>
+            <h3 data-vi="Đôi Lượt Về Mình">A Few Words About Me</h3>
+            <p data-vi="Xin chào, mình tên là Tiến! mình sinh ngày 25 tháng 10 năm 2011, đến từ Hà Nội, Việt Nam. Hiện tại, mình là học sinh của trường THCS Phú Kim.">
+              Hi, my name is Tien! I was born on October 25th, 2011, and I'm from Ha Noi, Vietnam. I'm currently a student at high school Phu Kim.
+            </p>
+            <p data-vi="Ngay từ khi còn nhỏ, mình đã có niềm đam mê và sự tò mò đặc biệt đối với các thiết bị công nghệ và điện tử.">
+              Ever since I was a kid, I've been fascinated by technology and electronics. In my free time, I love diving into how things work.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 - Slide from RIGHT -->
+      <div class="card about-card" data-reveal="right">
+        <span class="glass"></span>
+        <div class="content">
+          <div class="card-inner">
+            <div class="card-icon">
+              <img src="/assets/images/02.png" alt="about02" loading="lazy">
+            </div>
+            <h3 data-vi="Bước Ngoặt Trong Cuộc Đời">A Turning Point in Life</h3>
+            <p data-vi="Bước ngoặt thực sự đến vào những năm mình học cấp 2, đặc biệt là trong khoảng thời gian dịch COVID-19.">
+              A turning point came during my high school years, especially during the COVID-19 pandemic when I had more time at home.
+            </p>
+            <p data-vi="May mắn thay, mình đã được rất nhiều anh chị đi trước tận tình chỉ dẫn, giúp đỡ từ những thứ cơ bản nhất.">
+              I was lucky to be guided and supported by many experienced mentors who helped me understand even the most basic concepts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 - Slide from LEFT -->
+      <div class="card about-card" data-reveal="left">
+        <span class="glass"></span>
+        <div class="content">
+          <div class="card-inner">
+            <div class="card-icon">
+              <img src="/assets/images/03.png" alt="about03" loading="lazy">
+            </div>
+            <h3 data-vi="Sở Thích">Hobbies</h3>
+            <p data-vi="Ngoài lập trình, mình còn có nhiều sở thích khác:">
+              Besides programming, I have quite a few other interests:
+            </p>
+            <ul>
+              <li data-vi="Mình rất thích chơi thể thao, đặc biệt là bóng đá với bạn bè">
+                I love playing sports, especially soccer with friends
+              </li>
+              <li data-vi="Mình thích khám phá công nghệ mới">
+                I enjoy exploring new technology
+              </li>
+              <li data-vi="Mình rất thích gặp gỡ, trò chuyện với mọi người">
+                I'm always happy to meet new people
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 - Slide from RIGHT -->
+      <div class="card about-card" data-reveal="right">
+        <span class="glass"></span>
+        <div class="content">
+          <div class="card-inner">
+            <div class="card-icon">
+              <img src="/assets/images/04.png" alt="about04" loading="lazy">
+            </div>
+            <h3 data-vi="Ưu Nhược Điểm">Strengths and Weaknesses</h3>
+            <p data-vi="Điểm mạnh:"><strong>Strengths:</strong></p>
+            <ul>
+              <li data-vi="Mình là người có tính tò mò cao">
+                I'm naturally curious and eager to explore
+              </li>
+              <li data-vi="Một khi đã cảm thấy hứng thú">
+                When something piques my interest, I dive deep
+              </li>
+            </ul>
+            <p data-vi="Điểm yếu:"><strong>Weaknesses:</strong></p>
+            <ul>
+              <li data-vi="Đôi khi mình khá lười biếng">
+                Sometimes I can be lazy or distracted
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+          <div class="blog__carousel">
+            <h3 data-vi="Một Số Hình Ảnh Của Mình">Some of My Photos</h3>
+            <div class="carousel__wrapper">
+              <div class="carousel__item">
+                <h3 class="popup__title" data-vi="Thanh Xuân Rực Rỡ, Tạm Biệt Tuổi Học Trò">
+                  Shining Youth, Goodbye School Years
+                </h3>
+                <span class="popup__time">05/11/2025</span>
+                <p class="popup__caption" data-vi="Cấp 2 không chỉ là những bài học kiến thức, mà còn là khoảng thời gian chúng ta học được ý nghĩa của tình bạn và sự trưởng thành. Cảm ơn tất cả vì đã cùng nhau tạo nên một thời thanh xuân thật đáng nhớ.">
+                  Middle school wasn’t just about lessons and knowledge — it was also the time when we learned the true meaning of friendship and growing up. Thank you all for making our youth so unforgettable.
+                </p>
+                <img src="/assets/images/SORA1726.webp" alt="Shining Youth, Goodbye School Years" loading="lazy">
+              </div>
+              <div class="carousel__item">
+                <h3 class="popup__title" data-vi="Kỷ Niệm Không Phai">
+                  Everlasting Memories
+                </h3>
+                <span class="popup__time">05/11/2025</span>
+                <p class="popup__caption" data-vi="Thanh xuân lưu lại trong từng nụ cười, từng chuyến đi – kỷ niệm lớp 9 không bao giờ phai.">
+                  Youth is captured in every smile, every journey – the memories of 9th grade will never fade.
+                </p>
+                <img src="/assets/images/DAT08343.webp" alt="Football Memories" loading="lazy">
+              </div>
+              <div class="carousel__item">
+                <h3 class="popup__title" data-vi="Cùng nhau tỏa sáng">
+                  Together We Shine
+                </h3>
+                <span class="popup__time">12/07/2023</span>
+                <p class="popup__caption" data-vi="Chuyến đi cuối cùng của chúng ta cùng nhau — những khoảnh khắc giản đơn đã trở thành kỷ niệm khó quên.">
+                  Our last trip together — simple moments that became unforgettable memories.
+                </p>
+                <img src="/assets/images/viewa.webp" alt="A Moment of Peace" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Popup overlay -->
+          <div class="popup__overlay">
+            <div class="popup__content">
+              <button class="popup__close"><i class="fa-solid fa-xmark"></i></button>
+              <img class="popup__image" src="" alt="" loading="lazy">
+              <div class="popup__navigation">
                 <button class="popup__prev"><i class="fa-solid fa-chevron-left"></i></button>
                 <button class="popup__next"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="popup__info">
+              </div>
+              <div class="popup__info">
                 <h3 class="popup__title"></h3>
                 <div class="popup__meta">
-                    <span class="popup__time"></span>
-                    <span class="popup__issuer"></span>
-                    <span class="popup__date"></span>
+                  <span class="popup__time"></span>
+                  <span class="popup__issuer"></span>
+                  <span class="popup__date"></span>
                 </div>
                 <p class="popup__caption"></p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Footer -->
+      <!--=============== RESUME ===============-->
+      <section id="resume">
+        <div class="container">
+          <div class="resume__content">
+            <h2 class="resume__title" data-vi="Sơ Yếu Lý Lịch Của Mình">
+              My Resume
+            </h2>
+          </div>
+
+          <div class="resume__content grid">
+            <div class="resume__area">
+              <h3 class="resume_title" data-vi="Học Vấn">Education</h3>
+
+              <div class="resume__box">
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2025 - Hiện tại">
+                      <i class="fa-solid fa-calendar"></i> 2025 - Present
+                    </span>
+                    <h3 class="resume__step__title" data-vi="Nguyện vọng 1 – Trường THPT Thạch Thất.">
+                      First Choice: Thach That High School.
+                    </h3>
+                    <p class="resume__step__description" data-vi="Mình muốn hướng đến môi trường học tập năng động và phát triển toàn diện.">
+                      I want to pursue a dynamic learning
+                    </p>
+                  </div>
+                </div>
+
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2022 – 2026 (Hiện Tại)">
+                      <i class="fa-solid fa-calendar"></i> 2022 – 2026 (Present)
+                    </span>
+                    <h3 class="resume__step__title" data-vi="Trường THCS Phú Kim (PKLSS)">
+                      Phu Kim Secondary School (PKLSS)
+                    </h3>
+                    <p class="resume__step__description" data-vi="Nơi mình được học hỏi, trưởng thành và lưu giữ những kỷ niệm tuổi học trò.">
+                      A place where I learned, grew, and created unforgettable school memories.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2012 - 2020">
+                      <i class="fa-solid fa-calendar"></i> 2012 - 2020</span>
+                    <h3 class="resume__step__title" data-vi="Trường Tiểu Học Phú Kim">
+                      Phu Kim Primary School
+                    </h3>
+                    <p class="resume__step__description" data-vi="Học các môn cơ bản, xây dựng nền tảng kiến thức và kỹ năng học tập.">
+                      Studied fundamental subjects, building a strong knowledge foundation and learning skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="resume__area">
+              <h3 class="resume_title" data-vi="Kinh Nghiệm">Experience</h3>
+              <div class="resume__box">
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2025">
+                      <i class="fa-solid fa-calendar"></i> 2025</span>
+                    <h3 class="resume__step__title" data-vi="Nhà Phát Triển">
+                      Developer
+                    </h3>
+                    <p class="resume__step__description" data-vi="Kết hợp giữa lập trình và sáng tạo nội dung, phát triển các công cụ tiện ích, bot Discord, và chia sẻ kiến thức hữu ích đến cộng đồng.">
+                      Combine programming and creative content skills to develop utility tools, Discord bots, and share valuable knowledge with the community.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2025">
+                      <i class="fa-solid fa-calendar"></i> 2025
+                    </span>
+                    <h3 class="resume__step__title" data-vi="Lập Trình Script & Bot">
+                      Script & Bot Developer
+                    </h3>
+                    <p class="resume__step__description" data-vi="Thiết kế và tối ưu hóa các script, bot, giúp cải thiện trải nghiệm người dùng trên nhiều nền tảng.">
+                      Design and optimize scripts and bots to enhance user experience across multiple platforms.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="resume__step">
+                  <div class="resume__step__icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <div class="resume__step__content">
+                    <span class="resume__step__time" data-vi=" 2025">
+                      <i class="fa-solid fa-calendar"></i> 2025
+                    </span>
+                    <h3 class="resume__step__title" data-vi="Người Sáng Tạo Công Nghệ">
+                      Tech Innovator
+                    </h3>
+                    <p class="resume__step__description" data-vi="Luôn tò mò và thử nghiệm các công nghệ mới, từ lập trình web, AI, đến phát triển tiện ích và công cụ cho cộng đồng.">
+                      Constantly curious and experimenting with new technologies, from web development and AI to building community tools and utilities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificates Section -->
+          <div class="certificates__carousel">
+            <h3 data-vi="Chứng Chỉ Của Mình">My Certificates</h3>
+            <div class="certificates__wrapper">
+              <!-- Certificate Item 1 -->
+              <div class="certificate__item">
+                <h4 class="certificate__title" data-vi="Certificate (1)">Certificate (1)</h4>
+                <span class="certificate__issuer">Certificate</span>
+                <span class="certificate__date">2025</span>
+                <img src="/assets/images/googleAI.webp" alt="Certificate (1)" loading="lazy">
+              </div>
+              
+              <!-- Certificate Item 2 -->
+              <div class="certificate__item">
+                <h4 class="certificate__title" data-vi="Certificate (2)">Certificate (2)</h4>
+                <span class="certificate__issuer">Certificate</span>
+                <span class="certificate__date">2025</span>
+                <img src="/assets/images/Foundations_Data_Data_Everywhere.webp" alt="Certificate (2)" loading="lazy">
+              </div>
+              
+              <!-- Certificate Item 3 -->
+              <div class="certificate__item">
+                <h4 class="certificate__title" data-vi="Certificate (3)">Certificate (3)</h4>
+                <span class="certificate__issuer">Certificate</span>
+                <span class="certificate__date">2025</span>
+                <img src="/assets/images/Advanced_Commands_Linux.webp" alt="Certificate (3)" loading="lazy">
+              </div>
+              
+              <!-- Certificate Item 4 -->
+              <div class="certificate__item">
+                <h4 class="certificate__title" data-vi="Certificate (4)">Certificate (4)</h4>
+                <span class="certificate__issuer">Certificate</span>
+                <span class="certificate__date">2025</span>
+                <img src="/assets/images/googleAIEssentials.webp" alt="Certificate (4)" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!--=============== SKILLS ===============-->
+<section id="skills">
+  <div class="container">
+    <h2 class="skills__title" data-vi="Các Kỹ Năng Của Mình">My Skills</h2>
+
+    <div class="skills__content grid">
+      <div class="skills__area">
+        <h3 class="skills_title" data-vi="Kỹ Năng Kỹ Thuật">Technical Skills</h3>
+
+        <div class="skills__box">
+          <div class="skills__group">
+            <div class="skills__data">
+              <i class="fa-solid fa-c"></i>
+              <div>
+                <h3 class="skills__name">C/C++</h3>
+                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-solid fa-database"></i>
+              <div>
+                <h3 class="skills__name">Database</h3>
+                <span class="skills__level" data-vi="Cơ bản">Basic</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-brands fa-java"></i>
+              <div>
+                <h3 class="skills__name">Java</h3>
+                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-brands fa-js"></i>
+              <div>
+                <h3 class="skills__name">JavaScript</h3>
+                <span class="skills__level" data-vi="Trung bình">Intermediate</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills__group">
+            <div class="skills__data">
+              <i class="fa-brands fa-python"></i>
+              <div>
+                <h3 class="skills__name">Python</h3>
+                <span class="skills__level" data-vi="Cơ bản">Basic</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-brands fa-html5"></i>
+              <div>
+                <h3 class="skills__name">HTML5 & CSS3</h3>
+                <span class="skills__level" data-vi="Cơ bản">Basic</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-brands fa-php"></i>
+              <div>
+                <h3 class="skills__name">PHP</h3>
+                <span class="skills__level" data-vi="Cơ bản">Basic</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <i class="fa-brands fa-git-alt"></i>
+              <div>
+                <h3 class="skills__name">Git</h3>
+                <span class="skills__level" data-vi="Cơ bản">Basic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills__area">
+        <h3 class="skills_title" data-vi="Kĩ Năng Chuyên Môn">Professional Skills</h3>
+
+        <div class="progress__box">
+          <div class="skills__group">
+            <div class="progress__data">
+              <div>
+                <h3 class="skills__name" data-vi="Giao tiếp">
+                  <i class="fa-solid fa-comments"></i>Communication
+                </h3>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="--progress-width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Communication skill level is 90 percent">
+                    <span class="progress__level">90%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress__data">
+              <div>
+                <h3 class="skills__name" data-vi="Làm việc nhóm">
+                  <i class="fa-solid fa-users"></i>Teamwork
+                </h3>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="--progress-width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Teamwork skill level is 85 percent">
+                    <span class="progress__level">85%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress__data">
+              <div>
+                <h3 class="skills__name" data-vi="Giải quyết vấn đề">
+                  <i class="fa-solid fa-puzzle"></i>Problem Solving
+                </h3>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="--progress-width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Problem solving skill level is 95 percent">
+                    <span class="progress__level">95%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress__data">
+              <div>
+                <h3 class="skills__name" data-vi="Quản lý thời gian">
+                  <i class="fa-solid fa-alarm-clock"></i>Time Management
+                </h3>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="--progress-width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Time management skill level is 60 percent">
+                    <span class="progress__level">60%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress__data">
+              <div>
+                <h3 class="skills__name" data-vi="Tư duy sáng tạo">
+                  <i class="fa-solid fa-lightbulb-on"></i>Creative
+                </h3>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="--progress-width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Creative skill level is 80 percent">
+                    <span class="progress__level">80%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!--=============== CONTACTS ===============-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact__content">
+            <h2 class="contact__title" data-vi="Liên Hệ Với Mình :3">Contact Me</h2>
+          </div>
+
+          <div class="contact__box_area">
+            <div class="contact__box">
+              <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31074.190551784402!2d105.81632116169503!3d21.022778414113596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2s!4v1762866897691!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="100%" height="100%" frameborder="0" style="border: 0" allowfullscreen="" aria-hidden="false" tabindex="0" title="Bản đồ vị trí của T.P. Hà Nội, Việt Nam"></iframe>
+              </div>
+              <h3 class="contact_title" data-vi="Mẫu Liên Hệ">Contact Form</h3>
+              <form id="contact-form">
+                <input id="name" name="name" type="text" placeholder="Full name" data-vi="Họ và tên" required="">
+                <input id="email" name="email" type="email" placeholder="Email address" data-vi="Địa chỉ mail" required="">
+                <textarea id="message" name="message" rows="6" placeholder="Your Message" data-vi="Tin nhắn của bạn" required=""></textarea>
+                <input type="hidden" id="time" name="time" value=""><input type="hidden" id="page-url" name="title" value="">
+                <div class="g-recaptcha" data-sitekey="6LcDOAksAAAAAIj-_8yRbMDasgWGvDhcvAlV6UeR"></div>
+                <button type="submit" class="see__more" data-vi="Gửi cho mình">
+                  Send me <i class="fa-solid fa-right arrow"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--=============== NAVIGATION BAR ===============-->
+    <section class="navbar">
+      <div class="nav__menu">
+        <div class="menu-hide-btn">
+          <i class="fa-solid fa-meteor"></i>
+        </div>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link" aria-label="Home">
+              <i class="fi fi-sr-home"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="Trang chủ">Home</div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a href="#project" class="nav__link" aria-label="Project">
+              <i class="fi fi-sr-star"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="Dự án">Project</div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link" aria-label="About">
+              <i class="fi fi-sr-user"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="Về tôi">About</div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a href="#resume" class="nav__link" aria-label="Resume">
+              <i class="fi fi-sr-document"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="CV">Resume</div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a href="#skills" class="nav__link" aria-label="Skills">
+              <i class="fi fi-sr-book-open-cover"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="Kỹ năng">Skill</div>
+            </div>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link" aria-label="Contact">
+              <i class="fi fi-sr-comment-alt"></i>
+            </a>
+            <div class="nav-item__tooltip">
+              <div data-vi="Liên hệ">Contact</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-show-btn">
+        <div class="bar-01"></div>
+        <div class="bar-02"></div>
+      </div>
+    </section>
+
+    <!--=============== CHATBOT AI ===============-->
+    <section class="chatbot-container">
+      <button id="chatbot-toggler" aria-label="Open chatbot">
+        <i class="fa-solid fa-message-bot"></i>
+        <i class="fa-solid fa-xmark-large"></i>
+      </button>
+      <div class="chatbot-popup">
+        <div class="chat-header">
+          <div class="header-info">
+            <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
+              <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
+            </svg>
+            <h2 class="logo-text" data-vi="Trợ lý AI">AI Assistant</h2>
+          </div>
+          <i id="close-chatbot" class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="chat-body">
+          <div class="message bot-message">
+            <svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
+              <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
+            </svg>
+            <div class="message-text">
+              <p data-vi="Xin chào! 👋 Tôi là trợ lý AI của bạn cho web portfolio này. Tôi được Đức Tiến tạo ra để giúp bạn tìm hiểu về anh ấy. Bạn muốn biết điều gì?">Hey there! 👋 I'm your AI assistant for this portfolio. I was created by Duc Tien to help you learn about him. What would you like to know?</p>
+              <span class="message-time" data-vi="Vừa xong">Just now</span>
+            </div>
+          </div>
+        </div>
+        <button id="scroll-to-bottom" class="scroll-to-bottom" aria-label="Scroll to bottom">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <div class="chat-footer">
+          <form action="#" class="chat-form">
+            <i type="button" id="emoji-picker" class="fa-regular fa-face-smile"></i>
+            <textarea placeholder="Aa" class="message-input" required=""></textarea>
+            <div class="chat-controls">
+              <div class="file-upload-wrapper">
+                <input type="file" id="file-input" hidden="">
+                <img src="#">
+                <button type="button" id="file-upload" class="material-symbols-rounded" aria-label="Upload file"><i class="fa-solid fa-image"></i></button>
+                <button type="button" id="file-cancel" class="material-symbols-rounded" aria-label="File cancel"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+              <button type="submit" id="send-message" aria-label="Send message"><i class="fa-solid fa-paper-plane-top"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== FOOTER ===============-->
     <footer class="footer">
-        <span class="footer__copy">
-            <p>© <span id="year"></span> <a href="https://ductienalpha.github.io/" target="_blank" rel="noopener noreferrer">Credit: Chu Đức Tiến</a><span data-vi=". Đã đăng ký bản quyền.">. All rights reserved.</span></p>
-        </span>
+      <span class="footer__copy">
+        <p>© <span id="year"></span> <a href="https://ductienalpha.vercel.app/" target="_blank" rel="noopener noreferrer">Credit: Chu Đức Tiến</a><span data-vi=". Đã đăng ký bản quyền.">. All rights reserved.</span></p>
+      </span>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script src="/assets/js/scrollreveal.min.js" defer></script>
-    <script src="/assets/js/typed.umd.js" defer></script>
-    <script src="/assets/js/sweetalert2.all.min.js" defer></script>
-    <script src="/assets/js/emoji-mart.js" defer></script>
-    <script src="/assets/js/anime.min.js" defer></script>
-    <script src="/assets/js/imagesloaded.pkgd.min.js" defer></script>
-    <script src="/assets/js/main.js" defer></script>
+    <!--============== SCROLLREVEAL ==============-->
+    <script src="/assets/js/scrollreveal.min.js" defer=""></script>
 
-</body>
-</html>
+    <!--============== TYPED JS ==============-->
+    <script src="/assets/js/typed.umd.js"></script>
+
+    <!--============== SWEET ALERT ==============-->
+    <script src="/assets/js/sweetalert2.all.min.js"></script>
+
+    <!--============== EMOJI MART ==============-->
+    <script src="/assets/js/emoji-mart.js"></script>
+
+    <!--============== ANOTHER API ==============-->
+    <script src="/assets/js/anime.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+
+    <!--============== MAIN JS ==============-->
+    <script src="/assets/js/main.js"></script>
+  
+</body></html>
