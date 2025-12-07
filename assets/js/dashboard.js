@@ -25,6 +25,8 @@
 
   if (!dashboardToggle || !dashboardPanel) return;
 
+  dashboardToggle.title = "Nhấn để mở Dashboard (hoặc phím D).";
+
   const projectList = Array.from(document.querySelectorAll(selectors.projects)).map((card) => {
     const subtitle = card.querySelector(".projects__subtitle");
     const title = card.querySelector(".projects__title");
@@ -41,13 +43,21 @@
     populateForm(content);
   });
 
-  dashboardToggle.addEventListener("click", () => {
-    dashboardPanel.classList.toggle("open");
+  dashboardToggle.addEventListener("click", toggleDashboard);
+
+  dashboardClose?.addEventListener("click", closeDashboard);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key?.toLowerCase() === "d" && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      event.preventDefault();
+      toggleDashboard();
+    }
   });
 
-  dashboardClose?.addEventListener("click", () => {
-    dashboardPanel.classList.remove("open");
-  });
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("dashboard") === "1") {
+    openDashboard();
+  }
 
   formElements.form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -74,6 +84,18 @@
       saveButton.textContent = "Lưu thay đổi / Save changes";
     }
   });
+
+  function toggleDashboard() {
+    dashboardPanel.classList.toggle("open");
+  }
+
+  function openDashboard() {
+    dashboardPanel.classList.add("open");
+  }
+
+  function closeDashboard() {
+    dashboardPanel.classList.remove("open");
+  }
 
   function buildForm() {
     const form = document.getElementById("dashboardForm");
