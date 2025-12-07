@@ -1,0 +1,42 @@
+{
+  "data": {
+    "profileName": "Chu Duc Tien",
+    "profileTagline": "I am a guy with a passion for programming.",
+    "statusText": "Available for work",
+    "counters": {
+      "projects": 55,
+      "certificates": 10,
+      "experience": 2
+    },
+    "projects": [
+      {
+        "subtitle": "Personal website",
+        "title": "Chu Đức Tiến",
+        "link": "https://ductienalpha.github.io/",
+        "tags": [
+          "web",
+          "infomation"
+        ]
+      },
+      {
+        "subtitle": "Exercise Solving Tools",
+        "title": "Solve Exercises with AI",
+        "link": "https://github.com/ductienalpha/DucTienAlpha4.0/tree/main",
+        "tags": [
+          "web",
+          "utility"
+        ]
+      },
+      {
+        "subtitle": "Online File Storage Tool",
+        "title": "online File Storage",
+        "link": "https://upfileonline.vercel.app/",
+        "tags": [
+          "Web",
+          "Utility"
+        ]
+      }
+    ]
+  },
+  "sha": ""
+}
