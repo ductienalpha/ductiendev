@@ -121,13 +121,13 @@
 <header>
   <div class="header-area pt-3 pb-3">
     <div class="container">
-      <div class="header">
-        <a href="/" class="h__logo">
-          <i class="fa-solid fa-signature"></i>
-          <span class="typing-text"></span>
-        </a>
-        <div class="header-controls">
-          <div class="language-flag" id="languageBtn"></div>
+        <div class="header">
+          <a href="/" class="h__logo">
+            <i class="fa-solid fa-signature"></i>
+            <span class="typing-text"></span>
+          </a>
+          <div class="header-controls">
+            <div class="language-flag" id="languageBtn"></div>
 
           <!-- ✅ NEW THEME TOGGLE -->
           <div class="dark-light">
@@ -147,6 +147,11 @@
               </span>
             </label>
           </div>
+
+          <button class="button__small button__gray dashboard-toggle" id="dashboardToggle" type="button">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Dashboard</span>
+          </button>
         </div>
       </div>
     </div>
@@ -958,6 +963,94 @@
       </span>
     </footer>
 
+    <aside class="dashboard" id="dashboardPanel" aria-label="Profile dashboard">
+      <div class="dashboard__header">
+        <h3>Quick Dashboard</h3>
+        <button class="dashboard__close" id="dashboardClose" type="button" aria-label="Close dashboard">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="dashboard__hint">Chỉ chủ sở hữu có thể lưu bằng GitHub PAT (scope repo). Khi lưu thành công, nội dung sẽ được đẩy lên repo và mọi người sẽ thấy sau khi tải lại.</p>
+      <form id="dashboardForm" class="dashboard__form">
+        <div class="dashboard__group">
+          <label for="githubToken">GitHub PAT (repo scope, chỉ bạn giữ)</label>
+          <input type="password" id="githubToken" name="githubToken" placeholder="ghp_..." autocomplete="off">
+        </div>
+
+        <div class="dashboard__group">
+          <label for="profileName">Tên hiển thị / Display name</label>
+          <input type="text" id="profileName" name="profileName" required>
+        </div>
+        <div class="dashboard__group">
+          <label for="profileTagline">Mô tả ngắn / Tagline</label>
+          <input type="text" id="profileTagline" name="profileTagline" required>
+        </div>
+        <div class="dashboard__group">
+          <label for="statusText">Trạng thái / Status tooltip</label>
+          <input type="text" id="statusText" name="statusText" required>
+        </div>
+
+        <div class="dashboard__grid">
+          <div class="dashboard__group">
+            <label for="counterProjects">Số dự án</label>
+            <input type="number" id="counterProjects" name="counterProjects" min="0" required>
+          </div>
+          <div class="dashboard__group">
+            <label for="counterCertificates">Chứng chỉ</label>
+            <input type="number" id="counterCertificates" name="counterCertificates" min="0" required>
+          </div>
+          <div class="dashboard__group">
+            <label for="counterExperience">Năm kinh nghiệm</label>
+            <input type="number" id="counterExperience" name="counterExperience" min="0" required>
+          </div>
+        </div>
+
+        <div class="dashboard__projects">
+          <h4>Dự án</h4>
+          <div class="dashboard__project-card">
+            <h5>Project 1</h5>
+            <label for="project1Subtitle">Subtitle</label>
+            <input type="text" id="project1Subtitle" name="project1Subtitle" required>
+            <label for="project1Title">Title</label>
+            <input type="text" id="project1Title" name="project1Title" required>
+            <label for="project1Link">Link</label>
+            <input type="url" id="project1Link" name="project1Link" required>
+            <label for="project1Tags">Tags (comma separated)</label>
+            <input type="text" id="project1Tags" name="project1Tags" required>
+          </div>
+
+          <div class="dashboard__project-card">
+            <h5>Project 2</h5>
+            <label for="project2Subtitle">Subtitle</label>
+            <input type="text" id="project2Subtitle" name="project2Subtitle" required>
+            <label for="project2Title">Title</label>
+            <input type="text" id="project2Title" name="project2Title" required>
+            <label for="project2Link">Link</label>
+            <input type="url" id="project2Link" name="project2Link" required>
+            <label for="project2Tags">Tags (comma separated)</label>
+            <input type="text" id="project2Tags" name="project2Tags" required>
+          </div>
+
+          <div class="dashboard__project-card">
+            <h5>Project 3</h5>
+            <label for="project3Subtitle">Subtitle</label>
+            <input type="text" id="project3Subtitle" name="project3Subtitle" required>
+            <label for="project3Title">Title</label>
+            <input type="text" id="project3Title" name="project3Title" required>
+            <label for="project3Link">Link</label>
+            <input type="url" id="project3Link" name="project3Link" required>
+            <label for="project3Tags">Tags (comma separated)</label>
+            <input type="text" id="project3Tags" name="project3Tags" required>
+          </div>
+        </div>
+
+        <button class="button dashboard__submit" id="dashboardSubmit" type="submit">
+          <i class="fa-solid fa-floppy-disk"></i>
+          Lưu thay đổi / Save changes
+        </button>
+      </form>
+    </aside>
+
     <!--============== SCROLLREVEAL ==============-->
     <script src="/assets/js/scrollreveal.min.js" defer=""></script>
 
@@ -974,7 +1067,10 @@
     <script src="/assets/js/anime.min.js"></script>
     <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
 
+    <!--============== DASHBOARD ==============-->
+    <script src="/assets/js/dashboard.js"></script>
+
     <!--============== MAIN JS ==============-->
     <script src="/assets/js/main.js"></script>
-  
+
 </body></html>
