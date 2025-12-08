@@ -953,17 +953,21 @@
 
     <!--=============== AUDIO ===============-->
 <div class="audio-player-container" id="audioPlayerContainer">
+      <button class="audio-toggle" id="audioToggle" aria-label="Đóng/mở trình phát">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.54 3.5a1 1 0 0 0-1.08.21l-7 7a1 1 0 0 0 0 1.42l7 7A1 1 0 0 0 16 18.5V5.5a1 1 0 0 0-.46-.84Z"></path>
+        </svg>
+      </button>
       <audio id="mainAudio"></audio>
       <div class="audio-player">
         <div class="audio-player__info">
+          <p class="audio-player__eyebrow">Now playing</p>
           <p class="audio-player__track-name" id="trackName">Đang tải...</p>
         </div>
         <div class="audio-player__controls">
           <button id="prevBtn" class="audio-player__btn" aria-label="Previous track"><i class="fa-solid fa-backward-step"></i></button>
           <button id="playPauseBtn" class="audio-player__btn audio-player__btn--play" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
           <button id="nextBtn" class="audio-player__btn" aria-label="Next track"><i class="fa-solid fa-forward-step"></i></button>
-        </div>
-        <div class="audio-player__settings">
           <button id="loopToggleBtn" class="audio-player__btn audio-player__btn--loop active" aria-label="Toggle loop"><i class="fa-solid fa-repeat"></i></button>
         </div>
       </div>
