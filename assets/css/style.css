@@ -3089,12 +3089,14 @@ body.dark .global_shapes {
     display: flex;
     align-items: center;
     --dock-gap: 8px;
+    --player-width: min(260px, calc(100% - 78px));
     --toggle-width: 28px;
+    --toggle-outset: 12px;
     gap: var(--dock-gap);
     opacity: 0;
     visibility: hidden;
     --dock-shift-x: 0;
-    --toggle-visible: calc(var(--toggle-width) + var(--dock-gap) + 6px);
+    --toggle-visible: calc(var(--toggle-width) + var(--toggle-outset));
     transform: translate(var(--dock-shift-x), 18px);
     pointer-events: none;
     transition: opacity 0.38s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0.38s ease;
@@ -3110,7 +3112,7 @@ body.dark .global_shapes {
 
 .audio-player-container {
     position: relative;
-    width: min(260px, calc(100% - 78px));
+    width: var(--player-width);
     background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.08));
     border-radius: 18px;
     box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
@@ -3198,7 +3200,7 @@ body.dark .audio-toggle {
 }
 
 .audio-dock.is-collapsed {
-    --dock-shift-x: calc(-100% + var(--toggle-visible));
+    --dock-shift-x: calc(-1 * var(--player-width) - var(--dock-gap) + var(--toggle-visible));
 }
 
 .audio-player {
@@ -3328,11 +3330,12 @@ body.dark .audio-cover__art {
 .audio-progress {
     --progress-rail-height: 12px;
     --progress-thumb-size: 18px;
+    --progress-offset: 2px;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-top: 2px;
+    padding-top: 6px;
 }
 
 .audio-progress__rail {
@@ -3343,6 +3346,7 @@ body.dark .audio-cover__art {
     background: rgba(0, 0, 0, 0.08);
     overflow: hidden;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    transform: translateY(var(--progress-offset));
 }
 
 body.dark .audio-progress__rail {
@@ -3366,7 +3370,7 @@ body.dark .audio-progress__rail {
     background: transparent;
     position: absolute;
     left: 0;
-    top: 50%;
+    top: calc(50% + var(--progress-offset));
     transform: translateY(-50%);
     height: 32px;
     cursor: pointer;
@@ -3501,12 +3505,14 @@ body.dark .audio-player__btn--ghost {
         left: 12px;
         bottom: 18px;
         --dock-gap: 6px;
-        --toggle-width: 26px;
-        --toggle-visible: calc(var(--toggle-width) + var(--dock-gap) + 6px);
+        --player-width: calc(100% - 92px);
+        --toggle-width: 25px;
+        --toggle-outset: 10px;
+        --toggle-visible: calc(var(--toggle-width) + var(--toggle-outset));
     }
 
     .audio-player-container {
-        width: calc(100% - 92px);
+        width: var(--player-width);
         padding: 12px 12px 14px;
     }
 
