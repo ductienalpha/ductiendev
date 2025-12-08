@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Preloader animation
   function preloader() {
+    const audioContainer = document.getElementById("audioPlayerContainer");
     var tl = anime.timeline({});
     tl.add({ targets: ".loader", duration: 300, opacity: 1, easing: "easeInOutQuart", })
     .add({ targets: ".preloader__progress span", duration: 500, width: "100%", easing: "easeInOutQuart", }, "-=200")
@@ -24,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       complete: function () {
         document.getElementById("loader").classList.add("hide");
         document.getElementById("home").style.display = "block";
+        if (audioContainer) {
+          audioContainer.classList.add("is-visible");
+        }
         if (typeof initAnimations === "function") {
           initAnimations();
         }
@@ -1339,7 +1343,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const trackNameElement = document.getElementById("trackName");
+    const trackSubtitleElement = document.getElementById("trackSubtitle");
     const loopToggleBtn = document.getElementById("loopToggleBtn");
+    const audioToggle = document.getElementById("audioToggle");
+    const progressBar = document.getElementById("progressBar");
+    const audioSeek = document.getElementById("audioSeek");
+    const currentTimeEl = document.getElementById("currentTime");
+    const totalTimeEl = document.getElementById("totalTime");
 
     // Kiểm tra xem HTML đã có chưa, nếu chưa có thì không chạy
     if (!playerContainer || !audio) {
@@ -1358,15 +1368,21 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentTrackIndex = 0;
     let isPlaying = false;
     let isLooping = true; // Mặc định bật loop
+    let hasAutoPlayed = false;
+
+    audio.autoplay = true;
 
     // Hàm load bài hát
     function loadTrack(index) {
         try {
             if (index < 0 || index >= playlist.length) index = 0;
             currentTrackIndex = index;
-            
+
             // Cập nhật tên bài hát ngay lập tức
             trackNameElement.textContent = playlist[currentTrackIndex].name;
+            if (trackSubtitleElement) {
+                trackSubtitleElement.textContent = "Duc Tien Radio";
+            }
             
             // Cập nhật source
             audio.src = playlist[currentTrackIndex].src;
@@ -1380,6 +1396,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function formatTime(time) {
+        if (!time || isNaN(time)) return "0:00";
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60)
+            .toString()
+            .padStart(2, "0");
+        return `${minutes}:${seconds}`;
+    }
+
+    function syncProgress() {
+        if (!audio.duration) return;
+        const progress = (audio.currentTime / audio.duration) * 100;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (audioSeek) audioSeek.value = progress;
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+
     function playTrack() {
         // Play trả về Promise, cần catch lỗi nếu trình duyệt chặn auto-play
         var playPromise = audio.play();
@@ -1388,6 +1421,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 isPlaying = true;
                 playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
                 // Xoay ảnh đĩa nhạc nếu có (optional)
+                hasAutoPlayed = true;
             })
             .catch(error => {
                 console.log("Trình duyệt chặn phát tự động:", error);
@@ -1444,57 +1478,45 @@ document.addEventListener("DOMContentLoaded", function() {
         loopToggleBtn.classList.toggle("active", isLooping);
     });
 
-    // --- KÉO THẢ (DRAG) ---
-    let isDragging = false;
-    let startX, startY, initialLeft, initialTop;
-
-    // Chỉ cho phép kéo ở vùng trống của container, không phải nút bấm
-    playerContainer.addEventListener('mousedown', (e) => {
-        if(e.target.closest('button')) return; // Bỏ qua nếu click vào nút
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        initialLeft = playerContainer.offsetLeft;
-        initialTop = playerContainer.offsetTop;
-        playerContainer.style.cursor = "grabbing";
-    });
-
-    // Touch event cho mobile
-    playerContainer.addEventListener('touchstart', (e) => {
-        if(e.target.closest('button')) return;
-        isDragging = true;
-        const touch = e.touches[0];
-        startX = touch.clientX;
-        startY = touch.clientY;
-        initialLeft = playerContainer.offsetLeft;
-        initialTop = playerContainer.offsetTop;
-    }, {passive: false});
-
-    const onMove = (clientX, clientY) => {
-        if (!isDragging) return;
-        const deltaX = clientX - startX;
-        const deltaY = clientY - startY;
-        playerContainer.style.left = `${initialLeft + deltaX}px`;
-        playerContainer.style.top = `${initialTop + deltaY}px`;
-        playerContainer.style.bottom = "auto"; 
-        playerContainer.style.right = "auto";
-    };
-
-    window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
-    window.addEventListener('touchmove', (e) => {
-        if(isDragging) e.preventDefault(); // Chặn cuộn trang khi đang kéo player
-        const touch = e.touches[0];
-        onMove(touch.clientX, touch.clientY);
-    }, {passive: false});
-
-    const onEnd = () => {
-        isDragging = false;
-        playerContainer.style.cursor = "grab";
-    };
-
-    window.addEventListener('mouseup', onEnd);
-    window.addEventListener('touchend', onEnd);
+    if (audioToggle) {
+        audioToggle.addEventListener('click', () => {
+            playerContainer.classList.toggle('is-collapsed');
+        });
+    }
 
     // KHỞI TẠO LẦN ĐẦU
     loadTrack(currentTrackIndex);
+
+    audio.addEventListener('canplay', () => {
+        if (!hasAutoPlayed) {
+            playTrack();
+        }
+    }, { once: true });
+
+    audio.addEventListener('loadedmetadata', () => {
+        if (totalTimeEl) totalTimeEl.textContent = formatTime(audio.duration);
+        syncProgress();
+    });
+
+    audio.addEventListener('timeupdate', syncProgress);
+
+    if (audioSeek) {
+        audioSeek.addEventListener('input', (event) => {
+            if (!audio.duration) return;
+            const percent = parseFloat(event.target.value) || 0;
+            const seekTo = (percent / 100) * audio.duration;
+            audio.currentTime = seekTo;
+            syncProgress();
+        });
+    }
+
+    const interactionEvents = ["click", "touchstart", "keydown"];
+    const tryAutoplayOnInteraction = () => {
+        if (!hasAutoPlayed) {
+            playTrack();
+        }
+        interactionEvents.forEach((evt) => document.removeEventListener(evt, tryAutoplayOnInteraction));
+    };
+
+    interactionEvents.forEach((evt) => document.addEventListener(evt, tryAutoplayOnInteraction, { once: true }));
 });
