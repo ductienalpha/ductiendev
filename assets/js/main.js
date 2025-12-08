@@ -9,7 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .on("enter", function () {
         var progressBar = $(".progress-bar");
         progressBar.each(function () {
-          $(this).css({ width: $(this).attr("aria-valuenow") + "%", "z-index": "2", });
+          const targetWidth = $(this).attr("aria-valuenow") + "%";
+          $(this).css({ width: "0%", "--progress-width": targetWidth, "z-index": "2" });
+          const label = $(this).find(".progress__level");
+          if (label.length) {
+            label.text("0%");
+          }
         });
       });
     });
@@ -83,6 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     initCountUp(".profile__info");
 
+    const animatePercentLabel = (label, target, duration = 2000) => {
+      let start = null;
+      const animate = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        label.textContent = `${Math.round(progress * target)}%`;
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    };
+
     // 2. Skills animation
     const initSkills = () => {
       const skillsSection = document.getElementById("skills");
@@ -91,7 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
               const progressBars = entry.target.querySelectorAll(".progress-bar");
               progressBars.forEach((progressBar) => {
+                const target = parseInt(progressBar.getAttribute("aria-valuenow")) || parseInt(progressBar.style.getPropertyValue("--progress-width")) || 0;
+                progressBar.style.setProperty("--progress-width", `${target}%`);
+                progressBar.style.width = "0%";
                 progressBar.style.animation = "progressAnimation 3s ease-in-out forwards";
+                const label = progressBar.querySelector(".progress__level");
+                if (label) {
+                  label.textContent = "0%";
+                  animatePercentLabel(label, target, 2000);
+                }
               });
               observer.disconnect();
             }
