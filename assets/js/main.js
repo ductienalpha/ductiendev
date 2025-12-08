@@ -1328,3 +1328,119 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
   scale: 0.95,          // Nhẹ scale để mượt hơn
   easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' // Easing mượt
 });
+
+// ==========================================
+    // 2. SPOTIFY MUSIC PLAYER LOGIC (UPDATED)
+    // ==========================================
+    const audio = document.getElementById("audio-source");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    const playIcon = document.getElementById("play-icon");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const progressContainer = document.getElementById("progress-container");
+    const progressFill = document.getElementById("progress-fill");
+    const playerWidget = document.getElementById("spotify-player");
+    const trackTitle = document.querySelector(".spotify-title");
+    const trackArtist = document.querySelector(".spotify-artist");
+    const trackArt = document.getElementById("track-art");
+
+    // Playlist Configuration
+    const playlist = [
+        {
+            title: "最好的我",
+            artist: "Unknown Artist",
+            src: "/assets/audio/最好的我 - 50 feet.mp3",
+            cover: "/assets/images/cover1.jpg" // Thay ảnh cover tương ứng nếu có
+        },
+        {
+            title: "Pure Imagination",
+            artist: "Duc Tien",
+            src: "/assets/audio/PureImagination.mp3",
+            cover: "/assets/images/avatar.jpg"
+        },
+        {
+            title: "Beneath The Rain",
+            artist: "Unknown Artist",
+            src: "/assets/audio/BeneathTheRain.mp3",
+            cover: "/assets/images/cover3.jpg"
+        },
+        {
+            title: "Sky Blue",
+            artist: "Unknown Artist",
+            src: "/assets/audio/skyblue.mp3",
+            cover: "/assets/images/cover4.jpg"
+        }
+    ];
+
+    let currentTrackIndex = 0;
+
+    // Load Track Function
+    function loadTrack(index) {
+        const track = playlist[index];
+        audio.src = track.src;
+        trackTitle.innerText = track.title;
+        trackArtist.innerText = track.artist;
+        // trackArt.src = track.cover; // Uncomment nếu có ảnh cover riêng
+        
+        // Auto play logic (cần tương tác người dùng trước trên một số trình duyệt)
+        audio.play().then(() => {
+            playIcon.classList.replace("fa-play", "fa-pause");
+            playerWidget.classList.add("playing");
+        }).catch(error => {
+            console.log("Auto-play prevented:", error);
+            // Fallback: Show play icon
+            playIcon.classList.replace("fa-pause", "fa-play");
+            playerWidget.classList.remove("playing");
+        });
+    }
+
+    // Play/Pause Toggle
+    playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playIcon.classList.replace("fa-play", "fa-pause");
+            playerWidget.classList.add("playing");
+        } else {
+            audio.pause();
+            playIcon.classList.replace("fa-pause", "fa-play");
+            playerWidget.classList.remove("playing");
+        }
+    });
+
+    // Next Track
+    nextBtn.addEventListener("click", () => {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    // Prev Track
+    prevBtn.addEventListener("click", () => {
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    // Update Progress Bar
+    audio.addEventListener("timeupdate", (e) => {
+        const { duration, currentTime } = e.srcElement;
+        const progressPercent = (currentTime / duration) * 100;
+        progressFill.style.width = `${progressPercent}%`;
+    });
+
+    // Click to Seek
+    progressContainer.addEventListener("click", (e) => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    });
+
+    // Auto next when ended
+    audio.addEventListener("ended", () => {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+    });
+
+    // Initial Load (Auto play attempt)
+    // Lưu ý: Chrome chặn autoplay audio nếu chưa có tương tác user. 
+    // Bạn có thể bỏ dòng này nếu muốn user bấm play thủ công lần đầu.
+    loadTrack(currentTrackIndex);
