@@ -1330,117 +1330,171 @@ sr.reveal('.card.about-card[data-reveal="right"]', {
 });
 
 // ==========================================
-    // 2. SPOTIFY MUSIC PLAYER LOGIC (UPDATED)
-    // ==========================================
-    const audio = document.getElementById("audio-source");
-    const playPauseBtn = document.getElementById("play-pause-btn");
-    const playIcon = document.getElementById("play-icon");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    const progressContainer = document.getElementById("progress-container");
-    const progressFill = document.getElementById("progress-fill");
-    const playerWidget = document.getElementById("spotify-player");
-    const trackTitle = document.querySelector(".spotify-title");
-    const trackArtist = document.querySelector(".spotify-artist");
-    const trackArt = document.getElementById("track-art");
+// PREMIUM SPOTIFY MUSIC PLAYER - FIXED VERSION
+// ==========================================
 
-    // Playlist Configuration
-    const playlist = [
-        {
-            title: "最好的我",
-            artist: "Unknown Artist",
-            src: "/assets/audio/最好的我 - 50 feet.mp3",
-            cover: "/assets/images/cover1.jpg" // Thay ảnh cover tương ứng nếu có
-        },
-        {
-            title: "Pure Imagination",
-            artist: "Duc Tien",
-            src: "/assets/audio/PureImagination.mp3",
-            cover: "/assets/images/avatar.jpg"
-        },
-        {
-            title: "Beneath The Rain",
-            artist: "Unknown Artist",
-            src: "/assets/audio/BeneathTheRain.mp3",
-            cover: "/assets/images/cover3.jpg"
-        },
-        {
-            title: "Sky Blue",
-            artist: "Unknown Artist",
-            src: "/assets/audio/skyblue.mp3",
-            cover: "/assets/images/cover4.jpg"
-        }
-    ];
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("audio-source");
+  const playPauseBtn = document.getElementById("play-pause-btn");
+  const playIcon = document.getElementById("play-icon");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const loopBtn = document.getElementById("loop-btn");
+  const progressContainer = document.getElementById("progress-container");
+  const progressFill = document.getElementById("progress-fill");
+  const playerWidget = document.getElementById("spotify-player");
+  const trackTitle = document.querySelector(".spotify-title");
+  const trackArtist = document.querySelector(".spotify-artist");
+  const trackArt = document.getElementById("track-art");
 
-    let currentTrackIndex = 0;
+  // Playlist Configuration
+  const playlist = [
+    {
+      title: "最好的我",
+      artist: "50 feet",
+      src: "/assets/audio/最好的我 - 50 feet.mp3",
+      cover: "/assets/images/cover1.jpg"
+    },
+    {
+      title: "Pure Imagination",
+      artist: "Duc Tien",
+      src: "/assets/audio/PureImagination.mp3",
+      cover: "/assets/images/avatar.jpg"
+    },
+    {
+      title: "Beneath The Rain",
+      artist: "Unknown Artist",
+      src: "/assets/audio/BeneathTheRain.mp3",
+      cover: "/assets/images/cover3.jpg"
+    },
+    {
+      title: "Sky Blue",
+      artist: "Unknown Artist",
+      src: "/assets/audio/skyblue.mp3",
+      cover: "/assets/images/cover4.jpg"
+    }
+  ];
 
-    // Load Track Function
-    function loadTrack(index) {
-        const track = playlist[index];
-        audio.src = track.src;
-        trackTitle.innerText = track.title;
-        trackArtist.innerText = track.artist;
-        // trackArt.src = track.cover; // Uncomment nếu có ảnh cover riêng
-        
-        // Auto play logic (cần tương tác người dùng trước trên một số trình duyệt)
-        audio.play().then(() => {
-            playIcon.classList.replace("fa-play", "fa-pause");
-            playerWidget.classList.add("playing");
-        }).catch(error => {
-            console.log("Auto-play prevented:", error);
-            // Fallback: Show play icon
-            playIcon.classList.replace("fa-pause", "fa-play");
-            playerWidget.classList.remove("playing");
+  let currentTrackIndex = 0;
+  let isLooping = false;
+
+  // Load Track Function
+  function loadTrack(index) {
+    const track = playlist[index];
+    audio.src = track.src;
+    trackTitle.innerText = track.title;
+    trackArtist.innerText = track.artist;
+    trackArt.src = track.cover;
+    
+    // Reset progress
+    progressFill.style.width = "0%";
+  }
+
+  // Play/Pause Toggle
+  function togglePlayPause() {
+    if (audio.paused) {
+      audio.play()
+        .then(() => {
+          playIcon.classList.replace("fa-play", "fa-pause");
+          playerWidget.classList.add("playing");
+        })
+        .catch(error => {
+          console.log("Playback error:", error);
+        });
+    } else {
+      audio.pause();
+      playIcon.classList.replace("fa-pause", "fa-play");
+      playerWidget.classList.remove("playing");
+    }
+  }
+
+  // Event Listeners
+  playPauseBtn.addEventListener("click", togglePlayPause);
+
+  // Next Track
+  nextBtn.addEventListener("click", () => {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    audio.play()
+      .then(() => {
+        playIcon.classList.replace("fa-play", "fa-pause");
+        playerWidget.classList.add("playing");
+      });
+  });
+
+  // Previous Track
+  prevBtn.addEventListener("click", () => {
+    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrackIndex);
+    audio.play()
+      .then(() => {
+        playIcon.classList.replace("fa-play", "fa-pause");
+        playerWidget.classList.add("playing");
+      });
+  });
+
+  // Loop Toggle
+  loopBtn.addEventListener("click", () => {
+    isLooping = !isLooping;
+    audio.loop = isLooping;
+    loopBtn.classList.toggle("active", isLooping);
+  });
+
+  // Update Progress Bar
+  audio.addEventListener("timeupdate", () => {
+    if (audio.duration) {
+      const progressPercent = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${progressPercent}%`;
+    }
+  });
+
+  // Click to Seek
+  progressContainer.addEventListener("click", (e) => {
+    const width = progressContainer.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    if (duration) {
+      audio.currentTime = (clickX / width) * duration;
+    }
+  });
+
+  // Auto next when ended (if not looping)
+  audio.addEventListener("ended", () => {
+    if (!isLooping) {
+      currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+      loadTrack(currentTrackIndex);
+      audio.play()
+        .then(() => {
+          playIcon.classList.replace("fa-play", "fa-pause");
+          playerWidget.classList.add("playing");
         });
     }
+  });
 
-    // Play/Pause Toggle
-    playPauseBtn.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play();
-            playIcon.classList.replace("fa-play", "fa-pause");
-            playerWidget.classList.add("playing");
-        } else {
-            audio.pause();
-            playIcon.classList.replace("fa-pause", "fa-play");
-            playerWidget.classList.remove("playing");
-        }
-    });
+  // Handle play/pause state changes
+  audio.addEventListener("play", () => {
+    playIcon.classList.replace("fa-play", "fa-pause");
+    playerWidget.classList.add("playing");
+  });
 
-    // Next Track
-    nextBtn.addEventListener("click", () => {
-        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-        loadTrack(currentTrackIndex);
-    });
+  audio.addEventListener("pause", () => {
+    playIcon.classList.replace("fa-pause", "fa-play");
+    playerWidget.classList.remove("playing");
+  });
 
-    // Prev Track
-    prevBtn.addEventListener("click", () => {
-        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-        loadTrack(currentTrackIndex);
-    });
+  // Initial Load
+  loadTrack(currentTrackIndex);
 
-    // Update Progress Bar
-    audio.addEventListener("timeupdate", (e) => {
-        const { duration, currentTime } = e.srcElement;
-        const progressPercent = (currentTime / duration) * 100;
-        progressFill.style.width = `${progressPercent}%`;
-    });
-
-    // Click to Seek
-    progressContainer.addEventListener("click", (e) => {
-        const width = progressContainer.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
-        audio.currentTime = (clickX / width) * duration;
-    });
-
-    // Auto next when ended
-    audio.addEventListener("ended", () => {
-        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-        loadTrack(currentTrackIndex);
-    });
-
-    // Initial Load (Auto play attempt)
-    // Lưu ý: Chrome chặn autoplay audio nếu chưa có tương tác user. 
-    // Bạn có thể bỏ dòng này nếu muốn user bấm play thủ công lần đầu.
-    loadTrack(currentTrackIndex);
+  // Auto-play after user interaction (click anywhere on player)
+  playerWidget.addEventListener("click", function autoPlayOnce() {
+    if (audio.paused) {
+      audio.play()
+        .then(() => {
+          playIcon.classList.replace("fa-play", "fa-pause");
+          playerWidget.classList.add("playing");
+        });
+    }
+    // Remove this listener after first interaction
+    playerWidget.removeEventListener("click", autoPlayOnce);
+  }, { once: true });
+});
