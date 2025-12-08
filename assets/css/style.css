@@ -3234,3 +3234,224 @@ body.dark .global_shapes {
         left: 20px;
     }
 }
+
+/* ==========================================
+   MODERN CHATBOT UI
+   ========================================== */
+.chatbot-popup {
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+    background: #fff;
+    /* Giữ nguyên position fixed và các thuộc tính khác từ code cũ nếu có, 
+       hoặc thêm: position: fixed; right: 35px; bottom: 90px; width: 370px; ... */
+}
+.chat-header {
+    background: linear-gradient(135deg, var(--first-color) 0%, var(--first-color-alt) 100%);
+    padding: 18px 22px;
+    border-bottom: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-info { 
+    display: flex; 
+    align-items: center;
+    gap: 12px; 
+}
+.chatbot-logo-container {
+    background: rgba(255,255,255,0.2);
+    padding: 8px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatbot-logo { fill: #fff; }
+.logo-text { font-size: 1.1rem; margin-bottom: 2px; color: #fff; font-weight: 600; }
+.status-dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: #00ff88; border-radius: 50%; margin-right: 4px;
+    box-shadow: 0 0 5px #00ff88;
+}
+.status-text { font-size: 0.75rem; color: rgba(255,255,255,0.9); }
+#close-chatbot {
+    background: none; border: none; color: #fff; font-size: 1.2rem; cursor: pointer;
+}
+
+.chat-body { background: #f4f7f6; padding: 25px 20px; height: 400px; overflow-y: auto; }
+.message { margin-bottom: 15px; display: flex; align-items: flex-end; }
+.bot-message { justify-content: flex-start; }
+.user-message { justify-content: flex-end; flex-direction: column; align-items: flex-end; }
+
+.bot-message .message-text {
+    background: #fff;
+    color: #333;
+    border-radius: 18px 18px 18px 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    padding: 12px 16px;
+    max-width: 80%;
+}
+.user-message .message-text {
+    background: var(--first-color);
+    color: #fff;
+    border-radius: 18px 18px 4px 18px;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3); /* Thay màu shadow theo theme */
+    padding: 12px 16px;
+    max-width: 80%;
+}
+.bot-avatar-container {
+    width: 35px; height: 35px;
+    background: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+.bot-avatar { fill: var(--first-color); }
+.message-time { display: block; font-size: 0.7rem; color: #999; margin-top: 5px; }
+
+.chat-footer { padding: 15px 20px; background: #fff; border-top: 1px solid #f0f0f0; }
+.chat-form {
+    background: #f9f9f9;
+    border-radius: 30px;
+    padding: 6px 6px 6px 15px;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+.chat-form:focus-within { border-color: var(--first-color); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.input-wrapper { flex-grow: 1; display: flex; align-items: center; position: relative; }
+.message-input { 
+    background: transparent; padding: 8px 0; border: none; outline: none; width: 100%; resize: none; height: 40px; 
+}
+.file-upload-wrapper { display: flex; align-items: center; }
+.footer-btn { 
+    color: #aaa; background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 8px; transition: 0.3s;
+}
+.footer-btn:hover { color: var(--first-color); }
+.footer-btn.hidden { display: none; }
+.send-btn {
+    background: var(--first-color); color: #fff;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+.send-btn:hover { transform: scale(1.05); }
+
+/* ==========================================
+   MODERN SPOTIFY WIDGET (GLASSMORPHISM)
+   ========================================== */
+.spotify-widget {
+    position: fixed;
+    bottom: 25px; left: 25px;
+    width: 320px;
+    background: rgba(20, 20, 20, 0.85); /* Nền tối trong suốt */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 12px;
+    z-index: 1000;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.spotify-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    border-color: rgba(29, 185, 84, 0.3); /* Green glow */
+}
+
+.spotify-content-wrapper { display: flex; align-items: center; gap: 15px; position: relative; z-index: 2; }
+
+/* Đĩa than xoay */
+.spotify-vinyl-container {
+    position: relative;
+    width: 60px; height: 60px;
+    flex-shrink: 0;
+}
+.spotify-album-art {
+    width: 100%; height: 100%;
+    border-radius: 50%; /* Tròn như đĩa than */
+    object-fit: cover;
+    animation: spin 10s linear infinite;
+    animation-play-state: paused;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 2px solid #1db954; /* Viền xanh Spotify */
+}
+.vinyl-center {
+    position: absolute; top: 50%; left: 50%;
+    width: 12px; height: 12px;
+    background: #1a1a1a; border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 2;
+}
+.spotify-widget.playing .spotify-album-art { animation-play-state: running; }
+
+/* Thông tin bài hát */
+.spotify-info { flex-grow: 1; overflow: hidden; }
+.spotify-title {
+    color: #fff; font-size: 0.95rem; font-weight: 600; margin: 0;
+    white-space: nowrap;
+}
+.spotify-artist { color: #b3b3b3; font-size: 0.75rem; margin-bottom: 4px; margin-top: 0; }
+
+/* Controls mới */
+.spotify-mini-controls { display: flex; align-items: center; gap: 12px; }
+.mini-btn { background: none; border: none; color: #b3b3b3; cursor: pointer; transition: 0.2s; font-size: 1rem; padding: 0; }
+.mini-btn:hover { color: #fff; }
+.play-btn-main {
+    width: 30px; height: 30px;
+    background: #fff; border-radius: 50%;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: #000; transition: 0.2s;
+}
+.play-btn-main:hover { transform: scale(1.1); background: #1db954; color: #fff; }
+
+/* Sóng nhạc animation */
+.music-waves {
+    display: flex; align-items: flex-end; gap: 3px; height: 20px; margin-right: 5px;
+}
+.music-waves span {
+    width: 3px; background: #1db954; border-radius: 3px;
+    animation: wave 1s ease-in-out infinite;
+    animation-play-state: paused;
+}
+.music-waves span:nth-child(1) { height: 10px; animation-duration: 0.6s; }
+.music-waves span:nth-child(2) { height: 16px; animation-duration: 0.8s; }
+.music-waves span:nth-child(3) { height: 8px; animation-duration: 0.5s; }
+.music-waves span:nth-child(4) { height: 14px; animation-duration: 0.7s; }
+.spotify-widget.playing .music-waves span { animation-play-state: running; }
+@keyframes wave { 0%, 100% { height: 4px; } 50% { height: 100%; } }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Thanh Progress chạy sát đáy */
+.progress-bar-container {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+    background: rgba(255,255,255,0.1); cursor: pointer;
+}
+.progress-bar-fill {
+    height: 100%; background: #1db954; width: 0%;
+    position: relative; transition: width 0.1s linear;
+}
+.spotify-widget:hover .progress-bar-container { height: 5px; } /* To lên khi hover */
+
+/* Mobile Responsive */
+@media (max-width: 576px) {
+    .spotify-widget {
+        width: calc(100% - 40px);
+        bottom: 80px; /* Đẩy lên trên thanh menu dưới */
+        left: 20px;
+    }
+}
