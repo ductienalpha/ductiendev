@@ -3077,3 +3077,84 @@ body.dark .global_shapes {
         margin-top: 0.5rem;
     }
 }
+
+/*=============== AUDIO PLAYER ===============*/
+.audio-player-container {
+    position: fixed;
+    bottom: 30px;
+    left: 35px; /* Đặt ở góc dưới bên trái */
+    z-index: 998; /* Dưới chatbot (999) nhưng trên các nội dung khác */
+    width: 250px;
+    background: var(--body-color);
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px var(--box-shadow);
+    transition: all 0.3s ease-out;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab; /* Để báo hiệu có thể kéo được */
+}
+
+/* Kích thước và vị trí cho mobile (cho phép kéo ra kéo vào) */
+@media screen and (max-width: 767px) {
+    .audio-player-container {
+        width: 180px; /* Nhỏ hơn trên mobile */
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.audio-player__info {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.audio-player__track-name {
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.audio-player__controls {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.audio-player__btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px;
+}
+
+.audio-player__btn:hover {
+    color: var(--first-color);
+    transform: scale(1.1);
+}
+
+.audio-player__btn--play {
+    font-size: 1.25rem;
+}
+
+.audio-player__btn--loop {
+    color: var(--text-color-light); /* Màu mặc định cho Loop OFF */
+}
+
+.audio-player__btn--loop.active {
+    color: var(--first-color); /* Màu nhấn khi Loop ON */
+}
