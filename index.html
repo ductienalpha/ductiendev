@@ -951,6 +951,38 @@
       </div>
     </section>
 
+    <!--=============== Audio ===============-->
+    <div class="spotify-widget" id="spotify-player">
+        <div class="spotify-header">
+            <!-- Ảnh bài hát/avatar -->
+            <img src="/assets/images/avatar.jpg" alt="Album Art" class="spotify-album-art" id="track-art" onerror="this.src='https://placehold.co/55x55?text=Music'">
+            <div class="spotify-track-info">
+                <h4 class="spotify-title">Pure Imagination</h4>
+                <p class="spotify-artist">Duc Tien</p>
+            </div>
+            <i class="fa-regular fa-heart" style="color: #1db954; cursor: pointer;"></i>
+        </div>
+
+        <div class="spotify-progress-container">
+            <span id="current-time">0:00</span>
+            <div class="spotify-progress-bar" id="progress-container">
+                <div class="spotify-progress-fill" id="progress-fill"></div>
+            </div>
+            <span id="duration">0:00</span>
+        </div>
+
+        <div class="spotify-controls">
+            <button class="spotify-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="spotify-play-btn" id="play-pause-btn">
+                <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button class="spotify-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+
+        <!-- Audio Source: Nhớ tải file về assets/audio/ -->
+        <audio id="audio-source" src="/assets/audio/PureImagination.mp3" loop></audio>
+    </div>
+
     <!--=============== FOOTER ===============-->
     <footer class="footer">
       <span class="footer__copy">
