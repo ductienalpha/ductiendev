@@ -959,51 +959,51 @@
       </div>
     </section>
 
-    <!--=============== Audio ===============-->
-    <div class="spotify-widget" id="spotify-player">
-        <div class="progress-area" id="progress-container">
-            <div class="progress-bar" id="progress-fill"></div>
-            <div class="progress-handle"></div>
-        </div>
+<!--=============== SPOTIFY MUSIC PLAYER ===============-->
+<div class="spotify-widget" id="spotify-player">
+    <div class="progress-area" id="progress-container">
+        <div class="progress-bar" id="progress-fill"></div>
+    </div>
 
-        <div class="spotify-content-wrapper">
-            <div class="spotify-vinyl-container">
-                <img src="/assets/images/googleAI.webp" alt="Album Art" class="spotify-album-art" id="track-art">
-                <div class="vinyl-center"></div>
-            </div>
-            
-            <div class="spotify-info">
-                <div class="track-info">
-                    <h4 class="spotify-title">Đang tải...</h4>
-                    <p class="spotify-artist">Vui lòng chờ</p>
-                </div>
-                
-                <div class="spotify-controls">
-                    <button class="control-btn small" id="loop-btn" title="Lặp lại">
-                        <i class="fa-solid fa-repeat"></i>
-                    </button>
-                    
-                    <button class="control-btn" id="prev-btn">
-                        <i class="fa-solid fa-backward-step"></i>
-                    </button>
-                    
-                    <button class="control-btn play-btn" id="play-pause-btn">
-                        <i class="fa-solid fa-play" id="play-icon"></i>
-                    </button>
-                    
-                    <button class="control-btn" id="next-btn">
-                        <i class="fa-solid fa-forward-step"></i>
-                    </button>
-                    
-                    <div class="music-visualizer">
-                        <span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-            </div>
+    <div class="spotify-content-wrapper">
+        <div class="spotify-vinyl-container">
+            <img src="/assets/images/avatar.jpg" alt="Album Art" class="spotify-album-art" id="track-art">
+            <div class="vinyl-center"></div>
         </div>
         
-        <audio id="audio-source"></audio>
+        <div class="spotify-info">
+            <div class="track-info">
+                <h4 class="spotify-title">Đang tải...</h4>
+                <p class="spotify-artist">Vui lòng chờ</p>
+            </div>
+            
+            <div class="spotify-controls">
+                <button class="control-btn" id="loop-btn" title="Lặp lại" aria-label="Loop">
+                    <i class="fa-solid fa-repeat"></i>
+                </button>
+                
+                <button class="control-btn" id="prev-btn" aria-label="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                
+                <button class="control-btn play-btn" id="play-pause-btn" aria-label="Play/Pause">
+                    <i class="fa-solid fa-play" id="play-icon"></i>
+                </button>
+                
+                <button class="control-btn" id="next-btn" aria-label="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+                
+                <div class="music-visualizer">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <audio id="audio-source"></audio>
+</div>
+      
     <!--=============== FOOTER ===============-->
     <footer class="footer">
       <span class="footer__copy">
