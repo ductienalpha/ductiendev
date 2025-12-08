@@ -3088,11 +3088,13 @@ body.dark .global_shapes {
     z-index: 9999;
     display: flex;
     align-items: center;
-    gap: 8px;
+    --dock-gap: 8px;
+    --toggle-width: 28px;
+    gap: var(--dock-gap);
     opacity: 0;
     visibility: hidden;
     --dock-shift-x: 0;
-    --toggle-visible: 30px;
+    --toggle-visible: calc(var(--toggle-width) + var(--dock-gap) + 6px);
     transform: translate(var(--dock-shift-x), 18px);
     pointer-events: none;
     transition: opacity 0.38s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0.38s ease;
@@ -3144,7 +3146,7 @@ body.dark .audio-player-container {
 }
 
 .audio-toggle {
-    width: 30px;
+    width: var(--toggle-width);
     height: 118px;
     display: grid;
     place-items: center;
@@ -3387,7 +3389,7 @@ body.dark .audio-progress__rail {
     background: #fff;
     border: 3px solid #63a5ff;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-    margin-top: -6px;
+    margin-top: -3px;
 }
 
 #audioSeek::-moz-range-thumb {
@@ -3397,7 +3399,7 @@ body.dark .audio-progress__rail {
     background: #fff;
     border: 3px solid #63a5ff;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 }
 
 .audio-times {
@@ -3494,6 +3496,9 @@ body.dark .audio-player__btn--ghost {
     .audio-dock {
         left: 12px;
         bottom: 18px;
+        --dock-gap: 6px;
+        --toggle-width: 26px;
+        --toggle-visible: calc(var(--toggle-width) + var(--dock-gap) + 6px);
     }
 
     .audio-player-container {
@@ -3516,7 +3521,6 @@ body.dark .audio-player__btn--ghost {
     }
 
     .audio-toggle {
-        height: 100px;
-        width: 28px;
+        height: 104px;
     }
 }
