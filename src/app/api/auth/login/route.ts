@@ -48,8 +48,8 @@ export async function POST(req: Request) {
         id: user._id, 
         email: user.email, 
         wolvesville_username: user.wolvesville_username,
-        is_linked: user.is_linked,
-        verify_code: user.verify_code,
+        accounts: user.accounts,
+        pending_link: user.pending_link,
         license_active,
         license_expires_at
       } 
